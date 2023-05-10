@@ -44,11 +44,11 @@ static Qt::Key keys_value[] = {Qt::Key_F1/*L1*/,Qt::Key_F2/*R1*/,Qt::Key_F3,Qt::
                               Qt::Key_7,Qt::Key_8,Qt::Key_9,Qt::Key_Asterisk/*\**/,Qt::Key_Slash/*#*/,
                                 Qt::Key_C/*tel*/,Qt::Key_Control/*test*/,Qt::Key_Plus/*V+*/,Qt::Key_Minus/*V-*/,
                                Qt::Key_Up/*up*/,Qt::Key_Down/*down*/,Qt::Key_P/*Ptt*/
-                               , Qt::Key_Left/*left*/,Qt::Key_Right/*riht*/,Qt::Key_Enter/*ok*/   /*20230504 多功能增加3个按键，左，右，ok，切换（与测试键值相同）*/
+                               , Qt::Key_Left/*left*/,Qt::Key_Right/*riht*/,Qt::Key_Return /*ok*/   /*20230504 多功能增加3个按键，左，右，ok，切换（与测试键值相同）*/
                               };
 #ifdef RK_3399_PLATFORM
 static int led_key_map[] = {
- 1,2,3,4,5,6,7,8,9,10,44,45,11,12,27,18,19,20,21,22,23,24,25,26,28,29,13,14,35,36,30,31,17,37,38,39,32,33,34    /*20230504 多功能增加3个按键，左32，右33，ok34，切换（与测试键值相同）*/
+ 1,2,3,4,5,6,7,8,9,10,44,45,11,12,27,18,19,20,21,22,23,24,25,26,28,29,13,14,35,36,30,31,17,32,33,34,37,38,39    /*20230504 多功能增加3个按键，左32，右33，ok34，切换（与测试键值相同）37,38,39是三色灯*/
 };
 #endif
 
