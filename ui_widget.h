@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -77,38 +78,18 @@ public:
     QToolButton *toolButton_Up;
     QToolButton *toolButton_Down;
     QToolButton *toolButton_Ptt;
-    QPushButton *pushButton_Next1;
-    QPushButton *pushButton_Exit1;
-    QLabel *label_2;
-    QLabel *label;
     QCheckBox *checkBox;
-    QWidget *verticalLayoutWidget_4;
-    QVBoxLayout *verticalLayout_4;
-    QLabel *label_8;
-    QLabel *label_7;
-    QLabel *label_9;
-    QLabel *label_3;
     QLabel *label_17;
-    QLabel *label_18;
     QLabel *label_98;
     QLabel *label_keyboard_type;
     QToolButton *toolButton_left;
     QToolButton *toolButton_right;
     QToolButton *toolButton_ok;
+    QTextBrowser *textBrowser_help_page1;
     QWidget *page_6;
-    QLabel *label_Page2_title_5;
     QLabel *label_44;
     QLabel *label_light_value_2;
     QLabel *label_45;
-    QWidget *verticalLayoutWidget_12;
-    QVBoxLayout *verticalLayout_12;
-    QLabel *label_46;
-    QLabel *label_47;
-    QLabel *label_48;
-    QLabel *label_49;
-    QPushButton *pushButton_Exit2_3;
-    QPushButton *pushButton_Last1_3;
-    QPushButton *pushButton_Next2_3;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
     QLabel *label_50;
@@ -123,31 +104,13 @@ public:
     QPushButton *pushButton_FlowLEDS;
     QLabel *label_75;
     QWidget *page_2;
-    QLabel *label_Page2_title;
     QPushButton *pushButton_start_color_test;
-    QPushButton *pushButton_Next2;
-    QPushButton *pushButton_Exit2;
-    QPushButton *pushButton_Last1;
-    QLabel *label_color;
-    QWidget *verticalLayoutWidget_5;
-    QVBoxLayout *verticalLayout_5;
-    QLabel *label_10;
-    QLabel *label_11;
-    QLabel *label_12;
-    QLabel *label_4;
     QLabel *label_23;
     QTextBrowser *textBrowser;
     QScrollBar *horizontalScrollBar_light;
     QLabel *label_74;
     QLabel *label_light_val;
     QWidget *page_3;
-    QWidget *verticalLayoutWidget_6;
-    QVBoxLayout *verticalLayout_6;
-    QLabel *label_13;
-    QLabel *label_14;
-    QLabel *label_15;
-    QLabel *label_5;
-    QLabel *label_Page2_title_2;
     QPushButton *pushButton_3;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
@@ -197,9 +160,6 @@ public:
     QLabel *label_ping_stat3;
     QLabel *label_67;
     QLabel *label_ping_err3;
-    QPushButton *pushButton_Last1_4;
-    QPushButton *pushButton_Next2_4;
-    QPushButton *pushButton_Exit2_4;
     QPushButton *pushButton_ifconfig;
     QWidget *gridLayoutWidget_3;
     QGridLayout *gridLayout_3;
@@ -233,7 +193,6 @@ public:
     QLabel *label_69;
     QLabel *label_100;
     QWidget *page_4;
-    QLabel *label_Page2_title_3;
     QGroupBox *groupBox;
     QPushButton *pushButton_Play;
     QWidget *gridLayoutWidget_2;
@@ -256,47 +215,18 @@ public:
     QLabel *label_HandVol;
     QLabel *label_EarphVol;
     QLabel *label_19;
-    QWidget *verticalLayoutWidget_10;
-    QVBoxLayout *verticalLayout_10;
-    QLabel *label_20;
-    QLabel *label_21;
-    QLabel *label_22;
-    QLabel *label_6;
     QWidget *verticalLayoutWidget_11;
     QVBoxLayout *verticalLayout_11;
     QScrollBar *horizontalScrollBar_HandVol;
     QScrollBar *horizontalScrollBar_EarphVol;
     QSlider *horizontalSlider_4;
-    QPushButton *pushButton_Last1_5;
-    QPushButton *pushButton_Next2_5;
-    QPushButton *pushButton_Exit2_5;
     QScrollBar *horizontalScrollBar_SpeakVol;
     QLabel *label_SpeakVol;
     QRadioButton *radioButton_SpeakVol;
     QWidget *page_5;
-    QLabel *label_Page2_title_4;
-    QPushButton *pushButton_Next2_2;
     QPushButton *pushButton_start_lcd_touch;
-    QPushButton *pushButton_Last1_2;
-    QPushButton *pushButton_Exit2_2;
-    QWidget *verticalLayoutWidget_13;
-    QVBoxLayout *verticalLayout_13;
-    QLabel *label_52;
-    QLabel *label_53;
-    QLabel *label_54;
-    QLabel *label_55;
     QLabel *label_28;
     QWidget *page_7;
-    QLabel *label_Page2_title_6;
-    QPushButton *pushButton_Exit7;
-    QPushButton *pushButton_Next7;
-    QPushButton *pushButton_Last7;
-    QWidget *verticalLayoutWidget_14;
-    QVBoxLayout *verticalLayout_14;
-    QLabel *label_70;
-    QLabel *label_71;
-    QLabel *label_72;
-    QLabel *label_73;
     QTextBrowser *textBrowser_IICSPI;
     QWidget *horizontalLayoutWidget_7;
     QHBoxLayout *horizontalLayout_7;
@@ -312,16 +242,6 @@ public:
     QPushButton *pushButton_10;
     QPushButton *pushButton_clear_display;
     QWidget *page_8;
-    QLabel *label_Page2_title_7;
-    QPushButton *pushButton_Exit7_2;
-    QPushButton *pushButton_Next7_2;
-    QWidget *verticalLayoutWidget_15;
-    QVBoxLayout *verticalLayout_15;
-    QLabel *label_76;
-    QLabel *label_77;
-    QLabel *label_78;
-    QLabel *label_79;
-    QPushButton *pushButton_Last7_2;
     QGroupBox *groupBox_2;
     QWidget *verticalLayoutWidget_16;
     QVBoxLayout *verticalLayout_16;
@@ -374,23 +294,73 @@ public:
     QLabel *label_83;
     QLabel *label_cpu_temp;
     QLabel *label_gpu_temp;
-    QComboBox *comboBox;
-    QLabel *label_97;
     QWidget *page_9;
-    QPushButton *pushButton_Exit9;
-    QLabel *label_Page2_title_8;
-    QPushButton *pushButton_Next9;
-    QWidget *verticalLayoutWidget_17;
-    QVBoxLayout *verticalLayout_17;
-    QLabel *label_80;
-    QLabel *label_81;
-    QLabel *label_91;
-    QLabel *label_93;
-    QPushButton *pushButton_Last9;
     QLabel *label_99;
     QPushButton *pushButton_disk_info;
     QTextBrowser *textBrowser_system_info;
     QTextBrowser *textBrowser_disk_info;
+    QWidget *page_10;
+    QPushButton *pushButton_lcd_mcu_info;
+    QPushButton *pushButton_key_mcu_info;
+    QPushButton *pushButton_jc_ko_info;
+    QFrame *line;
+    QFrame *line_2;
+    QFrame *line_3;
+    QPushButton *pushButton_drv_so_info;
+    QWidget *verticalLayoutWidget_19;
+    QVBoxLayout *verticalLayout_19;
+    QLabel *label_16;
+    QLabel *label_58;
+    QLabel *label_59;
+    QWidget *verticalLayoutWidget_20;
+    QVBoxLayout *verticalLayout_20;
+    QLabel *label_lcd_mcu_md5;
+    QLabel *label_lcd_mcu_time;
+    QLabel *label_lcd_mcu_version;
+    QWidget *verticalLayoutWidget_21;
+    QVBoxLayout *verticalLayout_21;
+    QLabel *label_60;
+    QLabel *label_61;
+    QLabel *label_62;
+    QWidget *verticalLayoutWidget_22;
+    QVBoxLayout *verticalLayout_22;
+    QLabel *label_keyb_mcu_md5;
+    QLabel *label_keyb_mcu_time;
+    QLabel *label_keyb_mcu_version;
+    QWidget *verticalLayoutWidget_23;
+    QVBoxLayout *verticalLayout_23;
+    QLabel *label_101;
+    QLabel *label_102;
+    QLabel *label_104;
+    QWidget *verticalLayoutWidget_24;
+    QVBoxLayout *verticalLayout_24;
+    QLabel *label_jc_ko_md5;
+    QLabel *label_jc_ko_time;
+    QLabel *label_jc_ko_version;
+    QWidget *verticalLayoutWidget_25;
+    QVBoxLayout *verticalLayout_25;
+    QLabel *label_108;
+    QLabel *label_109;
+    QLabel *label_110;
+    QWidget *verticalLayoutWidget_26;
+    QVBoxLayout *verticalLayout_26;
+    QLabel *label_drv_so_md5;
+    QLabel *label_drv_so_time;
+    QLabel *label_drv_so_version;
+    QLabel *label_2;
+    QLabel *label;
+    QWidget *horizontalLayoutWidget_9;
+    QHBoxLayout *horizontalLayout_9;
+    QPushButton *pushButton_Help;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *pushButton_Last_page;
+    QSpacerItem *horizontalSpacer_6;
+    QPushButton *pushButton_Next_page;
+    QFrame *line_4;
+    QLabel *label_color;
+    QLabel *label_Page_title;
+    QLabel *label_97;
+    QComboBox *comboBox;
 
     void setupUi(QWidget *Widget)
     {
@@ -400,7 +370,7 @@ public:
         stackedWidget = new QStackedWidget(Widget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setEnabled(true);
-        stackedWidget->setGeometry(QRect(0, 0, 720, 1280));
+        stackedWidget->setGeometry(QRect(0, 110, 720, 1041));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -410,7 +380,7 @@ public:
         page->setObjectName(QString::fromUtf8("page"));
         verticalLayoutWidget = new QWidget(page);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(130, 210, 141, 451));
+        verticalLayoutWidget->setGeometry(QRect(130, 110, 141, 451));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -484,7 +454,7 @@ public:
 
         verticalLayoutWidget_2 = new QWidget(page);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(460, 210, 141, 451));
+        verticalLayoutWidget_2->setGeometry(QRect(460, 110, 141, 451));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -555,7 +525,7 @@ public:
 
         gridLayoutWidget = new QWidget(page);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(110, 710, 401, 291));
+        gridLayoutWidget->setGeometry(QRect(110, 610, 401, 291));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -707,7 +677,7 @@ public:
 
         verticalLayoutWidget_3 = new QWidget(page);
         verticalLayoutWidget_3->setObjectName(QString::fromUtf8("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(520, 780, 131, 221));
+        verticalLayoutWidget_3->setGeometry(QRect(520, 680, 131, 221));
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -740,383 +710,185 @@ public:
 
         verticalLayout_3->addWidget(toolButton_Ptt);
 
-        pushButton_Next1 = new QPushButton(page);
-        pushButton_Next1->setObjectName(QString::fromUtf8("pushButton_Next1"));
-        pushButton_Next1->setGeometry(QRect(270, 1180, 151, 71));
-        pushButton_Next1->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next1->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Exit1 = new QPushButton(page);
-        pushButton_Exit1->setObjectName(QString::fromUtf8("pushButton_Exit1"));
-        pushButton_Exit1->setGeometry(QRect(20, 1180, 151, 71));
-        pushButton_Exit1->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit1->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        label_2 = new QLabel(page);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(0, 1260, 231, 17));
-        label = new QLabel(page);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(400, 1260, 321, 20));
         checkBox = new QCheckBox(page);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
-        checkBox->setGeometry(QRect(210, 1020, 241, 71));
+        checkBox->setGeometry(QRect(210, 920, 241, 71));
         checkBox->setFocusPolicy(Qt::NoFocus);
         checkBox->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         checkBox->setChecked(true);
-        verticalLayoutWidget_4 = new QWidget(page);
-        verticalLayoutWidget_4->setObjectName(QString::fromUtf8("verticalLayoutWidget_4"));
-        verticalLayoutWidget_4->setGeometry(QRect(500, 1080, 191, 151));
-        verticalLayout_4 = new QVBoxLayout(verticalLayoutWidget_4);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(verticalLayoutWidget_4);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_4->addWidget(label_8);
-
-        label_7 = new QLabel(verticalLayoutWidget_4);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_4->addWidget(label_7);
-
-        label_9 = new QLabel(verticalLayoutWidget_4);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_4->addWidget(label_9);
-
-        label_3 = new QLabel(verticalLayoutWidget_4);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_4->addWidget(label_3);
-
         label_17 = new QLabel(page);
         label_17->setObjectName(QString::fromUtf8("label_17"));
-        label_17->setGeometry(QRect(230, 1090, 131, 33));
+        label_17->setGeometry(QRect(410, 940, 131, 33));
         label_17->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-        label_18 = new QLabel(page);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
-        label_18->setGeometry(QRect(10, 10, 691, 33));
-        label_18->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
 "color: rgb(204, 0, 0);"));
         label_98 = new QLabel(page);
         label_98->setObjectName(QString::fromUtf8("label_98"));
-        label_98->setGeometry(QRect(120, 80, 211, 41));
+        label_98->setGeometry(QRect(140, 30, 211, 41));
         label_98->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_keyboard_type = new QLabel(page);
         label_keyboard_type->setObjectName(QString::fromUtf8("label_keyboard_type"));
-        label_keyboard_type->setGeometry(QRect(370, 80, 141, 41));
+        label_keyboard_type->setGeometry(QRect(390, 30, 141, 41));
         label_keyboard_type->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         toolButton_left = new QToolButton(page);
         toolButton_left->setObjectName(QString::fromUtf8("toolButton_left"));
-        toolButton_left->setGeometry(QRect(320, 370, 91, 51));
+        toolButton_left->setGeometry(QRect(320, 270, 91, 51));
         toolButton_left->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         toolButton_right = new QToolButton(page);
         toolButton_right->setObjectName(QString::fromUtf8("toolButton_right"));
-        toolButton_right->setGeometry(QRect(320, 450, 91, 51));
+        toolButton_right->setGeometry(QRect(320, 350, 91, 51));
         toolButton_right->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         toolButton_ok = new QToolButton(page);
         toolButton_ok->setObjectName(QString::fromUtf8("toolButton_ok"));
-        toolButton_ok->setGeometry(QRect(320, 530, 91, 51));
+        toolButton_ok->setGeometry(QRect(320, 430, 91, 51));
         toolButton_ok->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        textBrowser_help_page1 = new QTextBrowser(page);
+        textBrowser_help_page1->setObjectName(QString::fromUtf8("textBrowser_help_page1"));
+        textBrowser_help_page1->setGeometry(QRect(30, 160, 651, 251));
         stackedWidget->addWidget(page);
         page_6 = new QWidget();
         page_6->setObjectName(QString::fromUtf8("page_6"));
-        label_Page2_title_5 = new QLabel(page_6);
-        label_Page2_title_5->setObjectName(QString::fromUtf8("label_Page2_title_5"));
-        label_Page2_title_5->setGeometry(QRect(210, 70, 341, 101));
-        label_Page2_title_5->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
         label_44 = new QLabel(page_6);
         label_44->setObjectName(QString::fromUtf8("label_44"));
-        label_44->setGeometry(QRect(540, 290, 121, 41));
+        label_44->setGeometry(QRect(540, 90, 121, 41));
         label_44->setFocusPolicy(Qt::NoFocus);
         label_44->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
 "color: rgb(204, 0, 0);"));
         label_light_value_2 = new QLabel(page_6);
         label_light_value_2->setObjectName(QString::fromUtf8("label_light_value_2"));
-        label_light_value_2->setGeometry(QRect(640, 240, 61, 31));
+        label_light_value_2->setGeometry(QRect(640, 40, 61, 31));
         label_light_value_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_45 = new QLabel(page_6);
         label_45->setObjectName(QString::fromUtf8("label_45"));
-        label_45->setGeometry(QRect(500, 230, 131, 51));
+        label_45->setGeometry(QRect(500, 30, 131, 51));
         label_45->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        verticalLayoutWidget_12 = new QWidget(page_6);
-        verticalLayoutWidget_12->setObjectName(QString::fromUtf8("verticalLayoutWidget_12"));
-        verticalLayoutWidget_12->setGeometry(QRect(510, 1110, 191, 151));
-        verticalLayout_12 = new QVBoxLayout(verticalLayoutWidget_12);
-        verticalLayout_12->setSpacing(6);
-        verticalLayout_12->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
-        verticalLayout_12->setContentsMargins(0, 0, 0, 0);
-        label_46 = new QLabel(verticalLayoutWidget_12);
-        label_46->setObjectName(QString::fromUtf8("label_46"));
-        label_46->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_12->addWidget(label_46);
-
-        label_47 = new QLabel(verticalLayoutWidget_12);
-        label_47->setObjectName(QString::fromUtf8("label_47"));
-        label_47->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_12->addWidget(label_47);
-
-        label_48 = new QLabel(verticalLayoutWidget_12);
-        label_48->setObjectName(QString::fromUtf8("label_48"));
-        label_48->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_12->addWidget(label_48);
-
-        label_49 = new QLabel(verticalLayoutWidget_12);
-        label_49->setObjectName(QString::fromUtf8("label_49"));
-        label_49->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_12->addWidget(label_49);
-
-        pushButton_Exit2_3 = new QPushButton(page_6);
-        pushButton_Exit2_3->setObjectName(QString::fromUtf8("pushButton_Exit2_3"));
-        pushButton_Exit2_3->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit2_3->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit2_3->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Last1_3 = new QPushButton(page_6);
-        pushButton_Last1_3->setObjectName(QString::fromUtf8("pushButton_Last1_3"));
-        pushButton_Last1_3->setGeometry(QRect(270, 1100, 131, 71));
-        pushButton_Last1_3->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last1_3->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Next2_3 = new QPushButton(page_6);
-        pushButton_Next2_3->setObjectName(QString::fromUtf8("pushButton_Next2_3"));
-        pushButton_Next2_3->setGeometry(QRect(270, 1180, 131, 71));
-        pushButton_Next2_3->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next2_3->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         pushButton_6 = new QPushButton(page_6);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(80, 410, 351, 81));
+        pushButton_6->setGeometry(QRect(80, 210, 351, 81));
         pushButton_6->setFocusPolicy(Qt::NoFocus);
         pushButton_6->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         pushButton_7 = new QPushButton(page_6);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
-        pushButton_7->setGeometry(QRect(80, 580, 351, 81));
+        pushButton_7->setGeometry(QRect(80, 380, 351, 81));
         pushButton_7->setFocusPolicy(Qt::NoFocus);
         pushButton_7->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_50 = new QLabel(page_6);
         label_50->setObjectName(QString::fromUtf8("label_50"));
-        label_50->setGeometry(QRect(70, 240, 201, 41));
+        label_50->setGeometry(QRect(70, 40, 201, 41));
         label_50->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         lineEdit_interval = new QLineEdit(page_6);
         lineEdit_interval->setObjectName(QString::fromUtf8("lineEdit_interval"));
-        lineEdit_interval->setGeometry(QRect(190, 300, 131, 41));
+        lineEdit_interval->setGeometry(QRect(190, 100, 131, 41));
         lineEdit_interval->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         lineEdit_interval->setInputMethodHints(Qt::ImhDigitsOnly);
         lineEdit_interval->setMaxLength(10);
         lineEdit_interval->setAlignment(Qt::AlignCenter);
         label_51 = new QLabel(page_6);
         label_51->setObjectName(QString::fromUtf8("label_51"));
-        label_51->setGeometry(QRect(360, 300, 67, 31));
+        label_51->setGeometry(QRect(360, 100, 67, 31));
         label_51->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         pushButton = new QPushButton(page_6);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(80, 770, 351, 81));
+        pushButton->setGeometry(QRect(80, 570, 351, 81));
         pushButton->setFocusPolicy(Qt::NoFocus);
         pushButton->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_24 = new QLabel(page_6);
         label_24->setObjectName(QString::fromUtf8("label_24"));
-        label_24->setGeometry(QRect(20, 300, 151, 41));
+        label_24->setGeometry(QRect(20, 100, 151, 41));
         label_24->setStyleSheet(QString::fromUtf8("font: 57 16pt \"Ubuntu\";\n"
 "background-color: rgb(245, 121, 0);"));
         label_25 = new QLabel(page_6);
         label_25->setObjectName(QString::fromUtf8("label_25"));
-        label_25->setGeometry(QRect(10, 450, 31, 17));
+        label_25->setGeometry(QRect(10, 250, 31, 17));
         label_25->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_56 = new QLabel(page_6);
         label_56->setObjectName(QString::fromUtf8("label_56"));
-        label_56->setGeometry(QRect(10, 620, 31, 17));
+        label_56->setGeometry(QRect(10, 420, 31, 17));
         label_56->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_57 = new QLabel(page_6);
         label_57->setObjectName(QString::fromUtf8("label_57"));
-        label_57->setGeometry(QRect(10, 800, 31, 21));
+        label_57->setGeometry(QRect(10, 600, 31, 21));
         label_57->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         verticalScrollBar_lightpwm2 = new QScrollBar(page_6);
         verticalScrollBar_lightpwm2->setObjectName(QString::fromUtf8("verticalScrollBar_lightpwm2"));
-        verticalScrollBar_lightpwm2->setGeometry(QRect(560, 360, 91, 531));
-        verticalScrollBar_lightpwm2->setSliderPosition(99);
+        verticalScrollBar_lightpwm2->setGeometry(QRect(560, 160, 91, 531));
+        verticalScrollBar_lightpwm2->setMinimum(0);
+        verticalScrollBar_lightpwm2->setMaximum(100);
+        verticalScrollBar_lightpwm2->setSingleStep(1);
+        verticalScrollBar_lightpwm2->setValue(100);
+        verticalScrollBar_lightpwm2->setSliderPosition(100);
         verticalScrollBar_lightpwm2->setOrientation(Qt::Vertical);
+        verticalScrollBar_lightpwm2->setInvertedAppearance(true);
         pushButton_FlowLEDS = new QPushButton(page_6);
         pushButton_FlowLEDS->setObjectName(QString::fromUtf8("pushButton_FlowLEDS"));
-        pushButton_FlowLEDS->setGeometry(QRect(80, 950, 351, 81));
+        pushButton_FlowLEDS->setGeometry(QRect(80, 750, 351, 81));
         pushButton_FlowLEDS->setFocusPolicy(Qt::NoFocus);
         pushButton_FlowLEDS->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_75 = new QLabel(page_6);
         label_75->setObjectName(QString::fromUtf8("label_75"));
-        label_75->setGeometry(QRect(10, 980, 31, 21));
+        label_75->setGeometry(QRect(10, 780, 31, 21));
         label_75->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         stackedWidget->addWidget(page_6);
+        label_44->raise();
+        label_light_value_2->raise();
+        label_45->raise();
+        pushButton_6->raise();
+        pushButton_7->raise();
+        label_50->raise();
+        lineEdit_interval->raise();
+        label_51->raise();
+        pushButton->raise();
+        label_24->raise();
+        label_25->raise();
+        label_56->raise();
+        label_57->raise();
+        verticalScrollBar_lightpwm2->raise();
+        pushButton_FlowLEDS->raise();
+        label_75->raise();
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
-        label_Page2_title = new QLabel(page_2);
-        label_Page2_title->setObjectName(QString::fromUtf8("label_Page2_title"));
-        label_Page2_title->setGeometry(QRect(160, 70, 421, 101));
-        label_Page2_title->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
         pushButton_start_color_test = new QPushButton(page_2);
         pushButton_start_color_test->setObjectName(QString::fromUtf8("pushButton_start_color_test"));
-        pushButton_start_color_test->setGeometry(QRect(250, 460, 221, 101));
+        pushButton_start_color_test->setGeometry(QRect(240, 220, 221, 101));
         pushButton_start_color_test->setFocusPolicy(Qt::NoFocus);
         pushButton_start_color_test->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Next2 = new QPushButton(page_2);
-        pushButton_Next2->setObjectName(QString::fromUtf8("pushButton_Next2"));
-        pushButton_Next2->setGeometry(QRect(270, 1180, 131, 71));
-        pushButton_Next2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Exit2 = new QPushButton(page_2);
-        pushButton_Exit2->setObjectName(QString::fromUtf8("pushButton_Exit2"));
-        pushButton_Exit2->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Last1 = new QPushButton(page_2);
-        pushButton_Last1->setObjectName(QString::fromUtf8("pushButton_Last1"));
-        pushButton_Last1->setGeometry(QRect(270, 1100, 131, 71));
-        pushButton_Last1->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last1->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        label_color = new QLabel(page_2);
-        label_color->setObjectName(QString::fromUtf8("label_color"));
-        label_color->setGeometry(QRect(0, 0, 720, 1280));
-        verticalLayoutWidget_5 = new QWidget(page_2);
-        verticalLayoutWidget_5->setObjectName(QString::fromUtf8("verticalLayoutWidget_5"));
-        verticalLayoutWidget_5->setGeometry(QRect(520, 1120, 191, 151));
-        verticalLayout_5 = new QVBoxLayout(verticalLayoutWidget_5);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_10 = new QLabel(verticalLayoutWidget_5);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_5->addWidget(label_10);
-
-        label_11 = new QLabel(verticalLayoutWidget_5);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_5->addWidget(label_11);
-
-        label_12 = new QLabel(verticalLayoutWidget_5);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_5->addWidget(label_12);
-
-        label_4 = new QLabel(verticalLayoutWidget_5);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_5->addWidget(label_4);
-
         label_23 = new QLabel(page_2);
         label_23->setObjectName(QString::fromUtf8("label_23"));
-        label_23->setGeometry(QRect(490, 490, 189, 33));
+        label_23->setGeometry(QRect(480, 250, 189, 33));
         label_23->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
 "color: rgb(204, 0, 0);"));
         textBrowser = new QTextBrowser(page_2);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(90, 290, 571, 121));
+        textBrowser->setGeometry(QRect(80, 50, 571, 121));
         textBrowser->setFocusPolicy(Qt::NoFocus);
         horizontalScrollBar_light = new QScrollBar(page_2);
         horizontalScrollBar_light->setObjectName(QString::fromUtf8("horizontalScrollBar_light"));
-        horizontalScrollBar_light->setGeometry(QRect(50, 760, 621, 81));
+        horizontalScrollBar_light->setGeometry(QRect(40, 520, 621, 81));
         horizontalScrollBar_light->setMaximum(100);
         horizontalScrollBar_light->setValue(90);
         horizontalScrollBar_light->setSliderPosition(90);
         horizontalScrollBar_light->setOrientation(Qt::Horizontal);
         label_74 = new QLabel(page_2);
         label_74->setObjectName(QString::fromUtf8("label_74"));
-        label_74->setGeometry(QRect(50, 670, 201, 71));
+        label_74->setGeometry(QRect(40, 430, 201, 71));
         label_74->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_light_val = new QLabel(page_2);
         label_light_val->setObjectName(QString::fromUtf8("label_light_val"));
-        label_light_val->setGeometry(QRect(330, 720, 81, 31));
+        label_light_val->setGeometry(QRect(320, 480, 81, 31));
         label_light_val->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         stackedWidget->addWidget(page_2);
-        label_color->raise();
-        label_Page2_title->raise();
-        pushButton_start_color_test->raise();
-        pushButton_Next2->raise();
-        pushButton_Exit2->raise();
-        pushButton_Last1->raise();
-        verticalLayoutWidget_5->raise();
-        label_23->raise();
-        textBrowser->raise();
-        horizontalScrollBar_light->raise();
-        label_74->raise();
-        label_light_val->raise();
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
-        verticalLayoutWidget_6 = new QWidget(page_3);
-        verticalLayoutWidget_6->setObjectName(QString::fromUtf8("verticalLayoutWidget_6"));
-        verticalLayoutWidget_6->setGeometry(QRect(520, 1120, 191, 151));
-        verticalLayout_6 = new QVBoxLayout(verticalLayoutWidget_6);
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_13 = new QLabel(verticalLayoutWidget_6);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        label_13->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_6->addWidget(label_13);
-
-        label_14 = new QLabel(verticalLayoutWidget_6);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_6->addWidget(label_14);
-
-        label_15 = new QLabel(verticalLayoutWidget_6);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_6->addWidget(label_15);
-
-        label_5 = new QLabel(verticalLayoutWidget_6);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_6->addWidget(label_5);
-
-        label_Page2_title_2 = new QLabel(page_3);
-        label_Page2_title_2->setObjectName(QString::fromUtf8("label_Page2_title_2"));
-        label_Page2_title_2->setGeometry(QRect(210, 10, 311, 101));
-        label_Page2_title_2->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
         pushButton_3 = new QPushButton(page_3);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(40, 130, 291, 71));
+        pushButton_3->setGeometry(QRect(40, 19, 291, 71));
         pushButton_3->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         horizontalLayoutWidget = new QWidget(page_3);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(6, 590, 711, 61));
+        horizontalLayoutWidget->setGeometry(QRect(6, 479, 711, 61));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -1170,7 +942,7 @@ public:
 
         horizontalLayoutWidget_2 = new QWidget(page_3);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(140, 650, 541, 71));
+        horizontalLayoutWidget_2->setGeometry(QRect(140, 539, 541, 71));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -1220,7 +992,7 @@ public:
 
         horizontalLayoutWidget_3 = new QWidget(page_3);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(140, 850, 541, 71));
+        horizontalLayoutWidget_3->setGeometry(QRect(140, 739, 541, 71));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -1267,7 +1039,7 @@ public:
 
         horizontalLayoutWidget_4 = new QWidget(page_3);
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
-        horizontalLayoutWidget_4->setGeometry(QRect(6, 790, 711, 61));
+        horizontalLayoutWidget_4->setGeometry(QRect(6, 679, 711, 61));
         horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget_4);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -1318,7 +1090,7 @@ public:
 
         horizontalLayoutWidget_5 = new QWidget(page_3);
         horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
-        horizontalLayoutWidget_5->setGeometry(QRect(140, 1020, 541, 71));
+        horizontalLayoutWidget_5->setGeometry(QRect(140, 909, 541, 71));
         horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_5);
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -1365,7 +1137,7 @@ public:
 
         horizontalLayoutWidget_6 = new QWidget(page_3);
         horizontalLayoutWidget_6->setObjectName(QString::fromUtf8("horizontalLayoutWidget_6"));
-        horizontalLayoutWidget_6->setGeometry(QRect(0, 960, 711, 61));
+        horizontalLayoutWidget_6->setGeometry(QRect(0, 849, 711, 61));
         horizontalLayout_6 = new QHBoxLayout(horizontalLayoutWidget_6);
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
@@ -1417,28 +1189,13 @@ public:
 
         horizontalLayout_6->addWidget(label_ping_err3);
 
-        pushButton_Last1_4 = new QPushButton(page_3);
-        pushButton_Last1_4->setObjectName(QString::fromUtf8("pushButton_Last1_4"));
-        pushButton_Last1_4->setGeometry(QRect(270, 1100, 141, 71));
-        pushButton_Last1_4->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last1_4->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Next2_4 = new QPushButton(page_3);
-        pushButton_Next2_4->setObjectName(QString::fromUtf8("pushButton_Next2_4"));
-        pushButton_Next2_4->setGeometry(QRect(270, 1180, 141, 71));
-        pushButton_Next2_4->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next2_4->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Exit2_4 = new QPushButton(page_3);
-        pushButton_Exit2_4->setObjectName(QString::fromUtf8("pushButton_Exit2_4"));
-        pushButton_Exit2_4->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit2_4->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit2_4->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         pushButton_ifconfig = new QPushButton(page_3);
         pushButton_ifconfig->setObjectName(QString::fromUtf8("pushButton_ifconfig"));
-        pushButton_ifconfig->setGeometry(QRect(380, 130, 291, 71));
+        pushButton_ifconfig->setGeometry(QRect(380, 19, 291, 71));
         pushButton_ifconfig->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         gridLayoutWidget_3 = new QWidget(page_3);
         gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
-        gridLayoutWidget_3->setGeometry(QRect(69, 230, 541, 231));
+        gridLayoutWidget_3->setGeometry(QRect(69, 119, 541, 231));
         gridLayout_3 = new QGridLayout(gridLayoutWidget_3);
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -1558,7 +1315,7 @@ public:
         textBrowser_ifconfig = new QTextBrowser(page_3);
         textBrowser_ifconfig->setObjectName(QString::fromUtf8("textBrowser_ifconfig"));
         textBrowser_ifconfig->setEnabled(true);
-        textBrowser_ifconfig->setGeometry(QRect(0, 221, 720, 871));
+        textBrowser_ifconfig->setGeometry(QRect(0, 110, 720, 871));
         QSizePolicy sizePolicy5(QSizePolicy::Fixed, QSizePolicy::Expanding);
         sizePolicy5.setHorizontalStretch(0);
         sizePolicy5.setVerticalStretch(0);
@@ -1568,85 +1325,83 @@ public:
         textBrowser_ifconfig->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_63 = new QLabel(page_3);
         label_63->setObjectName(QString::fromUtf8("label_63"));
-        label_63->setGeometry(QRect(30, 470, 631, 51));
+        label_63->setGeometry(QRect(30, 359, 631, 51));
         label_63->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         label_64 = new QLabel(page_3);
         label_64->setObjectName(QString::fromUtf8("label_64"));
-        label_64->setGeometry(QRect(40, 520, 621, 31));
+        label_64->setGeometry(QRect(40, 409, 621, 31));
         label_64->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(196, 160, 0);"));
         label_ping_reson3 = new QLabel(page_3);
         label_ping_reson3->setObjectName(QString::fromUtf8("label_ping_reson3"));
-        label_ping_reson3->setGeometry(QRect(30, 940, 661, 17));
+        label_ping_reson3->setGeometry(QRect(30, 829, 661, 17));
         label_ping_reson2 = new QLabel(page_3);
         label_ping_reson2->setObjectName(QString::fromUtf8("label_ping_reson2"));
-        label_ping_reson2->setGeometry(QRect(30, 770, 651, 17));
+        label_ping_reson2->setGeometry(QRect(30, 659, 651, 17));
         label_ping_reson1 = new QLabel(page_3);
         label_ping_reson1->setObjectName(QString::fromUtf8("label_ping_reson1"));
-        label_ping_reson1->setGeometry(QRect(30, 570, 651, 17));
+        label_ping_reson1->setGeometry(QRect(30, 459, 651, 17));
         label_26 = new QLabel(page_3);
         label_26->setObjectName(QString::fromUtf8("label_26"));
-        label_26->setGeometry(QRect(0, 100, 31, 17));
+        label_26->setGeometry(QRect(0, 19, 31, 17));
         label_26->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_27 = new QLabel(page_3);
         label_27->setObjectName(QString::fromUtf8("label_27"));
-        label_27->setGeometry(QRect(0, 280, 31, 17));
+        label_27->setGeometry(QRect(0, 169, 31, 17));
         label_27->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_32 = new QLabel(page_3);
         label_32->setObjectName(QString::fromUtf8("label_32"));
-        label_32->setGeometry(QRect(10, 660, 31, 21));
+        label_32->setGeometry(QRect(10, 549, 31, 21));
         label_32->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_33 = new QLabel(page_3);
         label_33->setObjectName(QString::fromUtf8("label_33"));
-        label_33->setGeometry(QRect(700, 1030, 21, 21));
+        label_33->setGeometry(QRect(700, 919, 21, 21));
         label_33->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_33->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_34 = new QLabel(page_3);
         label_34->setObjectName(QString::fromUtf8("label_34"));
-        label_34->setGeometry(QRect(10, 850, 31, 21));
+        label_34->setGeometry(QRect(10, 739, 31, 21));
         label_34->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_38 = new QLabel(page_3);
         label_38->setObjectName(QString::fromUtf8("label_38"));
-        label_38->setGeometry(QRect(10, 1020, 31, 21));
+        label_38->setGeometry(QRect(10, 909, 31, 21));
         label_38->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_39 = new QLabel(page_3);
         label_39->setObjectName(QString::fromUtf8("label_39"));
-        label_39->setGeometry(QRect(700, 850, 21, 21));
+        label_39->setGeometry(QRect(700, 739, 21, 21));
         label_39->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_39->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_40 = new QLabel(page_3);
         label_40->setObjectName(QString::fromUtf8("label_40"));
-        label_40->setGeometry(QRect(690, 100, 21, 21));
+        label_40->setGeometry(QRect(690, 19, 21, 21));
         label_40->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_40->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_68 = new QLabel(page_3);
         label_68->setObjectName(QString::fromUtf8("label_68"));
-        label_68->setGeometry(QRect(700, 660, 21, 21));
+        label_68->setGeometry(QRect(700, 549, 21, 21));
         label_68->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_68->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_69 = new QLabel(page_3);
         label_69->setObjectName(QString::fromUtf8("label_69"));
-        label_69->setGeometry(QRect(690, 270, 21, 21));
+        label_69->setGeometry(QRect(690, 159, 21, 21));
         label_69->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";\n"
 "background-color: rgb(204, 0, 0);"));
         label_69->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_100 = new QLabel(page_3);
         label_100->setObjectName(QString::fromUtf8("label_100"));
-        label_100->setGeometry(QRect(560, 870, 170, 40));
+        label_100->setGeometry(QRect(560, 759, 170, 40));
         label_100->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         stackedWidget->addWidget(page_3);
         textBrowser_ifconfig->raise();
-        verticalLayoutWidget_6->raise();
-        label_Page2_title_2->raise();
         pushButton_3->raise();
         horizontalLayoutWidget->raise();
         horizontalLayoutWidget_2->raise();
@@ -1654,9 +1409,6 @@ public:
         horizontalLayoutWidget_4->raise();
         horizontalLayoutWidget_5->raise();
         horizontalLayoutWidget_6->raise();
-        pushButton_Last1_4->raise();
-        pushButton_Next2_4->raise();
-        pushButton_Exit2_4->raise();
         pushButton_ifconfig->raise();
         gridLayoutWidget_3->raise();
         label_63->raise();
@@ -1677,13 +1429,9 @@ public:
         label_100->raise();
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
-        label_Page2_title_3 = new QLabel(page_4);
-        label_Page2_title_3->setObjectName(QString::fromUtf8("label_Page2_title_3"));
-        label_Page2_title_3->setGeometry(QRect(200, 20, 321, 101));
-        label_Page2_title_3->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
         groupBox = new QGroupBox(page_4);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(20, 710, 681, 341));
+        groupBox->setGeometry(QRect(20, 550, 681, 341));
         groupBox->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         pushButton_Play = new QPushButton(groupBox);
         pushButton_Play->setObjectName(QString::fromUtf8("pushButton_Play"));
@@ -1746,7 +1494,7 @@ public:
 
         verticalLayoutWidget_8 = new QWidget(page_4);
         verticalLayoutWidget_8->setObjectName(QString::fromUtf8("verticalLayoutWidget_8"));
-        verticalLayoutWidget_8->setGeometry(QRect(600, 250, 101, 421));
+        verticalLayoutWidget_8->setGeometry(QRect(600, 90, 101, 421));
         verticalLayout_8 = new QVBoxLayout(verticalLayoutWidget_8);
         verticalLayout_8->setSpacing(6);
         verticalLayout_8->setContentsMargins(11, 11, 11, 11);
@@ -1778,7 +1526,7 @@ public:
 
         verticalLayoutWidget_9 = new QWidget(page_4);
         verticalLayoutWidget_9->setObjectName(QString::fromUtf8("verticalLayoutWidget_9"));
-        verticalLayoutWidget_9->setGeometry(QRect(10, 290, 141, 351));
+        verticalLayoutWidget_9->setGeometry(QRect(10, 130, 141, 351));
         verticalLayout_9 = new QVBoxLayout(verticalLayoutWidget_9);
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
@@ -1805,45 +1553,9 @@ public:
 
         verticalLayout_9->addWidget(label_19);
 
-        verticalLayoutWidget_10 = new QWidget(page_4);
-        verticalLayoutWidget_10->setObjectName(QString::fromUtf8("verticalLayoutWidget_10"));
-        verticalLayoutWidget_10->setGeometry(QRect(520, 1120, 191, 151));
-        verticalLayout_10 = new QVBoxLayout(verticalLayoutWidget_10);
-        verticalLayout_10->setSpacing(6);
-        verticalLayout_10->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
-        verticalLayout_10->setContentsMargins(0, 0, 0, 0);
-        label_20 = new QLabel(verticalLayoutWidget_10);
-        label_20->setObjectName(QString::fromUtf8("label_20"));
-        label_20->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_10->addWidget(label_20);
-
-        label_21 = new QLabel(verticalLayoutWidget_10);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
-        label_21->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_10->addWidget(label_21);
-
-        label_22 = new QLabel(verticalLayoutWidget_10);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
-        label_22->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_10->addWidget(label_22);
-
-        label_6 = new QLabel(verticalLayoutWidget_10);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_10->addWidget(label_6);
-
         verticalLayoutWidget_11 = new QWidget(page_4);
         verticalLayoutWidget_11->setObjectName(QString::fromUtf8("verticalLayoutWidget_11"));
-        verticalLayoutWidget_11->setGeometry(QRect(200, 260, 361, 421));
+        verticalLayoutWidget_11->setGeometry(QRect(200, 100, 361, 421));
         verticalLayout_11 = new QVBoxLayout(verticalLayoutWidget_11);
         verticalLayout_11->setSpacing(6);
         verticalLayout_11->setContentsMargins(11, 11, 11, 11);
@@ -1872,172 +1584,45 @@ public:
 
         verticalLayout_11->addWidget(horizontalSlider_4);
 
-        pushButton_Last1_5 = new QPushButton(page_4);
-        pushButton_Last1_5->setObjectName(QString::fromUtf8("pushButton_Last1_5"));
-        pushButton_Last1_5->setGeometry(QRect(270, 1100, 131, 71));
-        pushButton_Last1_5->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last1_5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Next2_5 = new QPushButton(page_4);
-        pushButton_Next2_5->setObjectName(QString::fromUtf8("pushButton_Next2_5"));
-        pushButton_Next2_5->setGeometry(QRect(270, 1180, 131, 71));
-        pushButton_Next2_5->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next2_5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Exit2_5 = new QPushButton(page_4);
-        pushButton_Exit2_5->setObjectName(QString::fromUtf8("pushButton_Exit2_5"));
-        pushButton_Exit2_5->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit2_5->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit2_5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         horizontalScrollBar_SpeakVol = new QScrollBar(page_4);
         horizontalScrollBar_SpeakVol->setObjectName(QString::fromUtf8("horizontalScrollBar_SpeakVol"));
-        horizontalScrollBar_SpeakVol->setGeometry(QRect(180, 170, 401, 71));
+        horizontalScrollBar_SpeakVol->setGeometry(QRect(180, 10, 401, 71));
         horizontalScrollBar_SpeakVol->setStyleSheet(QString::fromUtf8("border-color: rgb(78, 154, 6);\n"
 "selection-color: rgb(52, 101, 164);"));
         horizontalScrollBar_SpeakVol->setSliderPosition(90);
         horizontalScrollBar_SpeakVol->setOrientation(Qt::Horizontal);
         label_SpeakVol = new QLabel(page_4);
         label_SpeakVol->setObjectName(QString::fromUtf8("label_SpeakVol"));
-        label_SpeakVol->setGeometry(QRect(10, 170, 139, 61));
+        label_SpeakVol->setGeometry(QRect(10, 10, 139, 61));
         label_SpeakVol->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         radioButton_SpeakVol = new QRadioButton(page_4);
         radioButton_SpeakVol->setObjectName(QString::fromUtf8("radioButton_SpeakVol"));
-        radioButton_SpeakVol->setGeometry(QRect(610, 180, 91, 46));
+        radioButton_SpeakVol->setGeometry(QRect(610, 20, 91, 46));
         radioButton_SpeakVol->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         radioButton_SpeakVol->setAutoExclusive(false);
         stackedWidget->addWidget(page_4);
         page_5 = new QWidget();
         page_5->setObjectName(QString::fromUtf8("page_5"));
-        label_Page2_title_4 = new QLabel(page_5);
-        label_Page2_title_4->setObjectName(QString::fromUtf8("label_Page2_title_4"));
-        label_Page2_title_4->setGeometry(QRect(200, 80, 311, 101));
-        label_Page2_title_4->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
-        pushButton_Next2_2 = new QPushButton(page_5);
-        pushButton_Next2_2->setObjectName(QString::fromUtf8("pushButton_Next2_2"));
-        pushButton_Next2_2->setEnabled(true);
-        pushButton_Next2_2->setGeometry(QRect(270, 1180, 131, 61));
-        pushButton_Next2_2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next2_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         pushButton_start_lcd_touch = new QPushButton(page_5);
         pushButton_start_lcd_touch->setObjectName(QString::fromUtf8("pushButton_start_lcd_touch"));
-        pushButton_start_lcd_touch->setGeometry(QRect(250, 410, 221, 101));
+        pushButton_start_lcd_touch->setGeometry(QRect(220, 320, 221, 101));
         pushButton_start_lcd_touch->setFocusPolicy(Qt::NoFocus);
         pushButton_start_lcd_touch->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Last1_2 = new QPushButton(page_5);
-        pushButton_Last1_2->setObjectName(QString::fromUtf8("pushButton_Last1_2"));
-        pushButton_Last1_2->setGeometry(QRect(270, 1100, 131, 71));
-        pushButton_Last1_2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last1_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Exit2_2 = new QPushButton(page_5);
-        pushButton_Exit2_2->setObjectName(QString::fromUtf8("pushButton_Exit2_2"));
-        pushButton_Exit2_2->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit2_2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit2_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        verticalLayoutWidget_13 = new QWidget(page_5);
-        verticalLayoutWidget_13->setObjectName(QString::fromUtf8("verticalLayoutWidget_13"));
-        verticalLayoutWidget_13->setGeometry(QRect(520, 1120, 191, 151));
-        verticalLayout_13 = new QVBoxLayout(verticalLayoutWidget_13);
-        verticalLayout_13->setSpacing(6);
-        verticalLayout_13->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_13->setObjectName(QString::fromUtf8("verticalLayout_13"));
-        verticalLayout_13->setContentsMargins(0, 0, 0, 0);
-        label_52 = new QLabel(verticalLayoutWidget_13);
-        label_52->setObjectName(QString::fromUtf8("label_52"));
-        label_52->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_13->addWidget(label_52);
-
-        label_53 = new QLabel(verticalLayoutWidget_13);
-        label_53->setObjectName(QString::fromUtf8("label_53"));
-        label_53->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_13->addWidget(label_53);
-
-        label_54 = new QLabel(verticalLayoutWidget_13);
-        label_54->setObjectName(QString::fromUtf8("label_54"));
-        label_54->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_13->addWidget(label_54);
-
-        label_55 = new QLabel(verticalLayoutWidget_13);
-        label_55->setObjectName(QString::fromUtf8("label_55"));
-        label_55->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_13->addWidget(label_55);
-
         label_28 = new QLabel(page_5);
         label_28->setObjectName(QString::fromUtf8("label_28"));
-        label_28->setGeometry(QRect(490, 440, 151, 33));
+        label_28->setGeometry(QRect(460, 350, 151, 33));
         label_28->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
 "color: rgb(204, 0, 0);"));
         stackedWidget->addWidget(page_5);
         page_7 = new QWidget();
         page_7->setObjectName(QString::fromUtf8("page_7"));
-        label_Page2_title_6 = new QLabel(page_7);
-        label_Page2_title_6->setObjectName(QString::fromUtf8("label_Page2_title_6"));
-        label_Page2_title_6->setGeometry(QRect(200, 10, 341, 101));
-        label_Page2_title_6->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
-        pushButton_Exit7 = new QPushButton(page_7);
-        pushButton_Exit7->setObjectName(QString::fromUtf8("pushButton_Exit7"));
-        pushButton_Exit7->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit7->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit7->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Next7 = new QPushButton(page_7);
-        pushButton_Next7->setObjectName(QString::fromUtf8("pushButton_Next7"));
-        pushButton_Next7->setEnabled(true);
-        pushButton_Next7->setGeometry(QRect(270, 1180, 131, 71));
-        pushButton_Next7->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next7->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Last7 = new QPushButton(page_7);
-        pushButton_Last7->setObjectName(QString::fromUtf8("pushButton_Last7"));
-        pushButton_Last7->setGeometry(QRect(270, 1100, 131, 71));
-        pushButton_Last7->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last7->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        verticalLayoutWidget_14 = new QWidget(page_7);
-        verticalLayoutWidget_14->setObjectName(QString::fromUtf8("verticalLayoutWidget_14"));
-        verticalLayoutWidget_14->setGeometry(QRect(520, 1120, 191, 151));
-        verticalLayout_14 = new QVBoxLayout(verticalLayoutWidget_14);
-        verticalLayout_14->setSpacing(6);
-        verticalLayout_14->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_14->setObjectName(QString::fromUtf8("verticalLayout_14"));
-        verticalLayout_14->setContentsMargins(0, 0, 0, 0);
-        label_70 = new QLabel(verticalLayoutWidget_14);
-        label_70->setObjectName(QString::fromUtf8("label_70"));
-        label_70->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_14->addWidget(label_70);
-
-        label_71 = new QLabel(verticalLayoutWidget_14);
-        label_71->setObjectName(QString::fromUtf8("label_71"));
-        label_71->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_14->addWidget(label_71);
-
-        label_72 = new QLabel(verticalLayoutWidget_14);
-        label_72->setObjectName(QString::fromUtf8("label_72"));
-        label_72->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_14->addWidget(label_72);
-
-        label_73 = new QLabel(verticalLayoutWidget_14);
-        label_73->setObjectName(QString::fromUtf8("label_73"));
-        label_73->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_14->addWidget(label_73);
-
         textBrowser_IICSPI = new QTextBrowser(page_7);
         textBrowser_IICSPI->setObjectName(QString::fromUtf8("textBrowser_IICSPI"));
-        textBrowser_IICSPI->setGeometry(QRect(0, 360, 721, 681));
+        textBrowser_IICSPI->setGeometry(QRect(0, 230, 721, 681));
         textBrowser_IICSPI->setStyleSheet(QString::fromUtf8("font: 18pt \"Ubuntu\";"));
         horizontalLayoutWidget_7 = new QWidget(page_7);
         horizontalLayoutWidget_7->setObjectName(QString::fromUtf8("horizontalLayoutWidget_7"));
-        horizontalLayoutWidget_7->setGeometry(QRect(110, 140, 481, 80));
+        horizontalLayoutWidget_7->setGeometry(QRect(110, 10, 481, 80));
         horizontalLayout_7 = new QHBoxLayout(horizontalLayoutWidget_7);
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -2064,7 +1649,7 @@ public:
 
         horizontalLayoutWidget_8 = new QWidget(page_7);
         horizontalLayoutWidget_8->setObjectName(QString::fromUtf8("horizontalLayoutWidget_8"));
-        horizontalLayoutWidget_8->setGeometry(QRect(20, 240, 661, 81));
+        horizontalLayoutWidget_8->setGeometry(QRect(20, 110, 661, 81));
         horizontalLayout_8 = new QHBoxLayout(horizontalLayoutWidget_8);
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
@@ -2098,70 +1683,14 @@ public:
 
         pushButton_clear_display = new QPushButton(page_7);
         pushButton_clear_display->setObjectName(QString::fromUtf8("pushButton_clear_display"));
-        pushButton_clear_display->setGeometry(QRect(20, 1060, 161, 61));
+        pushButton_clear_display->setGeometry(QRect(20, 930, 161, 61));
         pushButton_clear_display->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         stackedWidget->addWidget(page_7);
         page_8 = new QWidget();
         page_8->setObjectName(QString::fromUtf8("page_8"));
-        label_Page2_title_7 = new QLabel(page_8);
-        label_Page2_title_7->setObjectName(QString::fromUtf8("label_Page2_title_7"));
-        label_Page2_title_7->setGeometry(QRect(190, 20, 341, 101));
-        label_Page2_title_7->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
-        pushButton_Exit7_2 = new QPushButton(page_8);
-        pushButton_Exit7_2->setObjectName(QString::fromUtf8("pushButton_Exit7_2"));
-        pushButton_Exit7_2->setGeometry(QRect(20, 1180, 131, 71));
-        pushButton_Exit7_2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit7_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_Next7_2 = new QPushButton(page_8);
-        pushButton_Next7_2->setObjectName(QString::fromUtf8("pushButton_Next7_2"));
-        pushButton_Next7_2->setEnabled(true);
-        pushButton_Next7_2->setGeometry(QRect(270, 1180, 131, 71));
-        pushButton_Next7_2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next7_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        verticalLayoutWidget_15 = new QWidget(page_8);
-        verticalLayoutWidget_15->setObjectName(QString::fromUtf8("verticalLayoutWidget_15"));
-        verticalLayoutWidget_15->setGeometry(QRect(520, 1120, 191, 151));
-        verticalLayout_15 = new QVBoxLayout(verticalLayoutWidget_15);
-        verticalLayout_15->setSpacing(6);
-        verticalLayout_15->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_15->setObjectName(QString::fromUtf8("verticalLayout_15"));
-        verticalLayout_15->setContentsMargins(0, 0, 0, 0);
-        label_76 = new QLabel(verticalLayoutWidget_15);
-        label_76->setObjectName(QString::fromUtf8("label_76"));
-        label_76->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_15->addWidget(label_76);
-
-        label_77 = new QLabel(verticalLayoutWidget_15);
-        label_77->setObjectName(QString::fromUtf8("label_77"));
-        label_77->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_15->addWidget(label_77);
-
-        label_78 = new QLabel(verticalLayoutWidget_15);
-        label_78->setObjectName(QString::fromUtf8("label_78"));
-        label_78->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_15->addWidget(label_78);
-
-        label_79 = new QLabel(verticalLayoutWidget_15);
-        label_79->setObjectName(QString::fromUtf8("label_79"));
-        label_79->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_15->addWidget(label_79);
-
-        pushButton_Last7_2 = new QPushButton(page_8);
-        pushButton_Last7_2->setObjectName(QString::fromUtf8("pushButton_Last7_2"));
-        pushButton_Last7_2->setGeometry(QRect(270, 1100, 131, 71));
-        pushButton_Last7_2->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last7_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         groupBox_2 = new QGroupBox(page_8);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(30, 130, 271, 301));
+        groupBox_2->setGeometry(QRect(30, 10, 271, 301));
         groupBox_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         verticalLayoutWidget_16 = new QWidget(groupBox_2);
         verticalLayoutWidget_16->setObjectName(QString::fromUtf8("verticalLayoutWidget_16"));
@@ -2188,7 +1717,7 @@ public:
 
         groupBox_3 = new QGroupBox(page_8);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(390, 160, 271, 171));
+        groupBox_3->setGeometry(QRect(390, 40, 271, 171));
         groupBox_3->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         comboBox_cpu = new QComboBox(groupBox_3);
         comboBox_cpu->addItem(QString());
@@ -2224,11 +1753,11 @@ public:
         checkBox_mem_n->setChecked(true);
         pushButton_start_cpustress = new QPushButton(page_8);
         pushButton_start_cpustress->setObjectName(QString::fromUtf8("pushButton_start_cpustress"));
-        pushButton_start_cpustress->setGeometry(QRect(390, 400, 271, 71));
+        pushButton_start_cpustress->setGeometry(QRect(390, 280, 271, 71));
         pushButton_start_cpustress->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         groupBox_4 = new QGroupBox(page_8);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(10, 540, 371, 491));
+        groupBox_4->setGeometry(QRect(10, 420, 371, 491));
         groupBox_4->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         gridLayoutWidget_4 = new QWidget(groupBox_4);
         gridLayoutWidget_4->setObjectName(QString::fromUtf8("gridLayoutWidget_4"));
@@ -2369,7 +1898,7 @@ public:
 
         groupBox_5 = new QGroupBox(page_8);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setGeometry(QRect(410, 540, 301, 191));
+        groupBox_5->setGeometry(QRect(410, 420, 301, 191));
         groupBox_5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         gridLayoutWidget_5 = new QWidget(groupBox_5);
         gridLayoutWidget_5->setObjectName(QString::fromUtf8("gridLayoutWidget_5"));
@@ -2403,7 +1932,7 @@ public:
 
         groupBox_6 = new QGroupBox(page_8);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setGeometry(QRect(420, 810, 261, 211));
+        groupBox_6->setGeometry(QRect(420, 690, 261, 211));
         groupBox_6->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
         gridLayoutWidget_6 = new QWidget(groupBox_6);
         gridLayoutWidget_6->setObjectName(QString::fromUtf8("gridLayoutWidget_6"));
@@ -2435,7 +1964,330 @@ public:
 
         gridLayout_6->addWidget(label_gpu_temp, 2, 1, 1, 1);
 
-        comboBox = new QComboBox(page_8);
+        stackedWidget->addWidget(page_8);
+        page_9 = new QWidget();
+        page_9->setObjectName(QString::fromUtf8("page_9"));
+        label_99 = new QLabel(page_9);
+        label_99->setObjectName(QString::fromUtf8("label_99"));
+        label_99->setGeometry(QRect(40, 330, 201, 51));
+        label_99->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        pushButton_disk_info = new QPushButton(page_9);
+        pushButton_disk_info->setObjectName(QString::fromUtf8("pushButton_disk_info"));
+        pushButton_disk_info->setGeometry(QRect(40, 10, 221, 61));
+        pushButton_disk_info->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        textBrowser_system_info = new QTextBrowser(page_9);
+        textBrowser_system_info->setObjectName(QString::fromUtf8("textBrowser_system_info"));
+        textBrowser_system_info->setGeometry(QRect(40, 380, 641, 481));
+        textBrowser_system_info->setStyleSheet(QString::fromUtf8("font: 16pt \"Ubuntu\";"));
+        textBrowser_disk_info = new QTextBrowser(page_9);
+        textBrowser_disk_info->setObjectName(QString::fromUtf8("textBrowser_disk_info"));
+        textBrowser_disk_info->setGeometry(QRect(40, 80, 641, 231));
+        textBrowser_disk_info->setStyleSheet(QString::fromUtf8("font: 16pt \"Ubuntu\";"));
+        stackedWidget->addWidget(page_9);
+        page_10 = new QWidget();
+        page_10->setObjectName(QString::fromUtf8("page_10"));
+        pushButton_lcd_mcu_info = new QPushButton(page_10);
+        pushButton_lcd_mcu_info->setObjectName(QString::fromUtf8("pushButton_lcd_mcu_info"));
+        pushButton_lcd_mcu_info->setGeometry(QRect(20, 10, 291, 41));
+        pushButton_lcd_mcu_info->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        pushButton_key_mcu_info = new QPushButton(page_10);
+        pushButton_key_mcu_info->setObjectName(QString::fromUtf8("pushButton_key_mcu_info"));
+        pushButton_key_mcu_info->setGeometry(QRect(20, 220, 291, 41));
+        pushButton_key_mcu_info->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        pushButton_jc_ko_info = new QPushButton(page_10);
+        pushButton_jc_ko_info->setObjectName(QString::fromUtf8("pushButton_jc_ko_info"));
+        pushButton_jc_ko_info->setGeometry(QRect(30, 440, 361, 41));
+        pushButton_jc_ko_info->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        line = new QFrame(page_10);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(0, 200, 721, 16));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        line_2 = new QFrame(page_10);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setGeometry(QRect(0, 420, 721, 16));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+        line_3 = new QFrame(page_10);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setGeometry(QRect(0, 640, 721, 16));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+        pushButton_drv_so_info = new QPushButton(page_10);
+        pushButton_drv_so_info->setObjectName(QString::fromUtf8("pushButton_drv_so_info"));
+        pushButton_drv_so_info->setGeometry(QRect(30, 660, 341, 41));
+        pushButton_drv_so_info->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        verticalLayoutWidget_19 = new QWidget(page_10);
+        verticalLayoutWidget_19->setObjectName(QString::fromUtf8("verticalLayoutWidget_19"));
+        verticalLayoutWidget_19->setGeometry(QRect(20, 60, 151, 134));
+        verticalLayout_19 = new QVBoxLayout(verticalLayoutWidget_19);
+        verticalLayout_19->setSpacing(6);
+        verticalLayout_19->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_19->setObjectName(QString::fromUtf8("verticalLayout_19"));
+        verticalLayout_19->setContentsMargins(0, 0, 0, 0);
+        label_16 = new QLabel(verticalLayoutWidget_19);
+        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_16->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_19->addWidget(label_16);
+
+        label_58 = new QLabel(verticalLayoutWidget_19);
+        label_58->setObjectName(QString::fromUtf8("label_58"));
+        label_58->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_19->addWidget(label_58);
+
+        label_59 = new QLabel(verticalLayoutWidget_19);
+        label_59->setObjectName(QString::fromUtf8("label_59"));
+        label_59->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_19->addWidget(label_59);
+
+        verticalLayoutWidget_20 = new QWidget(page_10);
+        verticalLayoutWidget_20->setObjectName(QString::fromUtf8("verticalLayoutWidget_20"));
+        verticalLayoutWidget_20->setGeometry(QRect(190, 60, 501, 131));
+        verticalLayout_20 = new QVBoxLayout(verticalLayoutWidget_20);
+        verticalLayout_20->setSpacing(6);
+        verticalLayout_20->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_20->setObjectName(QString::fromUtf8("verticalLayout_20"));
+        verticalLayout_20->setContentsMargins(0, 0, 0, 0);
+        label_lcd_mcu_md5 = new QLabel(verticalLayoutWidget_20);
+        label_lcd_mcu_md5->setObjectName(QString::fromUtf8("label_lcd_mcu_md5"));
+        label_lcd_mcu_md5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_20->addWidget(label_lcd_mcu_md5);
+
+        label_lcd_mcu_time = new QLabel(verticalLayoutWidget_20);
+        label_lcd_mcu_time->setObjectName(QString::fromUtf8("label_lcd_mcu_time"));
+        label_lcd_mcu_time->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_20->addWidget(label_lcd_mcu_time);
+
+        label_lcd_mcu_version = new QLabel(verticalLayoutWidget_20);
+        label_lcd_mcu_version->setObjectName(QString::fromUtf8("label_lcd_mcu_version"));
+        label_lcd_mcu_version->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_20->addWidget(label_lcd_mcu_version);
+
+        verticalLayoutWidget_21 = new QWidget(page_10);
+        verticalLayoutWidget_21->setObjectName(QString::fromUtf8("verticalLayoutWidget_21"));
+        verticalLayoutWidget_21->setGeometry(QRect(20, 270, 151, 134));
+        verticalLayout_21 = new QVBoxLayout(verticalLayoutWidget_21);
+        verticalLayout_21->setSpacing(6);
+        verticalLayout_21->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_21->setObjectName(QString::fromUtf8("verticalLayout_21"));
+        verticalLayout_21->setContentsMargins(0, 0, 0, 0);
+        label_60 = new QLabel(verticalLayoutWidget_21);
+        label_60->setObjectName(QString::fromUtf8("label_60"));
+        label_60->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_21->addWidget(label_60);
+
+        label_61 = new QLabel(verticalLayoutWidget_21);
+        label_61->setObjectName(QString::fromUtf8("label_61"));
+        label_61->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_21->addWidget(label_61);
+
+        label_62 = new QLabel(verticalLayoutWidget_21);
+        label_62->setObjectName(QString::fromUtf8("label_62"));
+        label_62->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_21->addWidget(label_62);
+
+        verticalLayoutWidget_22 = new QWidget(page_10);
+        verticalLayoutWidget_22->setObjectName(QString::fromUtf8("verticalLayoutWidget_22"));
+        verticalLayoutWidget_22->setGeometry(QRect(190, 270, 501, 131));
+        verticalLayout_22 = new QVBoxLayout(verticalLayoutWidget_22);
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_22->setObjectName(QString::fromUtf8("verticalLayout_22"));
+        verticalLayout_22->setContentsMargins(0, 0, 0, 0);
+        label_keyb_mcu_md5 = new QLabel(verticalLayoutWidget_22);
+        label_keyb_mcu_md5->setObjectName(QString::fromUtf8("label_keyb_mcu_md5"));
+        label_keyb_mcu_md5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_22->addWidget(label_keyb_mcu_md5);
+
+        label_keyb_mcu_time = new QLabel(verticalLayoutWidget_22);
+        label_keyb_mcu_time->setObjectName(QString::fromUtf8("label_keyb_mcu_time"));
+        label_keyb_mcu_time->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_22->addWidget(label_keyb_mcu_time);
+
+        label_keyb_mcu_version = new QLabel(verticalLayoutWidget_22);
+        label_keyb_mcu_version->setObjectName(QString::fromUtf8("label_keyb_mcu_version"));
+        label_keyb_mcu_version->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_22->addWidget(label_keyb_mcu_version);
+
+        verticalLayoutWidget_23 = new QWidget(page_10);
+        verticalLayoutWidget_23->setObjectName(QString::fromUtf8("verticalLayoutWidget_23"));
+        verticalLayoutWidget_23->setGeometry(QRect(20, 490, 151, 134));
+        verticalLayout_23 = new QVBoxLayout(verticalLayoutWidget_23);
+        verticalLayout_23->setSpacing(6);
+        verticalLayout_23->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_23->setObjectName(QString::fromUtf8("verticalLayout_23"));
+        verticalLayout_23->setContentsMargins(0, 0, 0, 0);
+        label_101 = new QLabel(verticalLayoutWidget_23);
+        label_101->setObjectName(QString::fromUtf8("label_101"));
+        label_101->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_23->addWidget(label_101);
+
+        label_102 = new QLabel(verticalLayoutWidget_23);
+        label_102->setObjectName(QString::fromUtf8("label_102"));
+        label_102->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_23->addWidget(label_102);
+
+        label_104 = new QLabel(verticalLayoutWidget_23);
+        label_104->setObjectName(QString::fromUtf8("label_104"));
+        label_104->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_23->addWidget(label_104);
+
+        verticalLayoutWidget_24 = new QWidget(page_10);
+        verticalLayoutWidget_24->setObjectName(QString::fromUtf8("verticalLayoutWidget_24"));
+        verticalLayoutWidget_24->setGeometry(QRect(190, 490, 501, 131));
+        verticalLayout_24 = new QVBoxLayout(verticalLayoutWidget_24);
+        verticalLayout_24->setSpacing(6);
+        verticalLayout_24->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_24->setObjectName(QString::fromUtf8("verticalLayout_24"));
+        verticalLayout_24->setContentsMargins(0, 0, 0, 0);
+        label_jc_ko_md5 = new QLabel(verticalLayoutWidget_24);
+        label_jc_ko_md5->setObjectName(QString::fromUtf8("label_jc_ko_md5"));
+        label_jc_ko_md5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_24->addWidget(label_jc_ko_md5);
+
+        label_jc_ko_time = new QLabel(verticalLayoutWidget_24);
+        label_jc_ko_time->setObjectName(QString::fromUtf8("label_jc_ko_time"));
+        label_jc_ko_time->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_24->addWidget(label_jc_ko_time);
+
+        label_jc_ko_version = new QLabel(verticalLayoutWidget_24);
+        label_jc_ko_version->setObjectName(QString::fromUtf8("label_jc_ko_version"));
+        label_jc_ko_version->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_24->addWidget(label_jc_ko_version);
+
+        verticalLayoutWidget_25 = new QWidget(page_10);
+        verticalLayoutWidget_25->setObjectName(QString::fromUtf8("verticalLayoutWidget_25"));
+        verticalLayoutWidget_25->setGeometry(QRect(20, 720, 151, 134));
+        verticalLayout_25 = new QVBoxLayout(verticalLayoutWidget_25);
+        verticalLayout_25->setSpacing(6);
+        verticalLayout_25->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_25->setObjectName(QString::fromUtf8("verticalLayout_25"));
+        verticalLayout_25->setContentsMargins(0, 0, 0, 0);
+        label_108 = new QLabel(verticalLayoutWidget_25);
+        label_108->setObjectName(QString::fromUtf8("label_108"));
+        label_108->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_25->addWidget(label_108);
+
+        label_109 = new QLabel(verticalLayoutWidget_25);
+        label_109->setObjectName(QString::fromUtf8("label_109"));
+        label_109->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_25->addWidget(label_109);
+
+        label_110 = new QLabel(verticalLayoutWidget_25);
+        label_110->setObjectName(QString::fromUtf8("label_110"));
+        label_110->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_25->addWidget(label_110);
+
+        verticalLayoutWidget_26 = new QWidget(page_10);
+        verticalLayoutWidget_26->setObjectName(QString::fromUtf8("verticalLayoutWidget_26"));
+        verticalLayoutWidget_26->setGeometry(QRect(190, 720, 501, 131));
+        verticalLayout_26 = new QVBoxLayout(verticalLayoutWidget_26);
+        verticalLayout_26->setSpacing(6);
+        verticalLayout_26->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_26->setObjectName(QString::fromUtf8("verticalLayout_26"));
+        verticalLayout_26->setContentsMargins(0, 0, 0, 0);
+        label_drv_so_md5 = new QLabel(verticalLayoutWidget_26);
+        label_drv_so_md5->setObjectName(QString::fromUtf8("label_drv_so_md5"));
+        label_drv_so_md5->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_26->addWidget(label_drv_so_md5);
+
+        label_drv_so_time = new QLabel(verticalLayoutWidget_26);
+        label_drv_so_time->setObjectName(QString::fromUtf8("label_drv_so_time"));
+        label_drv_so_time->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_26->addWidget(label_drv_so_time);
+
+        label_drv_so_version = new QLabel(verticalLayoutWidget_26);
+        label_drv_so_version->setObjectName(QString::fromUtf8("label_drv_so_version"));
+        label_drv_so_version->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        verticalLayout_26->addWidget(label_drv_so_version);
+
+        stackedWidget->addWidget(page_10);
+        label_2 = new QLabel(Widget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(30, 1260, 231, 17));
+        label = new QLabel(Widget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(380, 1260, 321, 20));
+        horizontalLayoutWidget_9 = new QWidget(Widget);
+        horizontalLayoutWidget_9->setObjectName(QString::fromUtf8("horizontalLayoutWidget_9"));
+        horizontalLayoutWidget_9->setGeometry(QRect(21, 1179, 671, 71));
+        horizontalLayout_9 = new QHBoxLayout(horizontalLayoutWidget_9);
+        horizontalLayout_9->setSpacing(6);
+        horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
+        pushButton_Help = new QPushButton(horizontalLayoutWidget_9);
+        pushButton_Help->setObjectName(QString::fromUtf8("pushButton_Help"));
+        pushButton_Help->setFocusPolicy(Qt::NoFocus);
+        pushButton_Help->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        horizontalLayout_9->addWidget(pushButton_Help);
+
+        horizontalSpacer_5 = new QSpacerItem(100, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_5);
+
+        pushButton_Last_page = new QPushButton(horizontalLayoutWidget_9);
+        pushButton_Last_page->setObjectName(QString::fromUtf8("pushButton_Last_page"));
+        pushButton_Last_page->setFocusPolicy(Qt::NoFocus);
+        pushButton_Last_page->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        horizontalLayout_9->addWidget(pushButton_Last_page);
+
+        horizontalSpacer_6 = new QSpacerItem(100, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_6);
+
+        pushButton_Next_page = new QPushButton(horizontalLayoutWidget_9);
+        pushButton_Next_page->setObjectName(QString::fromUtf8("pushButton_Next_page"));
+        pushButton_Next_page->setFocusPolicy(Qt::NoFocus);
+        pushButton_Next_page->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+
+        horizontalLayout_9->addWidget(pushButton_Next_page);
+
+        line_4 = new QFrame(Widget);
+        line_4->setObjectName(QString::fromUtf8("line_4"));
+        line_4->setGeometry(QRect(10, 1150, 711, 20));
+        line_4->setFrameShape(QFrame::HLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+        label_color = new QLabel(Widget);
+        label_color->setObjectName(QString::fromUtf8("label_color"));
+        label_color->setEnabled(true);
+        label_color->setGeometry(QRect(0, 0, 720, 1280));
+        label_Page_title = new QLabel(Widget);
+        label_Page_title->setObjectName(QString::fromUtf8("label_Page_title"));
+        label_Page_title->setGeometry(QRect(110, 10, 441, 81));
+        label_Page_title->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
+        label_97 = new QLabel(Widget);
+        label_97->setObjectName(QString::fromUtf8("label_97"));
+        label_97->setGeometry(QRect(550, 0, 151, 31));
+        label_97->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
+        comboBox = new QComboBox(Widget);
+        comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -2446,93 +2298,22 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(510, 70, 121, 40));
+        comboBox->setGeometry(QRect(560, 50, 121, 40));
         comboBox->setFocusPolicy(Qt::NoFocus);
         comboBox->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        label_97 = new QLabel(page_8);
-        label_97->setObjectName(QString::fromUtf8("label_97"));
-        label_97->setGeometry(QRect(500, 20, 151, 31));
-        label_97->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        stackedWidget->addWidget(page_8);
-        page_9 = new QWidget();
-        page_9->setObjectName(QString::fromUtf8("page_9"));
-        pushButton_Exit9 = new QPushButton(page_9);
-        pushButton_Exit9->setObjectName(QString::fromUtf8("pushButton_Exit9"));
-        pushButton_Exit9->setGeometry(QRect(20, 1170, 131, 71));
-        pushButton_Exit9->setFocusPolicy(Qt::NoFocus);
-        pushButton_Exit9->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        label_Page2_title_8 = new QLabel(page_9);
-        label_Page2_title_8->setObjectName(QString::fromUtf8("label_Page2_title_8"));
-        label_Page2_title_8->setGeometry(QRect(190, 10, 341, 101));
-        label_Page2_title_8->setStyleSheet(QString::fromUtf8("font: 40pt \"Ubuntu\";"));
-        pushButton_Next9 = new QPushButton(page_9);
-        pushButton_Next9->setObjectName(QString::fromUtf8("pushButton_Next9"));
-        pushButton_Next9->setEnabled(false);
-        pushButton_Next9->setGeometry(QRect(270, 1170, 131, 61));
-        pushButton_Next9->setFocusPolicy(Qt::NoFocus);
-        pushButton_Next9->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        verticalLayoutWidget_17 = new QWidget(page_9);
-        verticalLayoutWidget_17->setObjectName(QString::fromUtf8("verticalLayoutWidget_17"));
-        verticalLayoutWidget_17->setGeometry(QRect(510, 1120, 191, 151));
-        verticalLayout_17 = new QVBoxLayout(verticalLayoutWidget_17);
-        verticalLayout_17->setSpacing(6);
-        verticalLayout_17->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_17->setObjectName(QString::fromUtf8("verticalLayout_17"));
-        verticalLayout_17->setContentsMargins(0, 0, 0, 0);
-        label_80 = new QLabel(verticalLayoutWidget_17);
-        label_80->setObjectName(QString::fromUtf8("label_80"));
-        label_80->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_17->addWidget(label_80);
-
-        label_81 = new QLabel(verticalLayoutWidget_17);
-        label_81->setObjectName(QString::fromUtf8("label_81"));
-        label_81->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_17->addWidget(label_81);
-
-        label_91 = new QLabel(verticalLayoutWidget_17);
-        label_91->setObjectName(QString::fromUtf8("label_91"));
-        label_91->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_17->addWidget(label_91);
-
-        label_93 = new QLabel(verticalLayoutWidget_17);
-        label_93->setObjectName(QString::fromUtf8("label_93"));
-        label_93->setStyleSheet(QString::fromUtf8("font: 15pt \"Ubuntu\";\n"
-"color: rgb(204, 0, 0);"));
-
-        verticalLayout_17->addWidget(label_93);
-
-        pushButton_Last9 = new QPushButton(page_9);
-        pushButton_Last9->setObjectName(QString::fromUtf8("pushButton_Last9"));
-        pushButton_Last9->setGeometry(QRect(270, 1090, 131, 71));
-        pushButton_Last9->setFocusPolicy(Qt::NoFocus);
-        pushButton_Last9->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        label_99 = new QLabel(page_9);
-        label_99->setObjectName(QString::fromUtf8("label_99"));
-        label_99->setGeometry(QRect(40, 440, 201, 51));
-        label_99->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        pushButton_disk_info = new QPushButton(page_9);
-        pushButton_disk_info->setObjectName(QString::fromUtf8("pushButton_disk_info"));
-        pushButton_disk_info->setGeometry(QRect(40, 120, 221, 61));
-        pushButton_disk_info->setStyleSheet(QString::fromUtf8("font: 20pt \"Ubuntu\";"));
-        textBrowser_system_info = new QTextBrowser(page_9);
-        textBrowser_system_info->setObjectName(QString::fromUtf8("textBrowser_system_info"));
-        textBrowser_system_info->setGeometry(QRect(40, 490, 641, 481));
-        textBrowser_system_info->setStyleSheet(QString::fromUtf8("font: 16pt \"Ubuntu\";"));
-        textBrowser_disk_info = new QTextBrowser(page_9);
-        textBrowser_disk_info->setObjectName(QString::fromUtf8("textBrowser_disk_info"));
-        textBrowser_disk_info->setGeometry(QRect(40, 190, 641, 231));
-        textBrowser_disk_info->setStyleSheet(QString::fromUtf8("font: 16pt \"Ubuntu\";"));
-        stackedWidget->addWidget(page_9);
+        label_color->raise();
+        stackedWidget->raise();
+        label_2->raise();
+        label->raise();
+        horizontalLayoutWidget_9->raise();
+        line_4->raise();
+        label_Page_title->raise();
+        label_97->raise();
+        comboBox->raise();
 
         retranslateUi(Widget);
 
-        stackedWidget->setCurrentIndex(8);
+        stackedWidget->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(Widget);
@@ -2574,33 +2355,26 @@ public:
         toolButton_Up->setText(QApplication::translate("Widget", "up", nullptr));
         toolButton_Down->setText(QApplication::translate("Widget", "down", nullptr));
         toolButton_Ptt->setText(QApplication::translate("Widget", "PTT", nullptr));
-        pushButton_Next1->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        pushButton_Exit1->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        label_2->setText(QApplication::translate("Widget", "TextLabel", nullptr));
-        label->setText(QApplication::translate("Widget", "TextLabel", nullptr));
         checkBox->setText(QApplication::translate("Widget", "\346\214\211\351\224\256\346\216\247\345\210\266\351\224\256\347\201\257", nullptr));
-        label_8->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_7->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_9->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_3->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
-        label_17->setText(QApplication::translate("Widget", "\346\265\213\350\257\225+\346\225\260\345\255\2272", nullptr));
-        label_18->setText(QApplication::translate("Widget", "\347\272\242\350\211\262\345\255\227\344\275\223\345\235\207\350\241\250\347\244\272\345\277\253\346\215\267\351\224\256!!!!      \347\273\204\345\220\210\351\224\256\345\205\210\346\214\211\344\270\213\346\265\213\350\257\225\357\274\210\344\270\215\346\235\276\345\274\200\357\274\211\357\274\214\345\206\215\346\214\211\345\205\266\344\273\226", nullptr));
+        label_17->setText(QApplication::translate("Widget", "\346\265\213\350\257\225+#", nullptr));
         label_98->setText(QApplication::translate("Widget", "\345\257\274\345\205\211\351\235\242\346\235\277\345\236\213\345\217\267:", nullptr));
         label_keyboard_type->setText(QApplication::translate("Widget", "TextLabel", nullptr));
         toolButton_left->setText(QApplication::translate("Widget", "left", nullptr));
         toolButton_right->setText(QApplication::translate("Widget", "right", nullptr));
         toolButton_ok->setText(QApplication::translate("Widget", "OK", nullptr));
-        label_Page2_title_5->setText(QApplication::translate("Widget", "2.\351\224\256\347\201\257\346\265\213\350\257\225", nullptr));
+        textBrowser_help_page1->setHtml(QApplication::translate("Widget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\345\270\256\345\212\251\344\277\241\346\201\257\357\274\232</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.\345\277\253\351\200\237\345\210\207\346\215\242\345\210\260\345\257\271\345\272\224\347\232\204\351\241\265\351\235\242\357\274\232\347\273\204\345\220\210\351\224\256\357\274\214\346\214\211\344\270\213test\357\274\210\344\270\215\346\235\276\345\274\200\357\274\211\357\274\214\345\206\215\346\214\2111-9\344\270\255\344\273\273\346\204\217\346\225\260\345\255\227\357\274\214"
+                        "\345\260\206\345\210\207\346\215\242\345\210\260\345\257\271\345\272\224\347\232\204\351\241\265\351\235\242\343\200\202</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.\344\270\212\344\270\200\351\241\265\357\274\214\344\270\213\344\270\200\351\241\265\357\274\232\347\273\204\345\220\210\351\224\256\357\274\214\346\214\211\344\270\213test\357\274\210\344\270\215\346\235\276\345\274\200\357\274\211\357\274\214\345\206\215\346\214\211\346\226\271\345\220\221\344\270\212\346\210\226\350\200\205\346\226\271\345\220\221\344\270\213\357\274\214\345\260\206\350\277\233\350\241\214\347\277\273\351\241\265\346\223\215\344\275\234\343\200\202</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.\351\207\215\345\220\257\350\256\276\345\244\207\357\274\232 \347\273\204\345\220\210\351\224\256\357\274\214\346\214\211\344\270\213test\357\274\210\344\270\215\346\235"
+                        "\276\345\274\200\357\274\211\357\274\214\345\206\215\346\214\211\344\270\213PTT\357\274\214\350\256\276\345\244\207\345\260\206\351\207\215\345\220\257</p></body></html>", nullptr));
         label_44->setText(QApplication::translate("Widget", "\346\226\271\345\220\221\351\224\256:\344\270\212/\344\270\213", nullptr));
         label_light_value_2->setText(QApplication::translate("Widget", "100", nullptr));
         label_45->setText(QApplication::translate("Widget", "\351\224\256\347\201\257\344\272\256\345\272\246", nullptr));
-        label_46->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_47->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_48->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_49->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
-        pushButton_Exit2_3->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        pushButton_Last1_3->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        pushButton_Next2_3->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
         pushButton_6->setText(QApplication::translate("Widget", "1.\351\224\256\347\201\257\345\205\250\351\203\250\347\202\271\344\272\256\347\206\204\347\201\255\346\216\247\345\210\266", nullptr));
         pushButton_7->setText(QApplication::translate("Widget", "2.\351\224\256\347\201\257\346\265\201\346\260\264\347\201\257\346\216\247\345\210\266", nullptr));
         label_50->setText(QApplication::translate("Widget", "\351\227\252\347\203\201\351\227\264\351\232\224\346\227\266\351\227\264:", nullptr));
@@ -2613,16 +2387,7 @@ public:
         label_57->setText(QApplication::translate("Widget", "\342\254\205", nullptr));
         pushButton_FlowLEDS->setText(QApplication::translate("Widget", "4.\345\267\245\350\243\205\346\235\277\346\265\201\346\260\264\347\201\257", nullptr));
         label_75->setText(QApplication::translate("Widget", "\342\254\205", nullptr));
-        label_Page2_title->setText(QApplication::translate("Widget", "3.LCD\351\242\234\350\211\262\346\265\213\350\257\225", nullptr));
         pushButton_start_color_test->setText(QApplication::translate("Widget", "\345\274\200\345\247\213\346\265\213\350\257\225", nullptr));
-        pushButton_Next2->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        pushButton_Exit2->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        pushButton_Last1->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        label_color->setText(QString());
-        label_10->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_11->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_12->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_4->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
         label_23->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232\346\213\250\345\217\267", nullptr));
         textBrowser->setHtml(QApplication::translate("Widget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -2633,11 +2398,6 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">\346\227\240\350\247\246\346\221\270\345\261\217\346\227\266\357\274\214\345\217\252\350\203\275\351\200\232\350\277\207\346\214\211\351\224\256\346\223\215\344\275\234</span></p></body></html>", nullptr));
         label_74->setText(QApplication::translate("Widget", "LCD\344\272\256\345\272\246\350\260\203\350\212\202", nullptr));
         label_light_val->setText(QApplication::translate("Widget", "100", nullptr));
-        label_13->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_14->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_15->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_5->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
-        label_Page2_title_2->setText(QApplication::translate("Widget", "4.\347\275\221\347\273\234\346\265\213\350\257\225", nullptr));
         pushButton_3->setText(QApplication::translate("Widget", "\351\205\215\347\275\256rk3399\344\270\273\346\235\277IP", nullptr));
         pushButton_2->setText(QApplication::translate("Widget", "ping enp1s0f0", nullptr));
         checkBox_bigpack1->setText(QApplication::translate("Widget", "\345\244\247\345\214\205", nullptr));
@@ -2672,9 +2432,6 @@ public:
         label_ping_stat3->setText(QApplication::translate("Widget", "\346\255\243\345\270\270", nullptr));
         label_67->setText(QApplication::translate("Widget", "\345\274\202\345\270\270\350\256\241\346\225\260:", nullptr));
         label_ping_err3->setText(QApplication::translate("Widget", "0", nullptr));
-        pushButton_Last1_4->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        pushButton_Next2_4->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        pushButton_Exit2_4->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
         pushButton_ifconfig->setText(QApplication::translate("Widget", "\346\237\245\347\234\213rk3399\344\270\273\346\235\277IP", nullptr));
         lineEdit_ip3->setText(QApplication::translate("Widget", "100", nullptr));
         label_netduan2->setText(QApplication::translate("Widget", "192.168.1.", nullptr));
@@ -2704,7 +2461,6 @@ public:
         label_68->setText(QApplication::translate("Widget", "\342\206\222", nullptr));
         label_69->setText(QApplication::translate("Widget", "\342\206\222", nullptr));
         label_100->setText(QApplication::translate("Widget", "eth2:", nullptr));
-        label_Page2_title_3->setText(QApplication::translate("Widget", "5.\351\237\263\351\242\221\346\265\213\350\257\225", nullptr));
         groupBox->setTitle(QApplication::translate("Widget", "\346\222\255\346\224\276\351\200\211\346\213\251", nullptr));
         pushButton_Play->setText(QApplication::translate("Widget", "\345\274\200\345\247\213(\346\213\250\345\217\267\351\224\256)", nullptr));
         radioButton_rec->setText(QApplication::translate("Widget", "\345\275\225\351\237\263\346\265\213\350\257\225", nullptr));
@@ -2719,33 +2475,10 @@ public:
         label_HandVol->setText(QApplication::translate("Widget", "\346\211\213\346\237\204\351\237\263\351\207\217", nullptr));
         label_EarphVol->setText(QApplication::translate("Widget", "\350\200\263\346\234\272\351\237\263\351\207\217", nullptr));
         label_19->setText(QApplication::translate("Widget", "\351\237\263\351\207\2174", nullptr));
-        label_20->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_21->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_22->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_6->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
-        pushButton_Last1_5->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        pushButton_Next2_5->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        pushButton_Exit2_5->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
         label_SpeakVol->setText(QApplication::translate("Widget", "\346\211\254\345\243\260\345\231\250\351\237\263\351\207\217", nullptr));
         radioButton_SpeakVol->setText(QApplication::translate("Widget", "\351\235\231\351\237\263", nullptr));
-        label_Page2_title_4->setText(QApplication::translate("Widget", "6.\350\247\246\346\221\270\346\265\213\350\257\225", nullptr));
-        pushButton_Next2_2->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
         pushButton_start_lcd_touch->setText(QApplication::translate("Widget", "\345\274\200\345\247\213\346\265\213\350\257\225", nullptr));
-        pushButton_Last1_2->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        pushButton_Exit2_2->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        label_52->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_53->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_54->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_55->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
         label_28->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232\346\213\250\345\217\267", nullptr));
-        label_Page2_title_6->setText(QApplication::translate("Widget", "7.IIC/SPI\346\265\213\350\257\225", nullptr));
-        pushButton_Exit7->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        pushButton_Next7->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        pushButton_Last7->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        label_70->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_71->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_72->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_73->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
         radioButton_IICtest->setText(QApplication::translate("Widget", "IIC\346\265\213\350\257\225", nullptr));
         radioButton_Spitest->setText(QApplication::translate("Widget", "SPI\346\265\213\350\257\225", nullptr));
         radioButton_Uarttest->setText(QApplication::translate("Widget", "\351\200\232\350\256\257\344\270\262\345\217\243\346\265\213\350\257\225", nullptr));
@@ -2753,14 +2486,6 @@ public:
         pushButton_9->setText(QApplication::translate("Widget", "\346\225\260\346\215\256\345\206\231\345\205\245", nullptr));
         pushButton_10->setText(QApplication::translate("Widget", "\346\225\260\346\215\256\346\223\246\351\231\244", nullptr));
         pushButton_clear_display->setText(QApplication::translate("Widget", "\346\270\205\351\231\244\346\230\276\347\244\272", nullptr));
-        label_Page2_title_7->setText(QApplication::translate("Widget", "8.\345\205\266\344\273\226\351\205\215\347\275\256", nullptr));
-        pushButton_Exit7_2->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        pushButton_Next7_2->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        label_76->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_77->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_78->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_79->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
-        pushButton_Last7_2->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
         groupBox_2->setTitle(QApplication::translate("Widget", "\345\274\200\346\234\272\350\207\252\345\212\250\345\220\257\345\212\250", nullptr));
         checkBox_cpu_stress->setText(QApplication::translate("Widget", "cpu\345\216\213\345\212\233\346\265\213\350\257\225", nullptr));
         checkBox_gpio_flow->setText(QApplication::translate("Widget", "GPIO\346\265\201\346\260\264\347\201\257", nullptr));
@@ -2821,6 +2546,44 @@ public:
         label_83->setText(QApplication::translate("Widget", "cpu\346\270\251\345\272\246", nullptr));
         label_cpu_temp->setText(QApplication::translate("Widget", "20.0", nullptr));
         label_gpu_temp->setText(QApplication::translate("Widget", "20.0", nullptr));
+        label_99->setText(QApplication::translate("Widget", "2.\347\263\273\347\273\237\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
+        pushButton_disk_info->setText(QApplication::translate("Widget", "1. \347\243\201\347\233\230\344\277\241\346\201\257\346\230\276\347\244\272", nullptr));
+        pushButton_lcd_mcu_info->setText(QApplication::translate("Widget", "1.\345\261\217\345\271\225\345\215\225\347\211\207\346\234\272\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
+        pushButton_key_mcu_info->setText(QApplication::translate("Widget", "2.\351\224\256\347\233\230\345\215\225\347\211\207\346\234\272\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
+        pushButton_jc_ko_info->setText(QApplication::translate("Widget", "3.jc_keyboard.ko\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
+        pushButton_drv_so_info->setText(QApplication::translate("Widget", "4.libdrv722.so\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
+        label_16->setText(QApplication::translate("Widget", "1.md5\345\200\274", nullptr));
+        label_58->setText(QApplication::translate("Widget", "2.\347\274\226\350\257\221\346\227\266\351\227\264", nullptr));
+        label_59->setText(QApplication::translate("Widget", "3.\347\211\210\346\234\254\345\217\267", nullptr));
+        label_lcd_mcu_md5->setText(QApplication::translate("Widget", "9314a5dfcb6ddb9a9abb3682f55f8a41", nullptr));
+        label_lcd_mcu_time->setText(QApplication::translate("Widget", "May 10 2023 09:29:01", nullptr));
+        label_lcd_mcu_version->setText(QApplication::translate("Widget", "05", nullptr));
+        label_60->setText(QApplication::translate("Widget", "1.md5\345\200\274", nullptr));
+        label_61->setText(QApplication::translate("Widget", "2.\347\274\226\350\257\221\346\227\266\351\227\264", nullptr));
+        label_62->setText(QApplication::translate("Widget", "3.\347\211\210\346\234\254\345\217\267", nullptr));
+        label_keyb_mcu_md5->setText(QApplication::translate("Widget", "9314a5dfcb6ddb9a9abb3682f55f8a41", nullptr));
+        label_keyb_mcu_time->setText(QApplication::translate("Widget", "May 10 2023 09:29:01", nullptr));
+        label_keyb_mcu_version->setText(QApplication::translate("Widget", "05", nullptr));
+        label_101->setText(QApplication::translate("Widget", "1.md5\345\200\274", nullptr));
+        label_102->setText(QApplication::translate("Widget", "2.\347\274\226\350\257\221\346\227\266\351\227\264", nullptr));
+        label_104->setText(QApplication::translate("Widget", "3.\347\211\210\346\234\254\345\217\267", nullptr));
+        label_jc_ko_md5->setText(QApplication::translate("Widget", "9314a5dfcb6ddb9a9abb3682f55f8a41", nullptr));
+        label_jc_ko_time->setText(QApplication::translate("Widget", "May 10 2023 09:29:01", nullptr));
+        label_jc_ko_version->setText(QApplication::translate("Widget", "05", nullptr));
+        label_108->setText(QApplication::translate("Widget", "1.md5\345\200\274", nullptr));
+        label_109->setText(QApplication::translate("Widget", "2.\347\274\226\350\257\221\346\227\266\351\227\264", nullptr));
+        label_110->setText(QApplication::translate("Widget", "3.\347\211\210\346\234\254\345\217\267", nullptr));
+        label_drv_so_md5->setText(QApplication::translate("Widget", "9314a5dfcb6ddb9a9abb3682f55f8a41", nullptr));
+        label_drv_so_time->setText(QApplication::translate("Widget", "May 10 2023 09:29:01", nullptr));
+        label_drv_so_version->setText(QApplication::translate("Widget", "05", nullptr));
+        label_2->setText(QApplication::translate("Widget", "TextLabel", nullptr));
+        label->setText(QApplication::translate("Widget", "TextLabel", nullptr));
+        pushButton_Help->setText(QApplication::translate("Widget", "\345\270\256\345\212\251", nullptr));
+        pushButton_Last_page->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
+        pushButton_Next_page->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
+        label_color->setText(QString());
+        label_Page_title->setText(QApplication::translate("Widget", "10.\350\275\257\344\273\266\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
+        label_97->setText(QApplication::translate("Widget", "\351\273\230\350\256\244\345\220\257\345\212\250\351\241\265", nullptr));
         comboBox->setItemText(0, QApplication::translate("Widget", "1", nullptr));
         comboBox->setItemText(1, QApplication::translate("Widget", "2", nullptr));
         comboBox->setItemText(2, QApplication::translate("Widget", "3", nullptr));
@@ -2830,18 +2593,8 @@ public:
         comboBox->setItemText(6, QApplication::translate("Widget", "7", nullptr));
         comboBox->setItemText(7, QApplication::translate("Widget", "8", nullptr));
         comboBox->setItemText(8, QApplication::translate("Widget", "9", nullptr));
+        comboBox->setItemText(9, QApplication::translate("Widget", "10", nullptr));
 
-        label_97->setText(QApplication::translate("Widget", "\351\273\230\350\256\244\345\220\257\345\212\250\351\241\265", nullptr));
-        pushButton_Exit9->setText(QApplication::translate("Widget", "\351\200\200\345\207\272", nullptr));
-        label_Page2_title_8->setText(QApplication::translate("Widget", "9.\347\263\273\347\273\237\344\277\241\346\201\257", nullptr));
-        pushButton_Next9->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265", nullptr));
-        label_80->setText(QApplication::translate("Widget", "\345\277\253\346\215\267\351\224\256\357\274\232", nullptr));
-        label_81->setText(QApplication::translate("Widget", "\344\270\213\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2274", nullptr));
-        label_91->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265: \346\265\213\350\257\225+\346\225\260\345\255\2277", nullptr));
-        label_93->setText(QApplication::translate("Widget", "\351\200\200\345\207\272: \346\265\213\350\257\225+\346\225\260\345\255\2271", nullptr));
-        pushButton_Last9->setText(QApplication::translate("Widget", "\344\270\212\344\270\200\351\241\265", nullptr));
-        label_99->setText(QApplication::translate("Widget", "2.\347\263\273\347\273\237\347\211\210\346\234\254\344\277\241\346\201\257", nullptr));
-        pushButton_disk_info->setText(QApplication::translate("Widget", "1. \347\243\201\347\233\230\344\277\241\346\201\257\346\230\276\347\244\272", nullptr));
     } // retranslateUi
 
 };

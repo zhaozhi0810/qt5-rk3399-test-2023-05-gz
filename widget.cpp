@@ -34,7 +34,7 @@ extern "C" {
 const char* g_build_time_str = "Buildtime :" __DATE__ " " __TIME__ ;   //获得编译时间
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
-#define PAGES 9  //显示总页数
+#define PAGES 10  //显示总页数
 
 
 
@@ -170,7 +170,7 @@ Widget::Widget(QWidget *parent) :
     connect(this->myprocess_ifconfig, SIGNAL(finished(int)),this,SLOT(ifconfig_info_show(int)));//连接信号
 //    myprocess_top_cmd = new QProcess;
     myprocess_cpu_stress = new QProcess;
-
+    myprocess_version = new QProcess;
     myprocess_ping[0] = new QProcess;
     connect(this->myprocess_ping[0], SIGNAL(readyReadStandardOutput()),this,SLOT(ping1_info_show()));//连接信号
     myprocess_ping[1] = new QProcess;
@@ -345,6 +345,8 @@ Widget::~Widget()
     if(myprocess_ping[2] && myprocess_ping[2]->state() == QProcess::Running)
         myprocess_ping[2]->kill();
     delete  myprocess_ping[2];
+
+    delete myprocess_version;
 
     delete intValidator;
     delete pReg;
@@ -1226,19 +1228,19 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
 
         if(is_test_press == 1)  //判断是否有组合键功能
         {
-            if(KeyEvent->key() == Qt::Key_4)
+            if(KeyEvent->key() >= Qt::Key_1 && KeyEvent->key() <= Qt::Key_9)
+            {
+                stackedWidget_page_show(KeyEvent->key() - Qt::Key_1);
+            }
+            else if(KeyEvent->key() == Qt::Key_Up)
+            {
+                 last_func_page_show();
+            }
+            else if(KeyEvent->key() == Qt::Key_Down)
             {
                 next_func_page_show();
             }
-            else if(KeyEvent->key() == Qt::Key_1)
-            {
-                this->close();
-            }
-            else if(KeyEvent->key() == Qt::Key_7)
-            {
-                last_func_page_show();
-            }
-            else if(KeyEvent->key() == Qt::Key_2)
+            else if(KeyEvent->key() == Qt::Key_Slash)   //测试 + #
             {
                 if(ui->stackedWidget->currentIndex() == 0)
                 {
@@ -1275,18 +1277,15 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
 }
 
 
-//下一项
-void Widget::next_func_page_show()
-{
-    int index = ui->stackedWidget->currentIndex();
 
+//下一项
+void Widget::stackedWidget_page_show(int index)
+{
 #ifdef RK_3399_PLATFORM
     if(index == 0)
         drvDimAllLED();
 #endif
-
-    if(index < (PAGES-1) )
-        index ++;
+    //qDebug() << "enter stackedWidget_page_show = " << index;
 
     if(index == 3){  //进入网络测试页，开启定时器
         timer_net_stat->start(500);
@@ -1319,6 +1318,23 @@ void Widget::next_func_page_show()
     }
 
     ui->stackedWidget->setCurrentIndex(index);
+
+    //qDebug() << "go out stackedWidget_page_show = " << index;
+}
+
+
+
+
+
+//下一项
+void Widget::next_func_page_show()
+{
+    int index = ui->stackedWidget->currentIndex();
+
+    if(index < (PAGES-1) )
+        index ++;
+
+    stackedWidget_page_show(index);
 
 
 }
@@ -1331,43 +1347,11 @@ void Widget::last_func_page_show()
         index --;
 #ifdef RK_3399_PLATFORM
     if(index == 0){
-        drvDimAllLED();
         Palette_button(0,0);//键恢复为灰色
     }
 #endif
 
-    if(index == 3){  //进入网络测试页，开启定时器
-        timer_net_stat->start(500);
-        ui->pushButton_5->setEnabled(false);
-        ui->pushButton_2->setEnabled(false);
-        ui->pushButton_4->setEnabled(false);
-    }
-    else       //退出网络测试页关闭定时器
-        timer_net_stat->stop();
-
-    if(index == 7){  //进入网络测试页，开启定时器
-        timer_cpu_mem_info->start(1000);
-    }
-    else       //退出网络测试页关闭定时器
-        timer_cpu_mem_info->stop();
-
-    if(index == 8)
-    {
-        page9_info_show();
-    }
-
-    if(index != 6)
-    {
-        if(myprocess_iicspi->state()==QProcess::Running)
-        {
-            myprocess_iicspi->kill();
-        }
-        if(myprocess_uart->state() == QProcess::Running)
-            myprocess_uart->kill();
-//        timer_uart_send->stop();
-    }
-
-    ui->stackedWidget->setCurrentIndex(index);
+    stackedWidget_page_show(index);
 }
 
 
@@ -1400,19 +1384,6 @@ void Widget::closeEvent(QCloseEvent *event)
 
 
 
-//page1  next
-void Widget::on_pushButton_Next1_clicked()
-{
-    next_func_page_show();  //page2
-}
-
-//page2 last
-void Widget::on_pushButton_Last1_clicked()
-{
-    last_func_page_show(); //ui->stackedWidget->setCurrentIndex(0);  //page1
-}
-
-
 //page2 start test lcd color
 void Widget::on_pushButton_start_color_test_clicked()
 {
@@ -1437,19 +1408,6 @@ void Widget::on_pushButton_start_color_test_clicked()
 
 }
 
-
-//page2 next page
-void Widget::on_pushButton_Next2_clicked()
-{
-    next_func_page_show();  //page2ui->stackedWidget->setCurrentIndex(2);  //page2
-}
-
-
-//close
-void Widget::on_pushButton_Exit1_clicked()
-{
-    this->close();
-}
 
 
 //page3 left
@@ -2237,6 +2195,7 @@ void Widget::on_pushButton_5_clicked()
 void Widget::on_horizontalScrollBar_SpeakVol_valueChanged(int value)
 {
 //    qDebug()<<"扬声器音量 " << value  ;
+    value = value;
 #ifdef RK_3399_PLATFORM
     drvSetSpeakVolume(value);
 #endif
@@ -2246,6 +2205,7 @@ void Widget::on_horizontalScrollBar_SpeakVol_valueChanged(int value)
 //音频测试页： 手柄音量调整滑动
 void Widget::on_horizontalScrollBar_HandVol_valueChanged(int value)
 {
+    value = value;
 //    qDebug()<<"手柄音量" << value  ;
 #ifdef RK_3399_PLATFORM
     drvSetHandVolume(value);
@@ -2255,99 +2215,11 @@ void Widget::on_horizontalScrollBar_HandVol_valueChanged(int value)
 //音频测试页： 耳机音量调整滑动
 void Widget::on_horizontalScrollBar_EarphVol_valueChanged(int value)
 {
+    value = value;
 //    qDebug()<<"耳机音量" << value  ;
 #ifdef RK_3399_PLATFORM
     drvSetEarphVolume(value);
 #endif
-}
-
-
-//每一页的退出
-void Widget::on_pushButton_Exit2_3_clicked()
-{
-    this->close();
-}
-
-void Widget::on_pushButton_Exit2_clicked()
-{
-    this->close();
-}
-
-void Widget::on_pushButton_Exit2_4_clicked()
-{
-    this->close();
-}
-
-void Widget::on_pushButton_Exit2_5_clicked()
-{
-    this->close();
-}
-
-void Widget::on_pushButton_Exit2_2_clicked()
-{
-    this->close();
-}
-
-
-//每一页的上一页
-void Widget::on_pushButton_Last1_2_clicked()
-{
-    last_func_page_show();
-}
-
-void Widget::on_pushButton_Last1_5_clicked()
-{
-    last_func_page_show();
-}
-
-void Widget::on_pushButton_Last1_4_clicked()
-{
-    last_func_page_show();
-}
-
-void Widget::on_pushButton_Last1_3_clicked()
-{
-    ui->lineEdit_interval->clearFocus();
-    last_func_page_show();
-
-}
-
-
-//每一页的下一页
-void Widget::on_pushButton_Next2_3_clicked()
-{
-    ui->lineEdit_interval->clearFocus();
-    next_func_page_show();
-}
-
-void Widget::on_pushButton_Next2_4_clicked()
-{
-    next_func_page_show();
-}
-
-void Widget::on_pushButton_Next2_5_clicked()
-{
-    next_func_page_show();
-}
-
-
-//触摸屏测试页的下一页
-void Widget::on_pushButton_Next2_2_clicked()
-{
-    next_func_page_show();
-}
-
-
-//iicspi测试页的上一页
-void Widget::on_pushButton_Last7_clicked()
-{
-    last_func_page_show();
-}
-
-//iicspi测试页的退出键
-void Widget::on_pushButton_Exit7_clicked()
-{
-    this->close();
 }
 
 
@@ -2731,21 +2603,6 @@ void Widget::on_radioButton_HandVol_toggled(bool checked)
     }
 }
 
-void Widget::on_pushButton_Last7_2_clicked()
-{
-    last_func_page_show();
-}
-
-void Widget::on_pushButton_Exit7_2_clicked()
-{
-    this->close();
-}
-
-void Widget::on_pushButton_Next7_clicked()
-{
-    next_func_page_show();
-}
-
 
 
 void Widget::on_pushButton_start_cpustress_clicked()
@@ -2861,20 +2718,6 @@ void Widget::on_comboBox_currentIndexChanged(int index)
     SetConfigFile();
 }
 
-void Widget::on_pushButton_Next7_2_clicked()
-{
-    next_func_page_show();
-}
-
-void Widget::on_pushButton_Last9_clicked()
-{
-    last_func_page_show();
-}
-
-void Widget::on_pushButton_Exit9_clicked()
-{
-    this->close();
-}
 
 
 void Widget::show_boardtype_info(void)
@@ -2944,9 +2787,15 @@ void Widget::page9_info_show(void)
 void Widget::on_pushButton_disk_info_clicked()
 {
     if(myprocess_play1[0]->state()==QProcess::Running)
+    {
         myprocess_play1[0]->kill();
+        myprocess_play1[0]->waitForFinished();
+    }
     if(myprocess_play1[1]->state()==QProcess::Running)
+    {
         myprocess_play1[1]->kill();
+        myprocess_play1[1]->waitForFinished();
+    }
 
 
     myprocess_play1[0]->start("fdisk -l");
@@ -2955,7 +2804,6 @@ void Widget::on_pushButton_disk_info_clicked()
     myprocess_play1[1]->waitForFinished();
 
     ui->textBrowser_disk_info->setText(myprocess_play1[1]->readAllStandardOutput());
-
 
 }
 
@@ -3015,4 +2863,183 @@ void Widget::on_radioButton_Uarttest_toggled(bool checked)
 void Widget::on_pushButton_clear_display_clicked()
 {
     ui->textBrowser_IICSPI->clear();
+}
+
+
+
+//查询lcd屏幕单片机版本
+void Widget::on_pushButton_lcd_mcu_info_clicked()
+{
+    QString read_data;
+    QString content;
+    int num;
+    ui->pushButton_lcd_mcu_info->setStyleSheet("QPushButton{background-color:#ff0000;font: 20pt \"Ubuntu\";}");
+    if(myprocess_version->state() == QProcess::Running)
+    {
+        myprocess_version->kill();
+        myprocess_version->waitForFinished();
+    }
+
+    myprocess_version->start("/home/deepin/mcu_update/read_mcu_version_dg_lcd");
+    myprocess_version->waitForFinished();
+    read_data = myprocess_version->readAllStandardOutput();
+
+    QStringList tempStringList =  read_data.split("\n");
+
+    num = tempStringList.count();
+    //qDebug() << "num = " << tempStringList.count();
+
+//    for(i=0;i<num;i++)
+//        qDebug() << tempStringList.at(i);
+    if(num >= 4)
+    {
+        QStringList templist;
+        content = tempStringList.at(1);
+        templist = content.split(":");
+        if(templist.count()>= 2)
+            ui->label_lcd_mcu_md5->setText(templist.at(1));
+        content = tempStringList.at(2);
+        num = content.indexOf(":");
+        ui->label_lcd_mcu_time->setText(content.mid(num+1));
+
+        content = tempStringList.at(3);
+        templist = content.split(":");
+        if(templist.count()>= 2)
+            ui->label_lcd_mcu_version->setText(templist.at(1));
+    }
+    ui->pushButton_lcd_mcu_info->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
+}
+
+//查询键盘单片机版本
+void Widget::on_pushButton_key_mcu_info_clicked()
+{
+    QString read_data;
+    QString content;
+    int num;
+    ui->pushButton_key_mcu_info->setStyleSheet("QPushButton{background-color:#ff0000;font: 20pt \"Ubuntu\";}");
+    if(myprocess_version->state() == QProcess::Running)
+    {
+        myprocess_version->kill();
+        myprocess_version->waitForFinished();
+    }
+
+
+    myprocess_version->start("/home/deepin/mcu_update/read_mcu_version_dg_keyboard");
+    myprocess_version->waitForFinished();
+    read_data = myprocess_version->readAllStandardOutput();
+
+   // qDebug() << read_data;
+
+    QStringList tempStringList =  read_data.split("\n");
+
+    num = tempStringList.count();
+    //qDebug() << "num = " << tempStringList.count();
+
+//    for(i=0;i<num;i++)
+//        qDebug() << tempStringList.at(i);
+    if(num >= 4)
+    {
+        QStringList templist;
+        content = tempStringList.at(1);
+        templist = content.split(":");
+        if(templist.count()>= 2)
+            ui->label_keyb_mcu_md5->setText(templist.at(1));
+        content = tempStringList.at(2);
+        num = content.indexOf(":");
+        ui->label_keyb_mcu_time->setText(content.mid(num+1));
+
+        content = tempStringList.at(3);
+        templist = content.split(":");
+        if(templist.count()>= 2)
+            ui->label_keyb_mcu_version->setText(templist.at(1));
+    }
+    ui->pushButton_key_mcu_info->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
+}
+
+
+//查询libdrv722.so版本
+void Widget::on_pushButton_drv_so_info_clicked()
+{
+    QString read_data;
+    char buildtime[32] = {0};
+    int version = 0;
+    ui->pushButton_drv_so_info->setStyleSheet("QPushButton{background-color:#ff0000;font: 20pt \"Ubuntu\";}");
+    if(myprocess_version->state() == QProcess::Running)
+    {
+        myprocess_version->kill();
+        myprocess_version->waitForFinished();
+    }
+
+    myprocess_version->start("md5sum /usr/lib/libdrv722.so");
+    myprocess_version->waitForFinished();
+    read_data = myprocess_version->readAllStandardOutput();
+    ui->label_drv_so_md5->setText(read_data.left(32));
+
+#ifdef RK_3399_PLATFORM
+    drvGetBuildtimeVersion(buildtime,&version);
+#endif
+    ui->label_drv_so_time->setText(buildtime);
+    ui->label_drv_so_version->setText(QString::number(version));
+    ui->pushButton_drv_so_info->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
+}
+
+
+//查询jc_keyboard.ko版本
+void Widget::on_pushButton_jc_ko_info_clicked()
+{
+    QString read_data;
+    QString content;
+    int i,num,n;
+
+    ui->pushButton_jc_ko_info->setStyleSheet("QPushButton{background-color:#ff0000;font: 20pt \"Ubuntu\";}");
+    if(myprocess_version->state() == QProcess::Running)
+    {
+        myprocess_version->kill();
+        myprocess_version->waitForFinished();
+    }
+
+    myprocess_version->start("md5sum /root/jc_keyboard.ko");
+    myprocess_version->waitForFinished();
+    read_data = myprocess_version->readAllStandardOutput();
+    ui->label_jc_ko_md5->setText(read_data.left(32));
+
+    myprocess_version->start("modinfo /root/jc_keyboard.ko");
+    myprocess_version->waitForFinished();
+    read_data = myprocess_version->readAllStandardOutput();
+    QStringList tempStringList =  read_data.split("\n");
+
+    num = tempStringList.count();
+    for(i=0;i<num;i++)
+    {
+        content = tempStringList.at(i);
+        if(content.startsWith("version"))
+        {
+            n = content.indexOf(":");
+            if(n>0)
+                ui->label_jc_ko_version->setText(content.mid(n+5));
+        }
+        else if(content.startsWith("description"))
+        {
+            n = content.indexOf(":");
+            n = content.indexOf(":",n+1);
+            if(n>0)
+                ui->label_jc_ko_time->setText(content.mid(n+1));
+         }
+    }
+    ui->pushButton_jc_ko_info->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
+}
+
+void Widget::on_pushButton_Last_page_clicked()
+{
+    last_func_page_show();
+}
+
+void Widget::on_pushButton_Next_page_clicked()
+{
+    next_func_page_show();
+}
+
+void Widget::on_pushButton_Help_clicked()
+{
+
 }

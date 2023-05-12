@@ -30,14 +30,7 @@ public:
     void Palette_button(int ison,int val);
 
 private slots:
-    void on_pushButton_Next1_clicked();
-
-    void on_pushButton_Last1_clicked();
     void on_pushButton_start_color_test_clicked();
-
-    void on_pushButton_Next2_clicked();
-
-    void on_pushButton_Exit1_clicked();
 #ifdef RK_3399_PLATFORM
     void timer_key_leds_slot_Function();
 #endif
@@ -75,36 +68,6 @@ private slots:
 
     void on_pushButton_5_clicked();
 
-//    void on_horizontalSlider_SpeakVol_valueChanged(int value);
-
-//    void on_horizontalSlider_HandVol_valueChanged(int value);
-
-//    void on_horizontalSlider_EarphVol_valueChanged(int value);
-
-    void on_pushButton_Exit2_3_clicked();
-
-    void on_pushButton_Exit2_clicked();
-
-    void on_pushButton_Exit2_4_clicked();
-
-    void on_pushButton_Exit2_5_clicked();
-
-    void on_pushButton_Exit2_2_clicked();
-
-    void on_pushButton_Last1_2_clicked();
-
-    void on_pushButton_Last1_5_clicked();
-
-    void on_pushButton_Last1_4_clicked();
-
-    void on_pushButton_Last1_3_clicked();
-
-    void on_pushButton_Next2_3_clicked();
-
-    void on_pushButton_Next2_4_clicked();
-
-    void on_pushButton_Next2_5_clicked();
-
 //    void on_verticalSlider_lightpwm2_valueChanged(int value);
 
     void on_checkBox_toggled(bool checked);
@@ -133,12 +96,6 @@ private slots:
 
     void on_horizontalScrollBar_light_valueChanged(int value);
 
-    void on_pushButton_Next2_2_clicked();
-
-    void on_pushButton_Last7_clicked();
-
-    void on_pushButton_Exit7_clicked();
-
     void on_pushButton_8_clicked();
 
     void on_pushButton_9_clicked();
@@ -154,17 +111,11 @@ private slots:
 
     void on_radioButton_HandVol_toggled(bool checked);
 
-    void on_pushButton_Last7_2_clicked();
-
-    void on_pushButton_Exit7_2_clicked();
-
     void on_pushButton_start_cpustress_clicked();
 
     void on_checkBox_cpu_stress_toggled(bool checked);
 
     void on_checkBox_gpio_flow_toggled(bool checked);
-
-    void on_pushButton_Next7_clicked();
 
     void on_checkBox_keyLights_toggled(bool checked);
 
@@ -178,17 +129,24 @@ private slots:
 
     void on_comboBox_currentIndexChanged(int index);
 
-    void on_pushButton_Next7_2_clicked();
-
-    void on_pushButton_Last9_clicked();
-
-    void on_pushButton_Exit9_clicked();
-
     void on_pushButton_disk_info_clicked();
 
     void on_radioButton_Uarttest_toggled(bool checked);
 
     void on_pushButton_clear_display_clicked();
+
+    void on_pushButton_lcd_mcu_info_clicked();
+
+    void on_pushButton_key_mcu_info_clicked();
+
+    void on_pushButton_drv_so_info_clicked();
+
+    void on_pushButton_jc_ko_info_clicked();
+
+    void on_pushButton_Last_page_clicked();
+    void on_pushButton_Next_page_clicked();
+
+    void on_pushButton_Help_clicked();
 
 private:
     Ui::Widget *ui;
@@ -212,6 +170,7 @@ private:
     void last_color_page_show();
     void next_func_page_show();
     void last_func_page_show();
+    void stackedWidget_page_show(int index);
     void terminate_ping1();
     void terminate_ping2();
     void terminate_ping3();
@@ -243,6 +202,7 @@ private:
     QProcess *myprocess_FlowLEds;
     QProcess *myprocess_ping[3];
     QProcess *myprocess_play;   //播放进程
+    QProcess *myprocess_version;   //
     QFrame* buttonFrame;
 //    QProcess *myprocess_top_cmd;   //播放进程
     QProcess *myprocess_cpu_stress;   //播放进程
