@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include "cpu_mem_cal.h"  
-
+# include <sys/sysinfo.h>
 /*
  * 本文件用于计算cpu的使用率和内存的使用率，2023-04-18
  * */
@@ -244,6 +244,78 @@ void cpu_mem_calc(void*data)
 //		gpdata->gpu_temp = temp;
 //	}
 }
+
+
+
+
+
+int get_uptime_sysinfo(char* start_time, char* run_time)
+{
+    unsigned updays, uphours, upminutes;
+    unsigned opts;
+    struct sysinfo info;
+    struct tm *current_time;
+    time_t current_secs;
+    int count = 0;
+
+    opts = (start_time != NULL);
+
+    time(&current_secs);
+    sysinfo(&info);
+
+    if (opts) // -s
+    {
+        current_secs -= info.uptime;
+
+        current_time = localtime(&current_secs);
+
+//    if (opts) { // -s
+        sprintf(start_time,"%04u-%02u-%02u %02u:%02u:%02u\n",
+            current_time->tm_year + 1900, current_time->tm_mon + 1, current_time->tm_mday,
+            current_time->tm_hour, current_time->tm_min, current_time->tm_sec
+        );
+        /* The above way of calculating boot time is wobbly,
+         * info.uptime has only 1 second precision, which makes
+         * "uptime -s" wander +- one second.
+         * /proc/uptime may be better, it has 0.01s precision.
+         */
+        //return EXIT_SUCCESS;
+    }
+
+//    printf(" %02u:%02u:%02u up ",
+//            current_time->tm_hour, current_time->tm_min, current_time->tm_sec
+//    );
+    updays = (unsigned) info.uptime / (unsigned)(60*60*24);
+    if (updays != 0)
+        count = sprintf(run_time,"%u day%s, ", updays, (updays != 1) ? "s" : "");
+    upminutes = (unsigned) info.uptime / (unsigned)60;
+    uphours = (upminutes / (unsigned)60) % (unsigned)24;
+    upminutes %= 60;
+    if (uphours != 0)
+        count = sprintf(run_time+count,"%2u:%02u", uphours, upminutes);
+    else
+        count = sprintf(run_time+count,"%u min", upminutes);
+
+#if ENABLE_FEATURE_UPTIME_UTMP_SUPPORT
+    {
+        struct utmpx *ut;
+        unsigned users = 0;
+        while ((ut = getutxent()) != NULL) {
+            if ((ut->ut_type == USER_PROCESS) && (ut->ut_user[0] != '\0'))
+                users++;
+        }
+        printf(",  %u users", users);
+    }
+#endif
+
+//    printf(",  load average: %u.%02u, %u.%02u, %u.%02u\n",
+//            LOAD_INT(info.loads[0]), LOAD_FRAC(info.loads[0]),
+//            LOAD_INT(info.loads[1]), LOAD_FRAC(info.loads[1]),
+//            LOAD_INT(info.loads[2]), LOAD_FRAC(info.loads[2]));
+
+    return 0;//EXIT_SUCCESS
+}
+
 
 
 

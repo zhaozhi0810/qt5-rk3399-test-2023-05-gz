@@ -32,9 +32,9 @@ extern "C" {
 #endif
 
 const char* g_build_time_str = "Buildtime :" __DATE__ " " __TIME__ ;   //获得编译时间
-
+QStringList g_show_title;   //获得编译时间
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
-#define PAGES 10  //显示总页数
+#define PAGES 9  //显示总页数
 
 
 
@@ -51,6 +51,9 @@ static int led_key_map[] = {
  1,2,3,4,5,6,7,8,9,10,44,45,11,12,27,18,19,20,21,22,23,24,25,26,28,29,13,14,35,36,30,31,17,32,33,34,37,38,39    /*20230504 多功能增加3个按键，左32，右33，ok34，切换（与测试键值相同）37,38,39是三色灯*/
 };
 #endif
+
+QTextBrowser * g_help_brower[PAGES];
+
 
 
 struct system_config
@@ -76,6 +79,7 @@ Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
+    int i;
     ui->setupUi(this);
 
     ReadConfigFile();   //读取配置文件
@@ -91,6 +95,24 @@ Widget::Widget(QWidget *parent) :
     is_light_all_leds = 0;
 
 #endif
+    g_show_title<<"1.键盘测试"<<"2.键灯测试"<<"3.LCD测试"<<"4.网络测试"<<"5.音频测试"<<"6.IIC/SPI/UART"<<"7.其他配置"<<"8.系统信息"<<"9.软件版本信息";
+
+    g_help_brower[0] = ui->textBrowser_help_page1;
+    g_help_brower[1] = ui->textBrowser_help_page2;
+    g_help_brower[2] = ui->textBrowser_help_page3;
+    g_help_brower[3] = ui->textBrowser_help_page4;
+    g_help_brower[4] = ui->textBrowser_help_page5;
+    g_help_brower[5] = ui->textBrowser_help_page6;
+    g_help_brower[6] = ui->textBrowser_help_page7;
+    g_help_brower[7] = ui->textBrowser_help_page8;
+    g_help_brower[8] = ui->textBrowser_help_page9;
+
+    for(i=0;i<PAGES;i++)
+    {
+        g_help_brower[i]->lower();
+        g_help_brower[i]->setVisible(false);
+    }
+
     timer_net_stat = new QTimer(this);
     timer_cpu_mem_info  = new QTimer(this);
     connect ( timer_net_stat, SIGNAL ( timeout() ), this, SLOT ( timer_net_stat_slot_Function() ) );
@@ -107,7 +129,7 @@ Widget::Widget(QWidget *parent) :
     page2_show_color = 0;
     is_test_press = 0;     //测试键没有按下
     key_light_connect = 1;  //键灯关联
-    ui->stackedWidget->setCurrentIndex(0);
+//    ui->stackedWidget->setCurrentIndex(0);
 
     intValidator = new QIntValidator;
     intValidator->setRange(1,999999);
@@ -203,7 +225,9 @@ Widget::Widget(QWidget *parent) :
     on_radioButton_micpanel_clicked();
 
 
-    ui->stackedWidget->setCurrentIndex(g_sys_conf.default_show_page);
+    //ui->stackedWidget->setCurrentIndex(g_sys_conf.default_show_page);
+    stackedWidget_page_show(g_sys_conf.default_show_page);
+
     ui->comboBox_cpu->setCurrentIndex(g_sys_conf.cpu_test_core_num);
     ui->comboBox_memory->setCurrentIndex(g_sys_conf.mem_test_usage);
     ui->checkBox_mem_n->setChecked(g_sys_conf.is_mem_test_checked);
@@ -220,21 +244,21 @@ Widget::Widget(QWidget *parent) :
 
     show_boardtype_info();
 
-    if(g_sys_conf.default_show_page == 7)
-    {
-        timer_cpu_mem_info->start(1000);
-    }
-    else if(g_sys_conf.default_show_page == 3)
-    {
-        timer_net_stat->start(500);
-        ui->pushButton_5->setEnabled(false);
-        ui->pushButton_2->setEnabled(false);
-        ui->pushButton_4->setEnabled(false);
-    }
-    else if(g_sys_conf.default_show_page == 8)
-    {
-        page9_info_show();
-    }
+//    if(g_sys_conf.default_show_page == 6)
+//    {
+//        timer_cpu_mem_info->start(1000);
+//    }
+//    else if(g_sys_conf.default_show_page == 3)
+//    {
+//        timer_net_stat->start(500);
+//        ui->pushButton_5->setEnabled(false);
+//        ui->pushButton_2->setEnabled(false);
+//        ui->pushButton_4->setEnabled(false);
+//    }
+//    else if(g_sys_conf.default_show_page == 7)
+//    {
+//        page9_info_show();
+//    }
 
     if(g_sys_conf.is_gpio_flow_start)
     {
@@ -741,6 +765,10 @@ void Widget::timer_cpu_mem_info_slot_Function()
     int temp;
     int mem_usage = 0;
     int cpu_usage[7];
+    QString read_data;
+    char start_time[64];
+    char run_time[64];
+
     jiffy_counts_t jifs[7];
     static long pre_busy[7] = {0};
     static long pre_total[7] = {0};
@@ -799,6 +827,16 @@ void Widget::timer_cpu_mem_info_slot_Function()
     ui->label_cpu5_freq->setText(QString::number(cpu_freq[5]));
 #endif
 
+    if(myprocess_version->state() == QProcess::Running)
+    {
+        myprocess_version->kill();
+        myprocess_version->waitForFinished();
+    }
+
+    get_uptime_sysinfo(start_time, run_time);
+
+    ui->label_start_time->setText(start_time);
+    ui->label_has_run_time->setText(run_time);
 }
 
 
@@ -1216,13 +1254,13 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
             }
 
         }
-        else if(ui->stackedWidget->currentIndex() == 5)//触摸屏测试页
-        {
-            if(KeyEvent->key() == Qt::Key_C) //拨号/电话键
-            {
-                on_pushButton_start_lcd_touch_clicked();
-            }
-        }
+//        else if(ui->stackedWidget->currentIndex() == 5)//触摸屏测试页
+//        {
+//            if(KeyEvent->key() == Qt::Key_C) //拨号/电话键
+//            {
+//                on_pushButton_start_lcd_touch_clicked();
+//            }
+//        }
 
 
 
@@ -1252,7 +1290,10 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
                         ui->checkBox->setChecked(true);
                 }
             }
-
+            else if(KeyEvent->key() == Qt::Key_P)   //测试 + ptt
+            {
+                system("reboot");
+            }
         }
 
 
@@ -1286,6 +1327,8 @@ void Widget::stackedWidget_page_show(int index)
         drvDimAllLED();
 #endif
     //qDebug() << "enter stackedWidget_page_show = " << index;
+    if(index < g_show_title.count())
+        ui->label_Page_title->setText(g_show_title.at(index));
 
     if(index == 3){  //进入网络测试页，开启定时器
         timer_net_stat->start(500);
@@ -1296,18 +1339,18 @@ void Widget::stackedWidget_page_show(int index)
     else       //退出网络测试页关闭定时器
         timer_net_stat->stop();
 
-    if(index == 7){  //进入网络测试页，开启定时器
+    if(index == 6){  //开启定时器
         timer_cpu_mem_info->start(1000);
     }
     else       //退出网络测试页关闭定时器
         timer_cpu_mem_info->stop();
 
-    if(index == 8)
+    if(index == 7)
     {
         page9_info_show();
     }
 
-    if(index != 6)
+    if(index != 5)
     {
         if(myprocess_iicspi->state()==QProcess::Running)
         {
@@ -1331,6 +1374,12 @@ void Widget::next_func_page_show()
 {
     int index = ui->stackedWidget->currentIndex();
 
+    if(g_help_brower[index]->isVisible())
+    {
+        g_help_brower[index]->setVisible(false);
+        g_help_brower[index]->lower();
+    }
+
     if(index < (PAGES-1) )
         index ++;
 
@@ -1342,6 +1391,13 @@ void Widget::next_func_page_show()
 void Widget::last_func_page_show()
 {
     int index = ui->stackedWidget->currentIndex();
+
+    if(g_help_brower[index]->isVisible())
+    {
+        g_help_brower[index]->setVisible(false);
+        g_help_brower[index]->lower();
+    }
+
 
     if(index > 0 )
         index --;
@@ -3041,5 +3097,18 @@ void Widget::on_pushButton_Next_page_clicked()
 
 void Widget::on_pushButton_Help_clicked()
 {
+    int i;
 
+    i = ui->stackedWidget->currentIndex();
+
+    if(g_help_brower[i]->isVisible())
+    {
+        g_help_brower[i]->setVisible(false);
+        g_help_brower[i]->lower();
+    }
+    else
+    {
+        g_help_brower[i]->setVisible(true);
+        g_help_brower[i]->raise();
+    }
 }

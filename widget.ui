@@ -22,7 +22,7 @@
      <x>0</x>
      <y>110</y>
      <width>720</width>
-     <height>1041</height>
+     <height>1021</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -32,7 +32,7 @@
     </sizepolicy>
    </property>
    <property name="currentIndex">
-    <number>9</number>
+    <number>7</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QWidget" name="verticalLayoutWidget">
@@ -833,9 +833,9 @@ color: rgb(204, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>160</y>
-       <width>651</width>
-       <height>251</height>
+       <y>100</y>
+       <width>661</width>
+       <height>641</height>
       </rect>
      </property>
      <property name="html">
@@ -843,10 +843,17 @@ color: rgb(204, 0, 0);</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;帮助信息：&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1.快速切换到对应的页面：组合键，按下test（不松开），再按1-9中任意数字，将切换到对应的页面。&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2.上一页，下一页：组合键，按下test（不松开），再按方向上或者方向下，将进行翻页操作。&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;3.重启设备： 组合键，按下test（不松开），再按下PTT，设备将重启&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#a40000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#729fcf;&quot;&gt;本页帮助信息&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.按下面板上对应的按键，界面中对应的键将显示为绿色，松开后显示为白色。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.导光面板类型，与键盘单片机通信，通信成功显示对应的型号，否则显示为未知。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.按键控制键灯，默认勾选，表示按下按键后，对应的键灯点亮，松开后不熄灭。不勾选时，对应的键灯不动作。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -1152,6 +1159,35 @@ background-color: rgb(204, 0, 0);</string>
       <string>⬅</string>
      </property>
     </widget>
+    <widget class="QTextBrowser" name="textBrowser_help_page2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>170</y>
+       <width>651</width>
+       <height>721</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#a40000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#729fcf;&quot;&gt;本页帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.闪烁间隔时间，默认100ms，需要修改时，可以使用数字键盘，退格键设置为左一按键（内通按键正下方第一个）。下次运行键灯控制时生效。仍在运行的键灯间隔时间不受本次设置控制。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.前三个是按键面板的键灯控制，三个是互斥的，即运行其中一个，其他不可运行，直到停止运行为止。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.第4个按键是控制工装底板上的led的流水灯控制。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.键灯亮度控制，指的是对于键灯面板灯的亮度的控制，默认值100.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
     <zorder>label_44</zorder>
     <zorder>label_light_value_2</zorder>
     <zorder>label_45</zorder>
@@ -1169,14 +1205,15 @@ background-color: rgb(204, 0, 0);</string>
     <zorder>pushButton_FlowLEDS</zorder>
     <zorder>label_75</zorder>
     <zorder>line_4</zorder>
+    <zorder>textBrowser_help_page2</zorder>
    </widget>
    <widget class="QWidget" name="page_2">
     <widget class="QPushButton" name="pushButton_start_color_test">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>230</x>
        <y>220</y>
-       <width>221</width>
+       <width>231</width>
        <height>101</height>
       </rect>
      </property>
@@ -1187,7 +1224,7 @@ background-color: rgb(204, 0, 0);</string>
       <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
      </property>
      <property name="text">
-      <string>开始测试</string>
+      <string>开始颜色测试</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_23">
@@ -1241,10 +1278,10 @@ p, li { white-space: pre-wrap; }
       <number>100</number>
      </property>
      <property name="value">
-      <number>90</number>
+      <number>100</number>
      </property>
      <property name="sliderPosition">
-      <number>90</number>
+      <number>100</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -1269,8 +1306,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_light_val">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>480</y>
+       <x>310</x>
+       <y>450</y>
        <width>81</width>
        <height>31</height>
       </rect>
@@ -1280,6 +1317,67 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>100</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_start_lcd_touch">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>740</y>
+       <width>221</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>开始触摸测试</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>670</y>
+       <width>701</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_help_page3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>661</width>
+       <height>611</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#a40000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#729fcf;&quot;&gt;本页帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.本页是lcd的颜色控制测试，和触摸测试，请选择对应的按钮操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.lcd亮度调节，默认值100，进度条的最右端。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -1920,6 +2018,19 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_netdev3">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+        </property>
+        <property name="text">
+         <string>eth2:</string>
+        </property>
+       </widget>
+      </item>
       <item row="2" column="2">
        <widget class="QLineEdit" name="lineEdit_ip3">
         <property name="enabled">
@@ -2093,19 +2204,6 @@ p, li { white-space: pre-wrap; }
         </property>
         <property name="text">
          <string>enp1s0f1:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_netdev3">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
-        </property>
-        <property name="text">
-         <string>eth2:</string>
         </property>
        </widget>
       </item>
@@ -2453,20 +2551,38 @@ background-color: rgb(204, 0, 0);</string>
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_100">
+    <widget class="QTextBrowser" name="textBrowser_help_page4">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>759</y>
-       <width>170</width>
-       <height>40</height>
+       <x>20</x>
+       <y>20</y>
+       <width>671</width>
+       <height>1011</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
-     </property>
-     <property name="text">
-      <string>eth2:</string>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#a40000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#729fcf;&quot;&gt;本页帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.本页是网络测试，需要配测计算机的配合，配测计算机需要设置3个ip，分别是192.168.0.200，192.168.1.200，192.168.2.200&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.通过“查看rk3399主板ip”按钮可以查看主板ip的设置信息&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.通过“配置rk3399主板ip”按钮，可以设置对应网卡的ip，ip在按钮下方的信息。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;   该ip可以调整，退格键是左一（内通按钮的正下方第一个）。输入可以使用数字键盘，范围只能是2-254&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.网口连接上时，会提示“已连接”，并显示为绿色，否则显示“已断开”，并显示为红色。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;5.ping 按钮灰色的时候，可能时网络已断开，或者该网卡对应的ip网段不正确，请设置对应ip，并按下“配置rk3399主板ip”按钮。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;6.自适应，勾选时，发包的速率会根据网络情况，加速发送，没有勾选时，默认1s发送一个包。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;7.打包，勾选时，使用打包发送（使用65500字节），没有勾选时，默认小包，64字节发送。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;8.ping的信息经过粗略解析之后，显示在界面上，包括发送的序号，以及经历时间。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <zorder>textBrowser_ifconfig</zorder>
@@ -2494,7 +2610,7 @@ background-color: rgb(204, 0, 0);</string>
     <zorder>label_40</zorder>
     <zorder>label_68</zorder>
     <zorder>label_69</zorder>
-    <zorder>label_100</zorder>
+    <zorder>textBrowser_help_page4</zorder>
    </widget>
    <widget class="QWidget" name="page_4">
     <widget class="QGroupBox" name="groupBox">
@@ -2836,42 +2952,33 @@ selection-color: rgb(52, 101, 164);</string>
       <bool>false</bool>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="page_5">
-    <widget class="QPushButton" name="pushButton_start_lcd_touch">
+    <widget class="QTextBrowser" name="textBrowser_help_page5">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>320</y>
-       <width>221</width>
-       <height>101</height>
+       <x>20</x>
+       <y>100</y>
+       <width>681</width>
+       <height>611</height>
       </rect>
      </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
-     </property>
-     <property name="text">
-      <string>开始测试</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_28">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>350</y>
-       <width>151</width>
-       <height>33</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 15pt &quot;Ubuntu&quot;;
-color: rgb(204, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>快捷键：拨号</string>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#729fcf;&quot;&gt;本页帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.本页是音频测试页，主要针对是导光面板和工装板测试。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.主要的功能可以选择播放，录音和回环。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -2882,7 +2989,7 @@ color: rgb(204, 0, 0);</string>
        <x>0</x>
        <y>230</y>
        <width>721</width>
-       <height>681</height>
+       <height>701</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -3011,8 +3118,8 @@ color: rgb(204, 0, 0);</string>
     <widget class="QPushButton" name="pushButton_clear_display">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>930</y>
+       <x>10</x>
+       <y>940</y>
        <width>161</width>
        <height>61</height>
       </rect>
@@ -3022,6 +3129,39 @@ color: rgb(204, 0, 0);</string>
      </property>
      <property name="text">
       <string>清除显示</string>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_help_page6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>90</y>
+       <width>671</width>
+       <height>881</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#a40000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#729fcf;&quot;&gt;本页帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.IIC测试，主要是EEPROM的读写测试，擦除后的数据应该全部为0xff&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;   数据写入，是对EEPROM的前128个字节写入1-128，写入后，需要再次读取数据，才能看到结果。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.SPI测试，主要是对SPI的Flash进行读写擦除测试，擦除后的数据应该全部为0xff&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;   数据写入，是对Flash的前256个字节写入0-255，写入后，需要再次读取数据，才能看到结果。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.uart测试，工装板上的通讯串口（115200，8N1），将默认发送数据，可以使用配测电脑串口接收&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;   也可以将发送引脚和接收引脚短路，这时界面中将看到接收到的数据。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.清除显示，将显示的内容全部清除。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -3248,8 +3388,8 @@ color: rgb(204, 0, 0);</string>
     <widget class="QGroupBox" name="groupBox_4">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>420</y>
+       <x>20</x>
+       <y>340</y>
        <width>371</width>
        <height>491</height>
       </rect>
@@ -3542,7 +3682,7 @@ color: rgb(204, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>690</y>
+       <y>630</y>
        <width>261</width>
        <height>211</height>
       </rect>
@@ -3599,6 +3739,95 @@ color: rgb(204, 0, 0);</string>
        </item>
       </layout>
      </widget>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_help_page7">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>651</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#cc0000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_100">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>890</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>启动时间</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_103">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>950</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>运行时间</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_start_time">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>890</y>
+       <width>301</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>2023-05-15 10:58:10</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_has_run_time">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>950</y>
+       <width>441</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>up 5 minutes</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="page_9">
@@ -3658,6 +3887,28 @@ color: rgb(204, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">font: 16pt &quot;Ubuntu&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_help_page8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>671</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#cc0000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -4101,7 +4352,103 @@ color: rgb(204, 0, 0);</string>
       </item>
      </layout>
     </widget>
+    <widget class="QTextBrowser" name="textBrowser_help_page9">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>671</width>
+       <height>531</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#8ae234;&quot;&gt;全局帮助信息：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;0.界面中红色字体均表示快捷键!!!!      组合键需&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ef2929;&quot;&gt;先按下测试（不松开），再按其他&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;1.快速切换到对应的页面：组合键，按下test，再按1-9中任意数字，将切换到对应的页面。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;2.上一页，下一页：组合键，按下test，再按方向上或者方向下，将进行翻页操作。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;3.重启设备： 组合键，按下test，再按下PTT，&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#cc0000;&quot;&gt;设备将重启&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.默认启动页：选择下次启动时将显示的页面。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_11">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>458</x>
+       <y>904</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>升级</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_12">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>910</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+     </property>
+     <property name="text">
+      <string>获取新的版本</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>980</y>
+       <width>531</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>没有找到服务器</string>
+     </property>
+    </widget>
+    <zorder>textBrowser_help_page9</zorder>
+    <zorder>pushButton_lcd_mcu_info</zorder>
+    <zorder>pushButton_key_mcu_info</zorder>
+    <zorder>pushButton_jc_ko_info</zorder>
+    <zorder>line</zorder>
+    <zorder>line_2</zorder>
+    <zorder>line_3</zorder>
+    <zorder>pushButton_drv_so_info</zorder>
+    <zorder>verticalLayoutWidget_19</zorder>
+    <zorder>verticalLayoutWidget_20</zorder>
+    <zorder>verticalLayoutWidget_21</zorder>
+    <zorder>verticalLayoutWidget_22</zorder>
+    <zorder>verticalLayoutWidget_23</zorder>
+    <zorder>verticalLayoutWidget_24</zorder>
+    <zorder>verticalLayoutWidget_25</zorder>
+    <zorder>verticalLayoutWidget_26</zorder>
+    <zorder>pushButton_11</zorder>
+    <zorder>pushButton_12</zorder>
+    <zorder>label_3</zorder>
    </widget>
+   <widget class="QWidget" name="page_5"/>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -4133,9 +4480,9 @@ color: rgb(204, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>21</x>
-     <y>1179</y>
+     <y>1169</y>
      <width>671</width>
-     <height>71</height>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -4215,10 +4562,10 @@ color: rgb(204, 0, 0);</string>
   <widget class="Line" name="line_4">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>1150</y>
+     <x>0</x>
+     <y>1140</y>
      <width>711</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="orientation">
@@ -4256,13 +4603,16 @@ color: rgb(204, 0, 0);</string>
    <property name="text">
     <string>10.软件版本信息</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_97">
    <property name="geometry">
     <rect>
-     <x>550</x>
+     <x>570</x>
      <y>0</y>
-     <width>151</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -4276,9 +4626,9 @@ color: rgb(204, 0, 0);</string>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>620</x>
      <y>50</y>
-     <width>121</width>
+     <width>71</width>
      <height>40</height>
     </rect>
    </property>
@@ -4331,11 +4681,6 @@ color: rgb(204, 0, 0);</string>
    <item>
     <property name="text">
      <string>9</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>10</string>
     </property>
    </item>
   </widget>

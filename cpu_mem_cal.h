@@ -67,6 +67,9 @@ int get_cpu_freq(int cpu_n,int *freq);
  * */
 void cpu_mem_calc(void*data);
 
+
+int get_uptime_sysinfo(char* start_time, char* run_time);
+
 //****************************************************************************************************************
 #endif
 
