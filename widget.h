@@ -13,6 +13,10 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QFrame>
+//#include "ftpmanager.h"
+#include "mytcpsocket.h"
+
+
 
 namespace Ui {
 class Widget;
@@ -148,8 +152,19 @@ private slots:
 
     void on_pushButton_Help_clicked();
 
+    void on_pushButton_12_clicked();
+
+    void displayMessage( QByteArray str);
+
+
+    void on_verticalScrollBar_lightpwm2_sliderMoved(int position);
+
+    void on_horizontalScrollBar_light_sliderMoved(int position);
+
 private:
     Ui::Widget *ui;
+    mytcpsocket *mytcpsocket_one;
+
 #ifdef RK_3399_PLATFORM
     QTimer * timer_key_leds;
     int is_light_all_leds;   //点亮所有灯-->1？还是循环点亮-->2,0表示不需要控制
@@ -193,7 +208,8 @@ private:
     int eth2_dev;
     int enp1_dev;
     int enp2_dev;
-//    int keyboardtype;
+    int keyboardtype;
+    bool press_key_recd[40];   //记录按下按键的状态
 
     QMainWindow* lcd_touch_ui;
     QProcess *myprocess_ifconfig;
@@ -213,6 +229,28 @@ private:
     QRegExpValidator *pReg;
     void getNetDeviceStats();
     void show_boardtype_info(void);
+
+    //FtpManager* myftp;
+
 };
+
+
+
+typedef struct system_config
+{
+    int is_cpu_stress_start;   //启动开始cpu压力测试？0表示不开启，1开启测试
+    int is_gpio_flow_start;   //启动开启gpio流水灯吗？
+    int is_key_lights_start;  //启动开启键灯吗？
+    int is_cpu_test_checked;
+    int is_mem_test_checked;
+    int default_show_page;    //启动默认显示页面,默认是第一页
+    int cpu_test_core_num;    //cpu的测试核心数
+    int mem_test_usage;       //内存测试的百分比
+    int ip1;
+    int ip2;
+    int ip3;
+}sys_conf_t;
+
+
 
 #endif // WIDGET_H

@@ -30,13 +30,16 @@ SOURCES += \
         widget.cpp \
     fingerpaint.cpp \
     scribblearea.cpp \
-    cpu_mem_cal.c
+    cpu_mem_cal.c \
+    mytcpsocket.cpp \
+    socket_handle_message.cpp
 
 HEADERS += \
         widget.h \
     fingerpaint.h \
     scribblearea.h \
-    cpu_mem_cal.h
+    cpu_mem_cal.h \
+    mytcpsocket.h
 
 FORMS += \
         widget.ui

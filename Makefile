@@ -56,17 +56,23 @@ SOURCES       = main.cpp \
 		widget.cpp \
 		fingerpaint.cpp \
 		scribblearea.cpp \
-		cpu_mem_cal.c moc_widget.cpp \
+		cpu_mem_cal.c \
+		mytcpsocket.cpp \
+		socket_handle_message.cpp moc_widget.cpp \
 		moc_fingerpaint.cpp \
-		moc_scribblearea.cpp
+		moc_scribblearea.cpp \
+		moc_mytcpsocket.cpp
 OBJECTS       = main.o \
 		widget.o \
 		fingerpaint.o \
 		scribblearea.o \
 		cpu_mem_cal.o \
+		mytcpsocket.o \
+		socket_handle_message.o \
 		moc_widget.o \
 		moc_fingerpaint.o \
-		moc_scribblearea.o
+		moc_scribblearea.o \
+		moc_mytcpsocket.o
 DIST          = /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/spec_pre.prf \
 		/opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/common/unix.conf \
 		/opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/common/linux.conf \
@@ -263,11 +269,14 @@ DIST          = /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/spec_pre
 		xx8-rk3399.pro widget.h \
 		fingerpaint.h \
 		scribblearea.h \
-		cpu_mem_cal.h main.cpp \
+		cpu_mem_cal.h \
+		mytcpsocket.h main.cpp \
 		widget.cpp \
 		fingerpaint.cpp \
 		scribblearea.cpp \
-		cpu_mem_cal.c
+		cpu_mem_cal.c \
+		mytcpsocket.cpp \
+		socket_handle_message.cpp
 QMAKE_TARGET  = rk3399_qt5_test
 DESTDIR       = 
 TARGET        = rk3399_qt5_test
@@ -691,8 +700,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents widget.h fingerpaint.h scribblearea.h cpu_mem_cal.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp widget.cpp fingerpaint.cpp scribblearea.cpp cpu_mem_cal.c $(DISTDIR)/
+	$(COPY_FILE) --parents widget.h fingerpaint.h scribblearea.h cpu_mem_cal.h mytcpsocket.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp widget.cpp fingerpaint.cpp scribblearea.cpp cpu_mem_cal.c mytcpsocket.cpp socket_handle_message.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents widget.ui $(DISTDIR)/
 
 
@@ -725,9 +734,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/data/dummy.cpp
 	aarch64-linux-gnu-g++ -pipe -march=armv8-a -mtune=cortex-a72.cortex-a53 --sysroot=/opt/sysroot/firefly-arm64-sysroot-18.04 -O2 -Wall -W -dM -E -o moc_predefs.h /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_widget.cpp moc_fingerpaint.cpp moc_scribblearea.cpp
+compiler_moc_header_make_all: moc_widget.cpp moc_fingerpaint.cpp moc_scribblearea.cpp moc_mytcpsocket.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_widget.cpp moc_fingerpaint.cpp moc_scribblearea.cpp
+	-$(DEL_FILE) moc_widget.cpp moc_fingerpaint.cpp moc_scribblearea.cpp moc_mytcpsocket.cpp
 moc_widget.cpp: widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QWidget \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qwidget.h \
@@ -863,6 +872,22 @@ moc_widget.cpp: widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/qserialportinfo.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFrame \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qframe.h \
+		mytcpsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFile \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFileDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qfiledialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QMetaType \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QSet \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QStandardPaths \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstandardpaths.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpServer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpserver.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
 		moc_predefs.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/host/bin/moc
 	/opt/firefly_qt5.12.2_arm64_18.04/host/bin/moc $(DEFINES) --include /home/dazhi/3399pro/QT-aarch64-qt5.12/firefly-qt-5.12.2-aarch64/demo/rk3399_qt_gz_dg/moc_predefs.h -I/opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/devices/linux-firefly-rk3399-g++ -I/home/dazhi/3399pro/QT-aarch64-qt5.12/firefly-qt-5.12.2-aarch64/demo/rk3399_qt_gz_dg -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore -I. -I/usr/aarch64-linux-gnu/include/c++/7 -I/usr/aarch64-linux-gnu/include/c++/7/aarch64-linux-gnu -I/usr/aarch64-linux-gnu/include/c++/7/backward -I/usr/lib/gcc-cross/aarch64-linux-gnu/7/include -I/usr/lib/gcc-cross/aarch64-linux-gnu/7/include-fixed -I/usr/aarch64-linux-gnu/include -I/opt/sysroot/firefly-arm64-sysroot-18.04/usr/include/aarch64-linux-gnu -I/opt/sysroot/firefly-arm64-sysroot-18.04/usr/include widget.h -o moc_widget.cpp
@@ -1090,6 +1115,135 @@ moc_scribblearea.cpp: scribblearea.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/host/bin/moc
 	/opt/firefly_qt5.12.2_arm64_18.04/host/bin/moc $(DEFINES) --include /home/dazhi/3399pro/QT-aarch64-qt5.12/firefly-qt-5.12.2-aarch64/demo/rk3399_qt_gz_dg/moc_predefs.h -I/opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/devices/linux-firefly-rk3399-g++ -I/home/dazhi/3399pro/QT-aarch64-qt5.12/firefly-qt-5.12.2-aarch64/demo/rk3399_qt_gz_dg -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore -I. -I/usr/aarch64-linux-gnu/include/c++/7 -I/usr/aarch64-linux-gnu/include/c++/7/aarch64-linux-gnu -I/usr/aarch64-linux-gnu/include/c++/7/backward -I/usr/lib/gcc-cross/aarch64-linux-gnu/7/include -I/usr/lib/gcc-cross/aarch64-linux-gnu/7/include-fixed -I/usr/aarch64-linux-gnu/include -I/opt/sysroot/firefly-arm64-sysroot-18.04/usr/include/aarch64-linux-gnu -I/opt/sysroot/firefly-arm64-sysroot-18.04/usr/include scribblearea.h -o moc_scribblearea.cpp
 
+moc_mytcpsocket.cpp: mytcpsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QWidget \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qwidget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtguiglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qconfig-bootstrapped.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qconfig.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtcore-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsystemdetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qprocessordetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcompilerdetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtypeinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsysinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlogging.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qflags.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbasicatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_bootstrap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qgenericatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_cxx11.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_msvc.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qglobalstatic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmutex.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qnumeric.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qversiontagging.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtgui-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtwidgets-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qwindowdefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobjectdefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qnamespace.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobjectdefs_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qwindowdefs_win.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobject.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstring.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qchar.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbytearray.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qrefcount.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qarraydata.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringliteral.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringalgorithms.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringview.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringbuilder.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qalgorithms.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qiterator.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qhashfunctions.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qpair.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbytearraylist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringlist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qregexp.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringmatcher.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreevent.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qscopedpointer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmetatype.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvarlengtharray.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcontainerfwd.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobject_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmargins.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpaintdevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qrect.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsize.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qpoint.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpalette.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qcolor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qrgb.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qrgba64.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qbrush.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvector.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qmatrix.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpolygon.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qregion.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdatastream.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qiodevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qline.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtransform.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpainterpath.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qimage.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpixelformat.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpixmap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsharedpointer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qshareddata.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qhash.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsharedpointer_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfont.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfontmetrics.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfontinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qsizepolicy.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qcursor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qkeysequence.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qevent.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvariant.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdebug.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtextstream.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlocale.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qset.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcontiguouscache.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qurl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qurlquery.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfile.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfiledevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qvector2d.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtouchdevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFile \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFileDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qfiledialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdir.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfileinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QMetaType \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QSet \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QStandardPaths \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstandardpaths.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpServer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpserver.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtnetworkglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtnetwork-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qabstractsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qhostaddress.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
+		moc_predefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/host/bin/moc
+	/opt/firefly_qt5.12.2_arm64_18.04/host/bin/moc $(DEFINES) --include /home/dazhi/3399pro/QT-aarch64-qt5.12/firefly-qt-5.12.2-aarch64/demo/rk3399_qt_gz_dg/moc_predefs.h -I/opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/devices/linux-firefly-rk3399-g++ -I/home/dazhi/3399pro/QT-aarch64-qt5.12/firefly-qt-5.12.2-aarch64/demo/rk3399_qt_gz_dg -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork -I/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore -I. -I/usr/aarch64-linux-gnu/include/c++/7 -I/usr/aarch64-linux-gnu/include/c++/7/aarch64-linux-gnu -I/usr/aarch64-linux-gnu/include/c++/7/backward -I/usr/lib/gcc-cross/aarch64-linux-gnu/7/include -I/usr/lib/gcc-cross/aarch64-linux-gnu/7/include-fixed -I/usr/aarch64-linux-gnu/include -I/opt/sysroot/firefly-arm64-sysroot-18.04/usr/include/aarch64-linux-gnu -I/opt/sysroot/firefly-arm64-sysroot-18.04/usr/include mytcpsocket.h -o moc_mytcpsocket.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -1246,6 +1400,22 @@ main.o: main.cpp widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/qserialportinfo.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFrame \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qframe.h \
+		mytcpsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFile \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFileDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qfiledialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QMetaType \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QSet \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QStandardPaths \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstandardpaths.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpServer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpserver.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QApplication \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qapplication.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreapplication.h \
@@ -1403,6 +1573,22 @@ widget.o: widget.cpp widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/qserialportinfo.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFrame \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qframe.h \
+		mytcpsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFile \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFileDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qfiledialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QMetaType \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QSet \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QStandardPaths \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstandardpaths.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpServer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpserver.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
 		ui_widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QVariant \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QApplication \
@@ -1460,12 +1646,8 @@ widget.o: widget.cpp widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QToolButton \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtoolbutton.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QVBoxLayout \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QThread \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qthread.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QCloseEvent \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QMouseEvent \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QColorDialog \
@@ -2408,6 +2590,349 @@ scribblearea.o: scribblearea.cpp scribblearea.h \
 cpu_mem_cal.o: cpu_mem_cal.c cpu_mem_cal.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o cpu_mem_cal.o cpu_mem_cal.c
 
+mytcpsocket.o: mytcpsocket.cpp mytcpsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QWidget \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qwidget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtguiglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qconfig-bootstrapped.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qconfig.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtcore-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsystemdetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qprocessordetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcompilerdetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtypeinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsysinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlogging.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qflags.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbasicatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_bootstrap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qgenericatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_cxx11.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_msvc.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qglobalstatic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmutex.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qnumeric.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qversiontagging.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtgui-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtwidgets-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qwindowdefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobjectdefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qnamespace.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobjectdefs_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qwindowdefs_win.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobject.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstring.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qchar.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbytearray.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qrefcount.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qarraydata.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringliteral.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringalgorithms.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringview.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringbuilder.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qalgorithms.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qiterator.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qhashfunctions.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qpair.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbytearraylist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringlist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qregexp.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringmatcher.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreevent.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qscopedpointer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmetatype.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvarlengtharray.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcontainerfwd.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobject_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmargins.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpaintdevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qrect.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsize.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qpoint.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpalette.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qcolor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qrgb.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qrgba64.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qbrush.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvector.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qmatrix.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpolygon.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qregion.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdatastream.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qiodevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qline.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtransform.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpainterpath.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qimage.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpixelformat.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpixmap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsharedpointer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qshareddata.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qhash.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsharedpointer_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfont.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfontmetrics.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfontinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qsizepolicy.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qcursor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qkeysequence.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qevent.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvariant.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdebug.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtextstream.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlocale.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qset.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcontiguouscache.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qurl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qurlquery.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfile.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfiledevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qvector2d.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtouchdevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFile \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFileDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qfiledialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdir.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfileinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QMetaType \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QSet \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QStandardPaths \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstandardpaths.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpServer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpserver.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtnetworkglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtnetwork-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qabstractsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qhostaddress.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mytcpsocket.o mytcpsocket.cpp
+
+socket_handle_message.o: socket_handle_message.cpp widget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QWidget \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qwidget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtguiglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qconfig-bootstrapped.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qconfig.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtcore-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsystemdetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qprocessordetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcompilerdetection.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtypeinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsysinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlogging.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qflags.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbasicatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_bootstrap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qgenericatomic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_cxx11.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qatomic_msvc.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qglobalstatic.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmutex.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qnumeric.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qversiontagging.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtgui-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtwidgets-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qwindowdefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobjectdefs.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qnamespace.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobjectdefs_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qwindowdefs_win.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobject.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstring.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qchar.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbytearray.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qrefcount.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qarraydata.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringliteral.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringalgorithms.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringview.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringbuilder.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qalgorithms.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qiterator.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qhashfunctions.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qpair.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbytearraylist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringlist.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qregexp.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstringmatcher.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreevent.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qscopedpointer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmetatype.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvarlengtharray.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcontainerfwd.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qobject_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmargins.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpaintdevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qrect.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsize.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qpoint.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpalette.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qcolor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qrgb.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qrgba64.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qbrush.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvector.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qmatrix.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpolygon.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qregion.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdatastream.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qiodevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qline.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtransform.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpainterpath.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qimage.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpixelformat.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpixmap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsharedpointer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qshareddata.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qhash.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qsharedpointer_impl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfont.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfontmetrics.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qfontinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qsizepolicy.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qcursor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qkeysequence.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qevent.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qvariant.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qmap.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdebug.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtextstream.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qlocale.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qset.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcontiguouscache.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qurl.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qurlquery.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfile.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfiledevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qvector2d.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtouchdevice.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QTimer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qtimer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qbasictimer.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMainWindow \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmainwindow.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtabwidget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qicon.h \
+		fingerpaint.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QList \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QIntValidator \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qvalidator.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qregularexpression.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QNetworkInterface \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qnetworkinterface.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtnetworkglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtnetwork-config.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qhostaddress.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qabstractsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QProcess \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qprocess.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDir \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qdir.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qfileinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFileInfo \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/QSerialPort \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/qserialport.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/qserialportglobal.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/QSerialPortInfo \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtSerialPort/qserialportinfo.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFrame \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qframe.h \
+		mytcpsocket.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QDebug \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QFile \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QFileDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qfiledialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdialog.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QMessageBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qmessagebox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QMetaType \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QSet \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QStandardPaths \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qstandardpaths.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpServer \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpserver.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
+		ui_widget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QVariant \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QApplication \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qapplication.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreapplication.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qeventloop.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdesktopwidget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qguiapplication.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qinputmethod.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QCheckBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcheckbox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractbutton.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QComboBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcombobox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstyleoption.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractspinbox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qslider.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractslider.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstyle.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtabbar.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qrubberband.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qabstractitemmodel.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QGridLayout \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qgridlayout.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlayout.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlayoutitem.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qboxlayout.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QGroupBox \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qgroupbox.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QHBoxLayout \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QLabel \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlabel.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QLineEdit \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlineedit.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextcursor.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextformat.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpen.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextoption.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QPushButton \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qpushbutton.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QRadioButton \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qradiobutton.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QScrollBar \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qscrollbar.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QSlider \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QSpacerItem \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QStackedWidget \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstackedwidget.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QTextBrowser \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtextbrowser.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtextedit.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractscrollarea.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextdocument.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QToolButton \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtoolbutton.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QVBoxLayout \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QThread \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qthread.h \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QCloseEvent \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QMouseEvent \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QColorDialog \
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcolordialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o socket_handle_message.o socket_handle_message.cpp
+
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp
 
@@ -2416,6 +2941,9 @@ moc_fingerpaint.o: moc_fingerpaint.cpp
 
 moc_scribblearea.o: moc_scribblearea.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_scribblearea.o moc_scribblearea.cpp
+
+moc_mytcpsocket.o: moc_mytcpsocket.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mytcpsocket.o moc_mytcpsocket.cpp
 
 ####### Install
 

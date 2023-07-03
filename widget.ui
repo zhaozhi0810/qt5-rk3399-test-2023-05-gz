@@ -32,7 +32,7 @@
     </sizepolicy>
    </property>
    <property name="currentIndex">
-    <number>7</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QWidget" name="verticalLayoutWidget">
@@ -1188,24 +1188,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;4.键灯亮度控制，指的是对于键灯面板灯的亮度的控制，默认值100.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <zorder>label_44</zorder>
-    <zorder>label_light_value_2</zorder>
-    <zorder>label_45</zorder>
-    <zorder>pushButton_6</zorder>
-    <zorder>pushButton_7</zorder>
-    <zorder>label_50</zorder>
-    <zorder>lineEdit_interval</zorder>
-    <zorder>label_51</zorder>
-    <zorder>pushButton</zorder>
-    <zorder>label_24</zorder>
-    <zorder>label_25</zorder>
-    <zorder>label_56</zorder>
-    <zorder>label_57</zorder>
-    <zorder>verticalScrollBar_lightpwm2</zorder>
-    <zorder>pushButton_FlowLEDS</zorder>
-    <zorder>label_75</zorder>
-    <zorder>line_4</zorder>
-    <zorder>textBrowser_help_page2</zorder>
    </widget>
    <widget class="QWidget" name="page_2">
     <widget class="QPushButton" name="pushButton_start_color_test">
@@ -2555,9 +2537,9 @@ background-color: rgb(204, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
+       <y>30</y>
        <width>671</width>
-       <height>1011</height>
+       <height>941</height>
       </rect>
      </property>
      <property name="html">
@@ -2585,6 +2567,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;8.ping的信息经过粗略解析之后，显示在界面上，包括发送的序号，以及经历时间。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
+    <zorder>textBrowser_help_page4</zorder>
     <zorder>textBrowser_ifconfig</zorder>
     <zorder>pushButton_3</zorder>
     <zorder>horizontalLayoutWidget</zorder>
@@ -2610,7 +2593,6 @@ p, li { white-space: pre-wrap; }
     <zorder>label_40</zorder>
     <zorder>label_68</zorder>
     <zorder>label_69</zorder>
-    <zorder>textBrowser_help_page4</zorder>
    </widget>
    <widget class="QWidget" name="page_4">
     <widget class="QGroupBox" name="groupBox">
@@ -4398,7 +4380,7 @@ p, li { white-space: pre-wrap; }
     </widget>
     <widget class="QPushButton" name="pushButton_12">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>

@@ -55,21 +55,8 @@ static int led_key_map[] = {
 QTextBrowser * g_help_brower[PAGES];
 
 
+sys_conf_t g_sys_conf;
 
-struct system_config
-{
-    int is_cpu_stress_start;   //启动开始cpu压力测试？0表示不开启，1开启测试
-    int is_gpio_flow_start;   //启动开启gpio流水灯吗？
-    int is_key_lights_start;  //启动开启键灯吗？
-    int is_cpu_test_checked;
-    int is_mem_test_checked;
-    int default_show_page;    //启动默认显示页面,默认是第一页
-    int cpu_test_core_num;    //cpu的测试核心数
-    int mem_test_usage;       //内存测试的百分比
-    int ip1;
-    int ip2;
-    int ip3;
-}g_sys_conf;
 
 void ReadConfigFile();
 void SetConfigFile(void);
@@ -87,6 +74,9 @@ Widget::Widget(QWidget *parent) :
     //qDebug() << g_build_time_str;
     ui->label->setText(g_build_time_str);
     ui->label_2->setText("Create by dazhi-2023");
+
+    mytcpsocket_one = new mytcpsocket(this);
+    connect(mytcpsocket_one, &mytcpsocket::newMessage, this, &Widget::displayMessage);
 
 #ifdef RK_3399_PLATFORM
     //键灯控制
@@ -135,7 +125,7 @@ Widget::Widget(QWidget *parent) :
     intValidator->setRange(1,999999);
     ui->lineEdit_interval->setValidator(intValidator);
 
-    QRegExp rx("^([1-9]|[1-9]\\d|(1[0-9]\\d)|(2[0-4]\\d)|(2[0-5][0-4]))$");//输入范围为【1-254】
+    QRegExp rx("^([1-9]|[1-9]\\d|(1[0-9]\\d)|(2[0-4]\\d)|(2[5][0-4]))$");//输入范围为【1-254】
     pReg = new QRegExpValidator(rx, this);
     ui->lineEdit_ip1->setValidator(pReg);
     ui->lineEdit_ip2->setValidator(pReg);
@@ -311,6 +301,14 @@ Widget::Widget(QWidget *parent) :
     //网络测试页，配置3399网卡ip
     on_pushButton_3_clicked();
 
+
+
+//    stackedWidget_page_show(g_sys_conf.default_show_page);
+//    myftp = new FtpManager();
+//    myftp->setHostInfo("192.168.2.200",21);
+//    myftp->setUserInfo("ftp_hnhtjc","123456");
+//    myftp = new ClientCore("192.168.2.200",21);
+//    connect(myftp,&ClientCore::retrSuccess,this,&Widget::downloadSuccess);
 }
 
 
@@ -633,37 +631,55 @@ void Widget::Palette_button(int ison,int keyval)
                                    };
 
     QPalette p = buttonFrame->palette();
-    if(ison)
-        p.setColor(QPalette::Button,Qt::green);
-    else
+    //QString stat_to_host = "white";
+
+
+
+    if(keyval == 0 && ison == 0)
     {
-        if(keyval == 0)
+        p.setColor(QPalette::Button,QColor(1, 1, 1, 1));//Qt::white);
+        for(unsigned int i=0;i<ARRAY_SIZE(keys_value);i++)
         {
-            p.setColor(QPalette::Button,QColor(1, 1, 1, 1));//Qt::white);
-            for(unsigned int i=0;i<ARRAY_SIZE(keys_value);i++)
-            {
-                key_buttons[i]->setPalette(p);
-            }
-            return;
+            key_buttons[i]->setPalette(p);
+            press_key_recd[i] = false;
         }
-        else
-            p.setColor(QPalette::Button,Qt::white);
+        //mytcpsocket_one->sendMessage("allKeys_reset","1111");
+        return;
     }
+
     if(is_test_press == 0)  //判断是否有组合键功能
     {
         for(unsigned int i=0;i<ARRAY_SIZE(keys_value);i++)
         {
             if(keyval == keys_value[i])
             {
-                key_buttons[i]->setPalette(p);
+                if(press_key_recd[i] == ison)
+                    return;
 
+                if(ison)
+                {
+                    p.setColor(QPalette::Button,Qt::green);
+                    press_key_recd[i] = true;
+                    mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(1)+",keyval:"+QString::number(keyval));
+                }
+                else
+                {
+                    p.setColor(QPalette::Button,Qt::white);
+                   press_key_recd[i] = false;
+                   mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(0)+",keyval:"+QString::number(keyval));
+                }
+                key_buttons[i]->setPalette(p);
+                //mytcpsocket_one->sendMessage("drvLightLED","index:"+QString::number(i)+",stat:"+stat_to_host);
 #ifdef RK_3399_PLATFORM
 //                qDebug() << " i = " <<i;
 //                qDebug() << " key_map i = " << led_key_map[i];
                 if(ison && key_light_connect)
+                {
                     drvLightLED(led_key_map[i]);
+                //    mytcpsocket_one->sendMessage("drvLightLED",QString::number(i));
+                }
 //                else
-//                    drvDimLED(led_key_map[i]);
+//                   drvDimLED(led_key_map[i]);
 #endif
                 break;
             }
@@ -673,6 +689,7 @@ void Widget::Palette_button(int ison,int keyval)
     {
 #ifdef RK_3399_PLATFORM
             drvDimLED(14);   //test
+//            mytcpsocket_one->sendMessage("drvDimLED",QString::number(14));
 #endif
     }
 
@@ -774,6 +791,9 @@ void Widget::timer_cpu_mem_info_slot_Function()
     static long pre_total[7] = {0};
     int i;
     int cpu_freq[6];
+    QString message ;
+    message.clear();
+
 
     if(parse_meminfo(&mem_info) > 0)
     {
@@ -782,18 +802,27 @@ void Widget::timer_cpu_mem_info_slot_Function()
         mem_usage = 100 - mem_info.available_kb*100 / mem_info.total_kb;
         ui->label_mem_total->setText(QString::number(mem_info.total_kb/1000)+"MB");
         ui->label_mem_usage->setText(QString::number(mem_usage)+"%");
+        if(!mytcpsocket_one->connection_set.isEmpty())
+        {
+            message.append(QString(",mem_total:%1").arg(QString::number(mem_info.total_kb/1000)+"MB"));
+            message.append(QString(",mem_usage:%1").arg(QString::number(mem_usage)+"%"));
+        }
     }
 
     if(parse_cputemp(&temp) > 0)
     {
 //        qDebug() << "cputemp = " << temp;
         ui->label_cpu_temp->setText(QString::number(temp));
+        if(!mytcpsocket_one->connection_set.isEmpty())
+            message.append(QString(",cpu_temp:%1").arg(QString::number(temp)));
 
     }
     if(parse_gputemp(&temp) > 0)
     {
 //        qDebug() << "gputemp = " << temp;
         ui->label_gpu_temp->setText(QString::number(temp));
+        if(!mytcpsocket_one->connection_set.isEmpty())
+            message.append(QString(",gpu_temp:%1").arg(QString::number(temp)));
     }
 
     if(read_cpu_jiffy(jifs) > 6 )
@@ -812,11 +841,23 @@ void Widget::timer_cpu_mem_info_slot_Function()
         ui->label_cpu3_usage->setText(QString::number(cpu_usage[4]));
         ui->label_cpu4_usage->setText(QString::number(cpu_usage[5]));
         ui->label_cpu5_usage->setText(QString::number(cpu_usage[6]));
+
+        if(!mytcpsocket_one->connection_set.isEmpty())
+        {
+            message.append(QString(",cpu_usage:%1").arg(QString::number(cpu_usage[0])));
+            message.append(QString(",cpu0_usage:%1").arg(QString::number(cpu_usage[1])));
+            message.append(QString(",cpu1_usage:%1").arg(QString::number(cpu_usage[2])));
+            message.append(QString(",cpu2_usage:%1").arg(QString::number(cpu_usage[3])));
+            message.append(QString(",cpu3_usage:%1").arg(QString::number(cpu_usage[4])));
+            message.append(QString(",cpu4_usage:%1").arg(QString::number(cpu_usage[5])));
+            message.append(QString(",cpu5_usage:%1").arg(QString::number(cpu_usage[6])));
+        }
     }
 
     for(i=0;i<6;i++)
     {
-        get_cpu_freq(i,&cpu_freq[i]);
+        if(get_cpu_freq(i,&cpu_freq[i]) <0 )
+            cpu_freq[i] = 0;
     }
 #ifdef RK_3399_PLATFORM
     ui->label_cpu0_freq->setText(QString::number(cpu_freq[0]));
@@ -826,6 +867,15 @@ void Widget::timer_cpu_mem_info_slot_Function()
     ui->label_cpu4_freq->setText(QString::number(cpu_freq[4]));
     ui->label_cpu5_freq->setText(QString::number(cpu_freq[5]));
 #endif
+    if(!mytcpsocket_one->connection_set.isEmpty())
+    {
+        message.append(QString(",cpu0_freq:%1").arg(QString::number(cpu_freq[0])));
+        message.append(QString(",cpu1_freq:%1").arg(QString::number(cpu_freq[1])));
+        message.append(QString(",cpu2_freq:%1").arg(QString::number(cpu_freq[2])));
+        message.append(QString(",cpu3_freq:%1").arg(QString::number(cpu_freq[3])));
+        message.append(QString(",cpu4_freq:%1").arg(QString::number(cpu_freq[4])));
+        message.append(QString(",cpu5_freq:%1").arg(QString::number(cpu_freq[5])));
+    }
 
     if(myprocess_version->state() == QProcess::Running)
     {
@@ -837,6 +887,13 @@ void Widget::timer_cpu_mem_info_slot_Function()
 
     ui->label_start_time->setText(start_time);
     ui->label_has_run_time->setText(run_time);
+
+    if(!mytcpsocket_one->connection_set.isEmpty())
+    {
+        message.append(QString(",start_time:%1").arg(start_time));
+        message.append(QString(",has_run_time:%1").arg(run_time));
+        mytcpsocket_one->sendMessage("cpu_mem_info",message);   //把这个值发送过去
+    }
 }
 
 
@@ -875,6 +932,8 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
         if(ui->stackedWidget->currentIndex() == 0) //第一页，按键测试页
         {
             Palette_button(1,KeyEvent->key());
+            qDebug()<<"key xxxxxxxxxxxxx";
+        //    mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(1)+",keyval:"+QString::number(KeyEvent->key()));
         }
         else if(ui->stackedWidget->currentIndex() == 2)//lcd颜色测试页，按键变换颜色
         {
@@ -1019,7 +1078,7 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
                 }
                 else
                 {
-                    ui->lineEdit_ip1->setFocus();
+                    ui->lineEdit_ip3->setFocus();
                 }
 
             }
@@ -1311,6 +1370,8 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
         if((ui->stackedWidget->currentIndex() == 0))
         {
             Palette_button(0,KeyEvent->key());
+            qDebug()<<"key realse";
+        //    mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(0)+",keyval:"+QString::number(KeyEvent->key()));
         }
         return true;\
     }
@@ -1361,7 +1422,7 @@ void Widget::stackedWidget_page_show(int index)
     }
 
     ui->stackedWidget->setCurrentIndex(index);
-
+    mytcpsocket_one->sendMessage("show_page_index",QString::number(index));
     //qDebug() << "go out stackedWidget_page_show = " << index;
 }
 
@@ -1401,11 +1462,14 @@ void Widget::last_func_page_show()
 
     if(index > 0 )
         index --;
-#ifdef RK_3399_PLATFORM
+
     if(index == 0){
+#ifdef RK_3399_PLATFORM
         Palette_button(0,0);//键恢复为灰色
-    }
 #endif
+//        mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(0)+",keyval:"+QString::number(0));
+    }
+
 
     stackedWidget_page_show(index);
 }
@@ -1461,7 +1525,7 @@ void Widget::on_pushButton_start_color_test_clicked()
 #ifdef RK_3399_PLATFORM
     drvSetLcdBrt(255);
 #endif
-
+    mytcpsocket_one->sendMessage("pushButton_start_color_test","1");   //把这个值发送过去
 }
 
 
@@ -1496,6 +1560,7 @@ void Widget::last_color_page_show()
         page2_show_color = 3;
         ui->label_color->setStyleSheet("background-color:rgb(255,255,255)");
     }
+    mytcpsocket_one->sendMessage("page2_show_color",QString::number(page2_show_color));   //把这个值发送过去
 }
 
 
@@ -1521,6 +1586,7 @@ void Widget::next_color_page_show()
 //        ui->textBrowser->setVisible(true);
 //        ui->label_23->setVisible(true);
         page2_show_color = 0;
+        mytcpsocket_one->sendMessage("page2_show_color",QString::number(5));   //把这个值发送过去
         return;
     }
     else if(page2_show_color == 0)
@@ -1544,6 +1610,7 @@ void Widget::next_color_page_show()
         page2_show_color = 4;
         ui->label_color->setStyleSheet("background-color:rgb(0,0,0)");
     }
+    mytcpsocket_one->sendMessage("page2_show_color",QString::number(page2_show_color));   //把这个值发送过去
 }
 
 
@@ -1561,6 +1628,7 @@ void Widget::on_pushButton_clicked()
 #ifdef RK_3399_PLATFORM
        drvLightAllLED();
 #endif
+       mytcpsocket_one->sendMessage("pushButton","1");
     }
     else{
         ui->pushButton->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
@@ -1569,6 +1637,7 @@ void Widget::on_pushButton_clicked()
 #ifdef RK_3399_PLATFORM
        drvDimAllLED();
 #endif
+       mytcpsocket_one->sendMessage("pushButton","0");
     }
 }
 
@@ -1584,6 +1653,7 @@ void Widget::on_pushButton_FlowLEDS_clicked()
         myprocess_FlowLEds->start("/home/deepin/leds_test  > /dev/null ",QIODevice::ReadOnly);
     //   drvLightAllLED();
 #endif
+        mytcpsocket_one->sendMessage("pushButton_FlowLEDS","1");
     }
     else{
         ui->lineEdit_interval->clearFocus();
@@ -1593,6 +1663,7 @@ void Widget::on_pushButton_FlowLEDS_clicked()
         myprocess_FlowLEds->kill();
      //  drvDimAllLED();
 #endif
+        mytcpsocket_one->sendMessage("pushButton_FlowLEDS","0");
     }
 }
 
@@ -1740,6 +1811,8 @@ void Widget::on_pushButton_6_clicked()
         timer_key_leds->start(time_out);
         is_light_all_leds = 1;
 #endif
+
+        mytcpsocket_one->sendMessage("pushButton_6","1");
      }
      else{
         ui->pushButton_6->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
@@ -1752,6 +1825,7 @@ void Widget::on_pushButton_6_clicked()
         timer_key_leds->stop();
         is_light_all_leds = 0;
 #endif
+        mytcpsocket_one->sendMessage("pushButton_6","0");
     }
 }
 
@@ -1778,6 +1852,7 @@ void Widget::on_pushButton_7_clicked()
         timer_key_leds->start(time_out);
         is_light_all_leds = 2;
 #endif
+        mytcpsocket_one->sendMessage("pushButton_7","1");
     }
     else{
         ui->pushButton_7->setText("2.键灯流水灯控制");
@@ -1791,6 +1866,7 @@ void Widget::on_pushButton_7_clicked()
         is_light_all_leds = 0;
 
 #endif
+        mytcpsocket_one->sendMessage("pushButton_7","0");
     }
 }
 
@@ -1802,7 +1878,7 @@ static bool isipAddr_sameSegment(const QString & ip1,const QString & ip2)
 {
     int i,j;
 
-    if (ip1.isEmpty() || ip1.isEmpty())
+    if (ip1.isEmpty() || ip2.isEmpty())
     {
         return false;
     }
@@ -2289,14 +2365,20 @@ void Widget::on_verticalScrollBar_lightpwm2_valueChanged(int value)
     drvSetLedBrt(value);
     lightpwm = value;
 #endif
-
 }
+
+void Widget::on_verticalScrollBar_lightpwm2_sliderMoved(int position)
+{
+    mytcpsocket_one->sendMessage("verticalScrollBar_lightpwm2",QString::number(position));   //把这个值发送过去
+}
+
 
 
 //键测试页:键灯关联
 void Widget::on_checkBox_toggled(bool checked)
 {
     key_light_connect = checked;
+    mytcpsocket_one->sendMessage("checkBox",QString::number(checked));   //把这个值发送过去
 }
 
 
@@ -2305,6 +2387,7 @@ void Widget::on_checkBox_toggled(bool checked)
 void Widget::on_pushButton_3_clicked()
 {
 #ifdef RK_3399_PLATFORM
+    int ip_val;
     int ret;
     if(ui->lineEdit_ip1->text().isEmpty())
         ui->lineEdit_ip1->setText("100");
@@ -2427,7 +2510,9 @@ void Widget::ifconfig_info_show(int ret)
 {
     if(ret == 0)
     {
-        ui->textBrowser_ifconfig->setText(myprocess_ifconfig->readAllStandardOutput());
+        QString message = myprocess_ifconfig->readAllStandardOutput();
+        ui->textBrowser_ifconfig->setText(message);
+        mytcpsocket_one->sendMessage("textBrowser_ifconfig",message);
         ui->textBrowser_ifconfig->setVisible(true);
         ui->textBrowser_ifconfig->setFocus();
         ui->textBrowser_ifconfig->raise();
@@ -2444,11 +2529,13 @@ void Widget::on_pushButton_ifconfig_clicked()
         myprocess_ifconfig->start("ifconfig");
     //    connect(this->myprocess_ifconfig, SIGNAL(finished(int)),this,SLOT(ifconfig_info_show(int)));//连接信号
         ui->pushButton_ifconfig->setText("关闭查看rk3399IP");
+        mytcpsocket_one->sendMessage("pushButton_ifconfig","check");
     }
     else if(ui->pushButton_ifconfig->text() == "关闭查看rk3399IP")
     {
         ui->textBrowser_ifconfig->setVisible(false);
         ui->pushButton_ifconfig->setText("查看rk3399主板IP");
+        mytcpsocket_one->sendMessage("pushButton_ifconfig","off");
 //        delete myprocess_ifconfig;
     }
 
@@ -2502,7 +2589,10 @@ void Widget::on_horizontalScrollBar_light_valueChanged(int value)
 #endif
 }
 
-
+void Widget::on_horizontalScrollBar_light_sliderMoved(int position)
+{
+    mytcpsocket_one->sendMessage("horizontalScrollBar_light",QString::number(position));
+}
 
 
 void Widget::iicspi_info_show(int ret)
@@ -2693,6 +2783,7 @@ void Widget::on_pushButton_start_cpustress_clicked()
         myprocess_cpu_stress->start(cmd);
         ui->pushButton_start_cpustress->setText("结束压力测试");
         ui->pushButton_start_cpustress->setStyleSheet("QPushButton{background-color:#ff0000;font: 20pt \"Ubuntu\";}");
+        mytcpsocket_one->sendMessage("pushButton_start_cpustress","1");
     }
     else
     {
@@ -2700,6 +2791,7 @@ void Widget::on_pushButton_start_cpustress_clicked()
         myprocess_cpu_stress->waitForFinished();
         ui->pushButton_start_cpustress->setText("开始压力测试");
         ui->pushButton_start_cpustress->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
+        mytcpsocket_one->sendMessage("pushButton_start_cpustress","0");
     }
 }
 
@@ -2778,20 +2870,20 @@ void Widget::on_comboBox_currentIndexChanged(int index)
 
 void Widget::show_boardtype_info(void)
 {
-    int ret = -1;
+    keyboardtype = -1;
     QStringList boardtype_list;
     boardtype_list << "嵌1" << "嵌2" << "嵌3" << "壁挂2" << "防风雨" << "多功能";
     ui->label_keyboard_type->setText("未知");
     if(had_keyboard)
     {
 #ifdef RK_3399_PLATFORM
-        ret =  getKeyboardType_gztest();
+        keyboardtype =  getKeyboardType_gztest();
  #endif
-        if((ret >= 0) && (ret < 6))
+        if((keyboardtype >= 0) && (keyboardtype < 6))
         {
-            ui->label_keyboard_type->setText(boardtype_list.at(ret));
+            ui->label_keyboard_type->setText(boardtype_list.at(keyboardtype));
 
-            if(ret == 5)
+            if(keyboardtype == 5)
             {
                 ui->toolButton_left->setVisible(true);
                 ui->toolButton_right->setVisible(true);
@@ -2807,6 +2899,8 @@ void Widget::show_boardtype_info(void)
 void Widget::page9_info_show(void)
 {
 #ifdef RK_3399_PLATFORM
+    QString message;
+    message.clear();
     QFile file("/etc/os-version");
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -2815,7 +2909,7 @@ void Widget::page9_info_show(void)
         QTextStream in(&file);  //用文件构造流
 
         line = in.readAll();
-
+        message = line;
         ui->textBrowser_system_info->setText(line);
 
         file.close();
@@ -2827,12 +2921,12 @@ void Widget::page9_info_show(void)
         QTextStream in(&file);  //用文件构造流
 
         line = in.readAll();
-
+        message.append(line);
         ui->textBrowser_system_info->append(line);
 
         file.close();
     }
-
+    mytcpsocket_one->sendMessage("textBrowser_system_info",message);
     on_pushButton_disk_info_clicked();
 #endif
 }
@@ -2859,7 +2953,11 @@ void Widget::on_pushButton_disk_info_clicked()
 
     myprocess_play1[1]->waitForFinished();
 
-    ui->textBrowser_disk_info->setText(myprocess_play1[1]->readAllStandardOutput());
+    QString message = myprocess_play1[1]->readAllStandardOutput();
+
+    ui->textBrowser_disk_info->setText(message);
+
+    mytcpsocket_one->sendMessage("textBrowser_disk_info",message);
 
 }
 
@@ -3093,6 +3191,7 @@ void Widget::on_pushButton_Last_page_clicked()
 void Widget::on_pushButton_Next_page_clicked()
 {
     next_func_page_show();
+//    mytcpsocket_one->sendMessage("pushButton_Next_page","clicked");
 }
 
 void Widget::on_pushButton_Help_clicked()
@@ -3112,3 +3211,36 @@ void Widget::on_pushButton_Help_clicked()
         g_help_brower[i]->raise();
     }
 }
+
+
+
+
+void Widget::on_pushButton_12_clicked()
+{
+    if(ui->pushButton_12->isEnabled())
+    {
+//        myftp->get("/123.txt", "./123.txt");
+
+        qDebug() << "myftp->get(123.txt, ./123.txt)";
+//        if(!myftp->login("ftp_hnhtjc","123456"))
+//            qDebug() << "login success";
+
+//        myftp->list("./");
+//        myftp->get("123.txt","123.txt");
+    }
+    else
+    {
+
+        ui->pushButton_12->setEnabled(true);
+    }
+}
+
+
+
+
+
+
+
+
+
+
