@@ -32,7 +32,8 @@ SOURCES += \
     scribblearea.cpp \
     cpu_mem_cal.c \
     mytcpsocket.cpp \
-    socket_handle_message.cpp
+    socket_handle_message.cpp \
+    check_version.c
 
 HEADERS += \
         widget.h \

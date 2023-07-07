@@ -198,6 +198,21 @@ void Widget::displayMessage(QByteArray buffer)
     {
         on_pushButton_disk_info_clicked();
     }
+    else if(objName=="pushButton_version_info")  //
+    {
+        on_pushButton_version_info_clicked();
+    }
+    else if(objName=="pushButton_update")  //
+    {
+        pushButton_update_clicked_slot();
+    }
+    else if(objName=="version_compare_info")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        ui->textBrowser_version_info->setText(message);
+        ui->pushButton_version_compare->setEnabled(true);
+        version_compare_wait = 0;
+    }
 
 }
 

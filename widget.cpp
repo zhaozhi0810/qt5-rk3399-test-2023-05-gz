@@ -8,7 +8,7 @@
 #include <QFrame>
 #include <QColorDialog>
 #include <QtNetwork/QNetworkInterface>
-
+#include <QCryptographicHash>
 
 
 #ifdef RK_3399_PLATFORM
@@ -27,6 +27,10 @@ extern "C" {
 #endif
 
 #include "cpu_mem_cal.h"
+
+
+//获取软件版本
+int get_software_version_in_gz(void);
 #ifdef  __cplusplus
 }
 #endif
@@ -117,9 +121,16 @@ Widget::Widget(QWidget *parent) :
 
     buttonFrame = new QFrame;
     page2_show_color = 0;
+    check_version_wait = 0;
+    update_command_wait = 0;
+    version_compare_wait = 0;
     is_test_press = 0;     //测试键没有按下
+
     key_light_connect = 1;  //键灯关联
+    version_info.clear();
 //    ui->stackedWidget->setCurrentIndex(0);
+
+    ui->pushButton_update->setEnabled(false);  //不需要升级
 
     intValidator = new QIntValidator;
     intValidator->setRange(1,999999);
@@ -301,7 +312,7 @@ Widget::Widget(QWidget *parent) :
     //网络测试页，配置3399网卡ip
     on_pushButton_3_clicked();
 
-
+    connect(ui->pushButton_update, &QPushButton::clicked, this, &Widget::pushButton_update_clicked_slot ,Qt::QueuedConnection);
 
 //    stackedWidget_page_show(g_sys_conf.default_show_page);
 //    myftp = new FtpManager();
@@ -932,7 +943,7 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
         if(ui->stackedWidget->currentIndex() == 0) //第一页，按键测试页
         {
             Palette_button(1,KeyEvent->key());
-            qDebug()<<"key xxxxxxxxxxxxx";
+            //qDebug()<<"key xxxxxxxxxxxxx";
         //    mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(1)+",keyval:"+QString::number(KeyEvent->key()));
         }
         else if(ui->stackedWidget->currentIndex() == 2)//lcd颜色测试页，按键变换颜色
@@ -1370,7 +1381,7 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
         if((ui->stackedWidget->currentIndex() == 0))
         {
             Palette_button(0,KeyEvent->key());
-            qDebug()<<"key realse";
+            //qDebug()<<"key realse";
         //    mytcpsocket_one->sendMessage("Palette_button","ison:"+QString::number(0)+",keyval:"+QString::number(KeyEvent->key()));
         }
         return true;\
@@ -3020,7 +3031,7 @@ void Widget::on_pushButton_clear_display_clicked()
 }
 
 
-
+#if 0
 //查询lcd屏幕单片机版本
 void Widget::on_pushButton_lcd_mcu_info_clicked()
 {
@@ -3183,6 +3194,10 @@ void Widget::on_pushButton_jc_ko_info_clicked()
     ui->pushButton_jc_ko_info->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
 }
 
+#endif
+
+
+
 void Widget::on_pushButton_Last_page_clicked()
 {
     last_func_page_show();
@@ -3215,32 +3230,250 @@ void Widget::on_pushButton_Help_clicked()
 
 
 
-void Widget::on_pushButton_12_clicked()
+//void Widget::on_pushButton_12_clicked()
+//{
+//    if(ui->pushButton_12->isEnabled())
+//    {
+////        myftp->get("/123.txt", "./123.txt");
+
+//        qDebug() << "myftp->get(123.txt, ./123.txt)";
+////        if(!myftp->login("ftp_hnhtjc","123456"))
+////            qDebug() << "login success";
+
+////        myftp->list("./");
+////        myftp->get("123.txt","123.txt");
+//    }
+//    else
+//    {
+
+//        ui->pushButton_12->setEnabled(true);
+//    }
+//}
+
+
+
+
+void Widget::on_pushButton_version_info_clicked()
 {
-    if(ui->pushButton_12->isEnabled())
+    if(check_version_wait)
+        return;
+
+    check_version_wait = 1;
+
+#ifdef RK_3399_PLATFORM
+    QFile file("/tmp/.mysoft_version");
+
+    get_software_version_in_gz();
+
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-//        myftp->get("/123.txt", "./123.txt");
+        QByteArray  contents = file.readAll();
+        version_info = QString(contents);
+        ui->textBrowser_version_info->setText(version_info);
 
-        qDebug() << "myftp->get(123.txt, ./123.txt)";
-//        if(!myftp->login("ftp_hnhtjc","123456"))
-//            qDebug() << "login success";
+        mytcpsocket_one->sendMessage("textBrowser_version",QString(contents));
 
-//        myftp->list("./");
-//        myftp->get("123.txt","123.txt");
+        file.close();
     }
-    else
-    {
 
-        ui->pushButton_12->setEnabled(true);
-    }
+#endif
+    check_version_wait = 0;
 }
 
 
 
 
+//发起升级的命令
+void Widget::pushButton_update_clicked_slot()
+{
+    QProcess *process = NULL;
+    QString ip_server;
+    if(update_command_wait)
+        return ;
+    update_command_wait = 1;
+
+    QString  cmd = "/home/deepin/mcu_update/update_auto_rk3399"; //生成归档文件
+
+    ip_server = mytcpsocket_one->getPeerIpadderss();
+    if(!ip_server.isEmpty())
+    {
+        qDebug() << ip_server;
+        cmd += " -s " + ip_server ;
+    }
+    qDebug() << "cmd=" << cmd;
+
+    process = new QProcess(this);
+
+    process->start(cmd);  //压缩为service.tar
+    process->waitForFinished(); //等待执行完成
+
+    QString result = process->readAll();
+
+    qDebug()<<"Result:"<< result;
+
+    process->deleteLater();
+
+    ui->textBrowser_version_info->setText(result);
+
+    mytcpsocket_one->sendMessage("pushButton_update",result);
+
+    update_command_wait= 0;
+}
+
+
+
+#define TEXT_COLOR_RED(STRING)         "<font color=red>" STRING "</font>" "<font color=black> </font>"
+#define TEXT_COLOR_BLUE(STRING)        "<font color=blue>" STRING "</font>" "<font color=black> </font>"
+#define TEXT_COLOR_GREEN(STRING)        "<font color=green>" STRING "</font>" "<font color=black> </font>"
 
 
 
 
 
 
+
+//版本对比,主要还是以远程为主
+//如果远程已经连接，对比远程的数据，如果远程未连接，对比本地数据
+//如果远程未连接，本地没有数据，则不对比
+void Widget::on_pushButton_version_compare_clicked()
+{
+    if(version_compare_wait)
+        return;
+    version_compare_wait = 1;
+    //1.远程已经连接?
+    on_pushButton_version_info_clicked();
+
+    QString ip_server;
+    ip_server = mytcpsocket_one->getPeerIpadderss();
+    if(!ip_server.isEmpty())
+    {
+        qDebug() << ip_server;
+        //mytcpsocket_one->sendMessage("pushButton_version_compare","1"); //获取远程的数据，只要发送版本信息就可以
+        ui->pushButton_version_compare->setEnabled(false);
+    }
+    //2.本地有数据?
+    else
+    {
+        //1.查看是否有update的目录，目录中是否有文件
+        QDir dir("/home/deepin/mcu_update/update");
+        if(!dir.exists())   //目录不存在
+        {
+            qDebug() << "update 目录不存在";
+            version_compare_wait = 0;
+            return ;
+        }
+
+        //没有目录，或者文件为空，不执行对比命令
+        dir.setFilter(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
+        QFileInfoList list = dir.entryInfoList();
+
+        if (list.count() <= 0)
+        {
+            qDebug() << "update 文件夹为空";
+            version_compare_wait = 0;
+            return;
+        }
+
+        if(version_info.isEmpty()){
+            qDebug() << "version_info 为空";
+            version_compare_wait = 0;
+            return;
+        }
+        QStringList mylist = version_info.split("\n");  //使用逗号分割
+        int i;
+        int need_update = 0;   //需要升级吗？0表示不需要，1表示需要
+
+        mylist.removeAll(QString(""));
+
+        ui->textBrowser_version_info->clear();  //清除显示
+
+        for(i=0;i<mylist.length();i+=2)
+        {
+            qDebug()<< mylist[i];
+            int bpos = mylist[i].indexOf(".");//从前面开始查找
+
+            QString name = mylist[i].mid(bpos+1);  //保留点后面的这一段
+            qDebug()<< "name = " << name;
+            name.replace(":","");    //末尾的冒号去掉
+            if(name.endsWith(".bin"))  //bin结尾的文件是单片机的，不需要计算md5，需要读取出来
+            {
+                int offset = 0;
+                qDebug() <<"mcu:"<< name;
+                if(name.contains("lcd"))
+                    offset = 0x6000 - 512;   //lcd单片机的偏移
+                else if(name.contains("dg_keyboard"))
+                    offset = 0x5c00 - 512;   //按键的偏移
+                else
+                    offset = 0x6000 - 512 + 8;   //话音接口板单片机，这个单片机的偏移多了8个字节
+
+                QFile theFile("/home/deepin/mcu_update/update/"+name);   //打开这个文件
+                if(theFile.open(QIODevice::ReadOnly))
+                {
+                    if(theFile.seek(offset))
+                    {
+                        QString md5_read = theFile.read(32);   //读取32个字节
+                        qDebug() <<"md5_read=" <<md5_read;
+
+                        if(md5_read == mylist[i+1])  //对比md5
+                        {
+                            qDebug() << "md5一致";
+                            ui->textBrowser_version_info->append(TEXT_COLOR_BLUE("*."+name+":md5一致,不需要升级"));
+                            ui->textBrowser_version_info->append(md5_read+"\n");
+                        }
+                        else
+                        {
+                            qDebug() << "md5 不同 xxxx";
+                            ui->textBrowser_version_info->append(TEXT_COLOR_GREEN("++."+name+":md5不同,可升级"));
+                            ui->textBrowser_version_info->append("used:"+mylist[i+1]);
+                            ui->textBrowser_version_info->append("update:"+md5_read+"\n");
+                            need_update = 1;
+                        }
+                    }
+                    else
+                        qDebug() <<"seek error";
+
+                    theFile.close();
+                }
+            }
+            else
+            {
+                QFile theFile("/home/deepin/mcu_update/update/"+name);   //打开这个文件
+                if(theFile.open(QIODevice::ReadOnly))
+                {
+                    QByteArray ba = QCryptographicHash::hash(theFile.readAll(), QCryptographicHash::Md5);
+                    theFile.close();
+                    QString md5_calc = ba.toHex().constData();
+                    qDebug() <<"md5_calc ="<< md5_calc;
+                    qDebug() <<"mylist[i+1] ="<< mylist[i+1];
+                    if(md5_calc == mylist[i+1])  //对比md5
+                    {
+                        qDebug() << "md5一致";
+                        ui->textBrowser_version_info->append(TEXT_COLOR_BLUE("*."+name+":md5一致,不需要升级"));
+                        ui->textBrowser_version_info->append(md5_calc+"\n");
+                    }
+                    else
+                    {
+                        qDebug() << "md5 不同 xxxx";
+                        ui->textBrowser_version_info->append(TEXT_COLOR_GREEN("++."+name+":md5不同,可升级"));
+                        ui->textBrowser_version_info->append("used:"+mylist[i+1]);
+                        ui->textBrowser_version_info->append("update:"+md5_calc+"\n");
+                        need_update = 1;
+                    }
+                }
+                else
+                {
+                    qDebug() << "升级文件不存在";
+                    ui->textBrowser_version_info->append(TEXT_COLOR_RED("--."+name+":升级文件不存在"));
+                    ui->textBrowser_version_info->append(mylist[i+1]+"\n");
+                }
+            }
+        }
+
+        if(need_update)
+        {
+            //版本对比之后决定是否需要升级
+            ui->pushButton_update->setEnabled(true);  //需要升级
+        }
+        version_compare_wait = 0;
+    }
+}

@@ -139,20 +139,10 @@ private slots:
 
     void on_pushButton_clear_display_clicked();
 
-    void on_pushButton_lcd_mcu_info_clicked();
-
-    void on_pushButton_key_mcu_info_clicked();
-
-    void on_pushButton_drv_so_info_clicked();
-
-    void on_pushButton_jc_ko_info_clicked();
-
     void on_pushButton_Last_page_clicked();
     void on_pushButton_Next_page_clicked();
 
     void on_pushButton_Help_clicked();
-
-    void on_pushButton_12_clicked();
 
     void displayMessage( QByteArray str);
 
@@ -161,9 +151,19 @@ private slots:
 
     void on_horizontalScrollBar_light_sliderMoved(int position);
 
+
+
+    void pushButton_update_clicked_slot();
+
+    void on_pushButton_version_compare_clicked();
+
 private:
     Ui::Widget *ui;
     mytcpsocket *mytcpsocket_one;
+    int check_version_wait;
+    int update_command_wait;
+    int version_compare_wait;
+    QString version_info;
 
 #ifdef RK_3399_PLATFORM
     QTimer * timer_key_leds;
@@ -192,6 +192,7 @@ private:
     void ping_info_show(QString &strMsg,int ping_num);
     void page9_info_show(void);
     void get_net_device_through_dir(void);
+    void on_pushButton_version_info_clicked();
 
 //    void ping_pushButton_function(int ping_num);
     bool ping_status[3];   //1：开始ping，0表示没有开始

@@ -48,7 +48,37 @@ void mytcpsocket::appendToSocketList(QTcpSocket* socket)
 //    ui->comboBox_receiver->addItem(QString::number(socket->socketDescriptor()));
     //displayMessage(QString("INFO :: Client with sockd:%1 has just entered the room").arg(socket->socketDescriptor()));
     qDebug()<< QString("INFO :: Client with sockd:%1 has just entered the room").arg(socket->socketDescriptor());
+    qDebug()<< "ip = " <<socket->peerAddress().toString();
+    qDebug() << "port =" <<socket->peerPort();
 }
+
+
+QString mytcpsocket::getPeerIpadderss()
+{
+    QString ip;
+    ip.clear();
+
+    if(!connection_set.isEmpty())
+    {
+        foreach (QTcpSocket* socket,connection_set)
+        {
+            if(socket)
+            {
+                if(socket->isOpen())
+                {
+                    ip = socket->peerAddress().toString();
+                    int index = ip.lastIndexOf(":");
+                    ip =  ip.mid(index+1);
+                    qDebug()<< "ip = " <<ip;
+                    break;
+                }
+            }
+        }
+    }
+    return ip;
+}
+
+
 
 void mytcpsocket::readSocket()
 {

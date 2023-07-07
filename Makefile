@@ -58,7 +58,8 @@ SOURCES       = main.cpp \
 		scribblearea.cpp \
 		cpu_mem_cal.c \
 		mytcpsocket.cpp \
-		socket_handle_message.cpp moc_widget.cpp \
+		socket_handle_message.cpp \
+		check_version.c moc_widget.cpp \
 		moc_fingerpaint.cpp \
 		moc_scribblearea.cpp \
 		moc_mytcpsocket.cpp
@@ -69,6 +70,7 @@ OBJECTS       = main.o \
 		cpu_mem_cal.o \
 		mytcpsocket.o \
 		socket_handle_message.o \
+		check_version.o \
 		moc_widget.o \
 		moc_fingerpaint.o \
 		moc_scribblearea.o \
@@ -276,7 +278,8 @@ DIST          = /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/spec_pre
 		scribblearea.cpp \
 		cpu_mem_cal.c \
 		mytcpsocket.cpp \
-		socket_handle_message.cpp
+		socket_handle_message.cpp \
+		check_version.c
 QMAKE_TARGET  = rk3399_qt5_test
 DESTDIR       = 
 TARGET        = rk3399_qt5_test
@@ -701,7 +704,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/firefly_qt5.12.2_arm64_18.04/host/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents widget.h fingerpaint.h scribblearea.h cpu_mem_cal.h mytcpsocket.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp widget.cpp fingerpaint.cpp scribblearea.cpp cpu_mem_cal.c mytcpsocket.cpp socket_handle_message.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp widget.cpp fingerpaint.cpp scribblearea.cpp cpu_mem_cal.c mytcpsocket.cpp socket_handle_message.cpp check_version.c $(DISTDIR)/
 	$(COPY_FILE) --parents widget.ui $(DISTDIR)/
 
 
@@ -1590,62 +1593,6 @@ widget.o: widget.cpp widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
 		ui_widget.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QVariant \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QApplication \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qapplication.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreapplication.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qeventloop.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdesktopwidget.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qguiapplication.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qinputmethod.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QCheckBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcheckbox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractbutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QComboBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcombobox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstyleoption.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractspinbox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qslider.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractslider.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstyle.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtabbar.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qrubberband.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qabstractitemmodel.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QGridLayout \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qgridlayout.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlayout.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlayoutitem.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qboxlayout.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QGroupBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qgroupbox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QHBoxLayout \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QLabel \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlabel.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QLineEdit \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlineedit.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextcursor.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextformat.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpen.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextoption.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QPushButton \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qpushbutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QRadioButton \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qradiobutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QScrollBar \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qscrollbar.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QSlider \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QSpacerItem \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QStackedWidget \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstackedwidget.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QTextBrowser \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtextbrowser.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtextedit.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractscrollarea.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextdocument.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QToolButton \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtoolbutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QVBoxLayout \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QThread \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qthread.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QCloseEvent \
@@ -2869,69 +2816,17 @@ socket_handle_message.o: socket_handle_message.cpp widget.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/QTcpSocket \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtNetwork/qtcpsocket.h \
 		ui_widget.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QVariant \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QApplication \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qapplication.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qcoreapplication.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qeventloop.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qdesktopwidget.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qguiapplication.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qinputmethod.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QCheckBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcheckbox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractbutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QComboBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcombobox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstyleoption.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractspinbox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qslider.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractslider.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstyle.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtabbar.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qrubberband.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qabstractitemmodel.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QGridLayout \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qgridlayout.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlayout.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlayoutitem.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qboxlayout.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QGroupBox \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qgroupbox.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QHBoxLayout \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QLabel \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlabel.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QLineEdit \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qlineedit.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextcursor.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextformat.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qpen.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextoption.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QPushButton \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qpushbutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QRadioButton \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qradiobutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QScrollBar \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qscrollbar.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QSlider \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QSpacerItem \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QStackedWidget \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qstackedwidget.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QTextBrowser \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtextbrowser.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtextedit.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qabstractscrollarea.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/qtextdocument.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QToolButton \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qtoolbutton.h \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QVBoxLayout \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/QThread \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtCore/qthread.h \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QCloseEvent \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtGui/QMouseEvent \
 		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/QColorDialog \
-		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcolordialog.h
+		/opt/firefly_qt5.12.2_arm64_18.04/ext/include/QtWidgets/qcolordialog.h \
+		drv722.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o socket_handle_message.o socket_handle_message.cpp
+
+check_version.o: check_version.c 
+	$(CC) -c $(CFLAGS) $(INCPATH) -o check_version.o check_version.c
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp

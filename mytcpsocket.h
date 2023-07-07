@@ -23,6 +23,9 @@ public:
 
     void sendMessage(QString objName,QString Message_str);
     QSet<QTcpSocket*> connection_set;
+
+    QString getPeerIpadderss();
+
 signals:
     void newMessage(QByteArray);
 private slots:
