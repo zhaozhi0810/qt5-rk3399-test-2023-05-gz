@@ -213,7 +213,56 @@ void Widget::displayMessage(QByteArray buffer)
         ui->pushButton_version_compare->setEnabled(true);
         version_compare_wait = 0;
     }
+    //2023-07-10
+    else if(objName=="radioButton_Uarttest")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        int checked = !(message.toInt() == 0);
 
+        ui->radioButton_Uarttest->setChecked(checked);
+    }
+    else if(objName=="radioButton_Spitest")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        int checked = !(message.toInt() == 0);
+
+        ui->radioButton_Spitest->setChecked(checked);
+    }
+    else if(objName=="radioButton_IICtest")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        int checked = !(message.toInt() == 0);
+
+        ui->radioButton_IICtest->setChecked(checked);
+    }
+    else if(objName=="pushButton_8")  //
+    {
+        on_pushButton_8_clicked();
+    }
+    else if(objName=="pushButton_9")  //
+    {
+        on_pushButton_9_clicked();
+    }
+    else if(objName=="pushButton_10")  //
+    {
+        on_pushButton_10_clicked();
+    }
+    else if(objName=="pushButton_clear_display")  //
+    {
+        ui->textBrowser_IICSPI->clear();
+    }
+    else if(objName=="pushButton_2")  //
+    {
+        on_pushButton_2_clicked();
+    }
+    else if(objName=="pushButton_4")  //
+    {
+        on_pushButton_4_clicked();
+    }
+    else if(objName=="pushButton_5")  //
+    {
+        on_pushButton_5_clicked();
+    }
 }
 
 

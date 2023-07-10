@@ -157,6 +157,13 @@ private slots:
 
     void on_pushButton_version_compare_clicked();
 
+//    void on_pushButton_update_clicked();
+
+
+    void on_radioButton_IICtest_clicked(bool checked);
+
+    void on_radioButton_Spitest_clicked(bool checked);
+
 private:
     Ui::Widget *ui;
     mytcpsocket *mytcpsocket_one;

@@ -1918,9 +1918,12 @@ static bool isipAddr_sameSegment(const QString & ip1,const QString & ip2)
 void Widget::getNetDeviceStats()
 {
     QList<QNetworkInterface> list;
-    QList<QNetworkAddressEntry> list_addrs;
+//    QList<QNetworkAddressEntry> list_addrs;
     QNetworkInterface intf;
     list = QNetworkInterface::allInterfaces(); //获取系统里所有的网卡对象
+
+    QString message;
+    message.clear();
 
    // QLabel *net_stat[] = {ui->label_Net_Stat1,ui->label_Net_Stat2,ui->label_Net_Stat3};
 
@@ -1931,50 +1934,60 @@ void Widget::getNetDeviceStats()
             continue;
         if(intf.flags() & intf.IsRunning){
             if(enp1_dev && intf.name() == "enp1s0f0"){
+                message.append("enp1s0f0:running");
                 ui->label_Net_Stat1->setText("已连接");
                 ui->label_Net_Stat1->setStyleSheet("QLabel{background-color:#00ff00;border-radius:5px;font: 20pt \"Ubuntu\";}");
                 if(isipAddr_sameSegment(intf.addressEntries().at(0).ip().toString(),"192.168.0.200"))
                 {
                     ui->pushButton_2->setEnabled(true);
                     ui->label_ping_reson1->setText("");
+                    message.append(":same,");
                 }
                 else
                 {                    ui->pushButton_2->setEnabled(false);
                     ui->label_ping_reson1->setText("设备ip与配测计算机网段不同，请点击\"配置rk3399主板IP\"按钮");
+                    message.append(":diffrent,");
                 }
             }
             else if(enp2_dev && intf.name() == "enp1s0f1"){
+                message.append("enp1s0f1:running");
                 ui->label_Net_Stat2->setText("已连接");
                 ui->label_Net_Stat2->setStyleSheet("QLabel{background-color:#00ff00;border-radius:5px;font: 20pt \"Ubuntu\";}");
                 if(isipAddr_sameSegment(intf.addressEntries().at(0).ip().toString(),"192.168.1.200"))
                 {
                     ui->pushButton_4->setEnabled(true);
                     ui->label_ping_reson2->setText("");
+                    message.append(":same,");
                 }
                 else
                 {
                     ui->pushButton_4->setEnabled(false);
                     ui->label_ping_reson2->setText("设备ip与配测计算机网段不同，请点击\"配置rk3399主板IP\"按钮");
+                    message.append(":diffrent,");
                 }
             }
             else if((eth2_dev && intf.name() == "eth2") || (eth0_dev && intf.name() == "eth0")){
+                message.append(intf.name()+":running");
                 ui->label_Net_Stat3->setText("已连接");
                 ui->label_Net_Stat3->setStyleSheet("QLabel{background-color:#00ff00;border-radius:5px;font: 20pt \"Ubuntu\";}");
                 if(isipAddr_sameSegment(intf.addressEntries().at(0).ip().toString(),"192.168.2.200"))
                 {
                     ui->pushButton_5->setEnabled(true);
                     ui->label_ping_reson3->setText("");
+                    message.append(":same,");
                 }
                 else
                 {
                     ui->pushButton_5->setEnabled(false);
                     ui->label_ping_reson3->setText("设备ip与配测计算机网段不同，请点击\"配置rk3399主板IP\"按钮");
+                    message.append(":diffrent,");
                 }
             }
         }
         else
         {
             if(enp1_dev && intf.name() == "enp1s0f0"){
+                message.append(intf.name()+":broken,");
                 if(ui->label_Net_Stat1->text() != "已断开")
                 {
                     ui->label_Net_Stat1->setText("已断开");
@@ -1988,6 +2001,7 @@ void Widget::getNetDeviceStats()
                 }
             }
             else if(enp2_dev && intf.name() == "enp1s0f1"){
+                message.append(intf.name()+":broken,");
                 if(ui->label_Net_Stat2->text() != "已断开")
                 {
                     ui->label_Net_Stat2->setText("已断开");
@@ -2001,6 +2015,7 @@ void Widget::getNetDeviceStats()
                 }
             }
             else if((eth2_dev && intf.name() == "eth2") || (eth0_dev && intf.name() == "eth0")){
+                message.append(intf.name()+":broken,");
                 if(ui->label_Net_Stat3->text() != "已断开")
                 {
                     ui->label_Net_Stat3->setText("已断开");
@@ -2024,6 +2039,7 @@ void Widget::getNetDeviceStats()
 
 //        qDebug() << "###############";
     }
+    mytcpsocket_one->sendMessage("getNetDeviceStats",message);
 }
 
 
@@ -2073,7 +2089,8 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
     QLabel* icmpseq[3] ={ui->label_icmpseq1,ui->label_icmpseq2,ui->label_icmpseq3};
 
     QStringList myList,message_List ;
-//    qDebug() << strMsg;
+    QString message = QString::number(ping_num)+","+strMsg;
+    //qDebug() << strMsg;
     int len,i;
 
     if(ping_num < 0 || ping_num > 2)
@@ -2084,6 +2101,9 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
         return;
     }
 
+    mytcpsocket_one->sendMessage("ping_info_show",message);
+
+
     if(strMsg.contains("timed out", Qt::CaseInsensitive))
     {
         error_count[ping_num] ++;
@@ -2093,25 +2113,29 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
 
     message_List= strMsg.split('\n');
     len = message_List.length();
+    //qDebug() <<"len ="<< len;
     for(i=0;i<len;i++)
     {
         if(message_List[i].contains("Host Unreachable", Qt::CaseInsensitive))
         {
+            //qDebug() <<"Host Unreachable";
             if(Ping_stat[ping_num]->text() != "异常")
             {
                 Ping_stat[ping_num]->setText("异常");
                 Ping_stat[ping_num]->setStyleSheet("QLabel{background-color:#ff0000;border-radius:5px;font: 20pt \"Ubuntu\";}");
             }
-
-            if(myList[i].contains("Host Unreachable", Qt::CaseInsensitive))
+            //qDebug() <<"Host Unreachable 111";
+            //if(myList[i].contains("Host Unreachable", Qt::CaseInsensitive))
                 error_count[ping_num] ++;
+            //qDebug() <<"Host Unreachable 222";
             ping_err[ping_num]->setText(QString::number(error_count[ping_num]));
+            //qDebug() <<"Host Unreachable 333";
         }
 
         else
         {
             myList = message_List[i].split(' ');
-
+            //qDebug() <<"myList=" << myList;
             if(myList.length()>6)
             {
             //    qDebug()<< myList[6];    //time
@@ -2265,11 +2289,13 @@ void Widget::on_pushButton_2_clicked()
         ping_status[0] = true;
         error_count[0] = 0;
         ui->label_ping_err1->setText("0");
+        mytcpsocket_one->sendMessage("pushButton_2","1");
 
     }
     else
     {
         terminate_ping1();
+        mytcpsocket_one->sendMessage("pushButton_2","0");
     }
 }
 
@@ -2295,10 +2321,12 @@ void Widget::on_pushButton_4_clicked()
         ping_status[1] = true;
         error_count[1] = 0;
         ui->label_ping_err2->setText("0");
+        mytcpsocket_one->sendMessage("pushButton_4","1");
     }
     else
     {
         terminate_ping2();
+        mytcpsocket_one->sendMessage("pushButton_4","0");
     }
 }
 
@@ -2325,10 +2353,12 @@ void Widget::on_pushButton_5_clicked()
         ping_status[2] = true;
         error_count[2] = 0;
         ui->label_ping_err3->setText("0");
+        mytcpsocket_one->sendMessage("pushButton_5","1");
     }
     else
     {
         terminate_ping3();
+        mytcpsocket_one->sendMessage("pushButton_5","0");
     }
 }
 
@@ -2611,10 +2641,12 @@ void Widget::iicspi_info_show(int ret)
 //    Q_UNUSED(ret);
     if(ret == 0)
     {
-        ui->textBrowser_IICSPI->setText(myprocess_iicspi->readAllStandardOutput());
+        QString message = myprocess_iicspi->readAllStandardOutput();
+        ui->textBrowser_IICSPI->setText(message);
 //        ui->textBrowser_IICSPI->setVisible(true);
         ui->textBrowser_IICSPI->setFocus();
 //        ui->textBrowser_IICSPI->raise();
+        mytcpsocket_one->sendMessage("iicspi_info_show",message);
     }
 }
 
@@ -2626,7 +2658,7 @@ void Widget::uart_info_show()
     QString buf = QString::number(i)+". " + myprocess_uart->readAllStandardOutput();
 
     ui->textBrowser_IICSPI->append(buf);
-
+    mytcpsocket_one->sendMessage("uart_info_show",buf);
     i++;
 }
 
@@ -2998,6 +3030,7 @@ void Widget::on_pushButton_disk_info_clicked()
 
 void Widget::on_radioButton_Uarttest_toggled(bool checked)
 {
+    mytcpsocket_one->sendMessage("radioButton_Uarttest",QString::number(checked));   //把这个值发送过去
     if(checked)
     {
         ui->pushButton_8->setEnabled(false);
@@ -3028,6 +3061,7 @@ void Widget::on_radioButton_Uarttest_toggled(bool checked)
 void Widget::on_pushButton_clear_display_clicked()
 {
     ui->textBrowser_IICSPI->clear();
+    mytcpsocket_one->sendMessage("pushButton_clear_display","1");
 }
 
 
@@ -3301,7 +3335,7 @@ void Widget::pushButton_update_clicked_slot()
         cmd += " -s " + ip_server ;
     }
     qDebug() << "cmd=" << cmd;
-
+    //没有网络的情况下，应该用本地库进行升级
     process = new QProcess(this);
 
     process->start(cmd);  //压缩为service.tar
@@ -3476,4 +3510,18 @@ void Widget::on_pushButton_version_compare_clicked()
         }
         version_compare_wait = 0;
     }
+}
+
+
+
+
+
+void Widget::on_radioButton_IICtest_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("radioButton_IICtest",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_radioButton_Spitest_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("radioButton_Spitest",QString::number(checked));   //把这个值发送过去
 }
