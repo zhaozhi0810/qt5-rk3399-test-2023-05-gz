@@ -2113,32 +2113,27 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
 
     message_List= strMsg.split('\n');
     len = message_List.length();
-    //qDebug() <<"len ="<< len;
+
     for(i=0;i<len;i++)
     {
         if(message_List[i].contains("Host Unreachable", Qt::CaseInsensitive))
         {
-            //qDebug() <<"Host Unreachable";
             if(Ping_stat[ping_num]->text() != "异常")
             {
                 Ping_stat[ping_num]->setText("异常");
                 Ping_stat[ping_num]->setStyleSheet("QLabel{background-color:#ff0000;border-radius:5px;font: 20pt \"Ubuntu\";}");
             }
-            //qDebug() <<"Host Unreachable 111";
-            //if(myList[i].contains("Host Unreachable", Qt::CaseInsensitive))
-                error_count[ping_num] ++;
-            //qDebug() <<"Host Unreachable 222";
+
+            error_count[ping_num] ++;
+
             ping_err[ping_num]->setText(QString::number(error_count[ping_num]));
-            //qDebug() <<"Host Unreachable 333";
         }
 
         else
         {
             myList = message_List[i].split(' ');
-            //qDebug() <<"myList=" << myList;
             if(myList.length()>6)
             {
-            //    qDebug()<< myList[6];    //time
                 QStringList myList1 = myList[6].split('=');
                 if(myList1.length()>1)
                 {
@@ -3524,4 +3519,49 @@ void Widget::on_radioButton_IICtest_clicked(bool checked)
 void Widget::on_radioButton_Spitest_clicked(bool checked)
 {
     mytcpsocket_one->sendMessage("radioButton_Spitest",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_lineEdit_ip1_textEdited(const QString &arg1)
+{
+    mytcpsocket_one->sendMessage("lineEdit_ip1",arg1);   //把这个值发送过去
+}
+
+void Widget::on_lineEdit_ip2_textEdited(const QString &arg1)
+{
+    mytcpsocket_one->sendMessage("lineEdit_ip2",arg1);   //把这个值发送过去
+}
+
+void Widget::on_lineEdit_ip3_textEdited(const QString &arg1)
+{
+    mytcpsocket_one->sendMessage("lineEdit_ip3",arg1);   //把这个值发送过去
+}
+
+void Widget::on_checkBox_bigpack1_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("checkBox_bigpack1",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_checkBox_adap1_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("checkBox_adap1",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_checkBox_bigpack2_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("checkBox_bigpack2",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_checkBox_adap2_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("checkBox_adap2",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_checkBox_bigpack3_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("checkBox_bigpack3",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_checkBox_adap3_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("checkBox_adap3",QString::number(checked));   //把这个值发送过去
 }
