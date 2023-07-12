@@ -1709,7 +1709,7 @@ void Widget::play_finished_slot(int ret)
         ui->radioButton_micpanel->setEnabled(true);
     }
     ui->pushButton_Play->setText("开始(拨号键)");
-
+    mytcpsocket_one->sendMessage("pushButton_Play","0");
 }
 
 
@@ -1771,6 +1771,7 @@ void Widget::on_pushButton_Play_clicked()
         ui->radioButton_michand->setEnabled(false);
         ui->radioButton_micpanel->setEnabled(false);
         ui->pushButton_Play->setText("结束");
+        mytcpsocket_one->sendMessage("pushButton_Play","1");
     }
     else{
         ui->pushButton_Play->setStyleSheet("QPushButton{background-color:#00ff00;font: 20pt \"Ubuntu\";}");
@@ -2369,6 +2370,11 @@ void Widget::on_horizontalScrollBar_SpeakVol_valueChanged(int value)
 #endif
 }
 
+void Widget::on_horizontalScrollBar_SpeakVol_sliderMoved(int position)
+{
+    mytcpsocket_one->sendMessage("horizontalScrollBar_SpeakVol",QString::number(position));   //把这个值发送过去
+}
+
 
 //音频测试页： 手柄音量调整滑动
 void Widget::on_horizontalScrollBar_HandVol_valueChanged(int value)
@@ -2584,6 +2590,7 @@ void Widget::on_radioButton_loop_toggled(bool checked)
         ui->radioButton_michand->setEnabled(true);
         ui->radioButton_micpanel->setEnabled(true);
     }
+    mytcpsocket_one->sendMessage("radioButton_loop",QString::number(checked));
 }
 
 void Widget::on_radioButton_playmusic_toggled(bool checked)
@@ -2593,6 +2600,7 @@ void Widget::on_radioButton_playmusic_toggled(bool checked)
         ui->radioButton_michand->setEnabled(false);
         ui->radioButton_micpanel->setEnabled(false);
     }
+    mytcpsocket_one->sendMessage("radioButton_playmusic",QString::number(checked));
 }
 
 void Widget::on_radioButton_playrec_toggled(bool checked)
@@ -2602,6 +2610,7 @@ void Widget::on_radioButton_playrec_toggled(bool checked)
         ui->radioButton_michand->setEnabled(false);
         ui->radioButton_micpanel->setEnabled(false);
     }
+    mytcpsocket_one->sendMessage("radioButton_playrec",QString::number(checked));
 }
 
 void Widget::on_radioButton_rec_toggled(bool checked)
@@ -2611,6 +2620,7 @@ void Widget::on_radioButton_rec_toggled(bool checked)
         ui->radioButton_michand->setEnabled(true);
         ui->radioButton_micpanel->setEnabled(true);
     }
+    mytcpsocket_one->sendMessage("radioButton_rec",QString::number(checked));
 }
 
 
@@ -3564,4 +3574,26 @@ void Widget::on_checkBox_bigpack3_clicked(bool checked)
 void Widget::on_checkBox_adap3_clicked(bool checked)
 {
     mytcpsocket_one->sendMessage("checkBox_adap3",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_radioButton_micpanel_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("radioButton_micpanel",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_radioButton_michand_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("radioButton_michand",QString::number(checked));   //把这个值发送过去
+}
+
+
+
+void Widget::on_radioButton_SpeakVol_clicked(bool checked)
+{
+    mytcpsocket_one->sendMessage("radioButton_SpeakVol",QString::number(checked));   //把这个值发送过去
+}
+
+void Widget::on_lineEdit_interval_textEdited(const QString &arg1)
+{
+    mytcpsocket_one->sendMessage("lineEdit_interval",arg1);
 }

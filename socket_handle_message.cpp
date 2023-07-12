@@ -28,7 +28,7 @@ extern sys_conf_t g_sys_conf;
 void Widget::displayMessage(QByteArray buffer)
 {
     //ui->textBrowser_receivedMessages->append(str);
-    qDebug() <<"displayMessage:" << buffer;
+    //qDebug() <<"displayMessage:" << buffer;
 
     QString header = buffer.mid(0,64);
     QString objName = header.split(",")[0].split(":")[1];
@@ -38,7 +38,7 @@ void Widget::displayMessage(QByteArray buffer)
     if(objName=="pushButton_ifconfig")
     {
         QString size = header.split(",")[1].split(":")[1].split(";")[0];
-        qDebug() << "size=" << size;
+        //qDebug() << "size=" << size;
 
         QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
 
@@ -321,7 +321,58 @@ void Widget::displayMessage(QByteArray buffer)
     {
         on_pushButton_3_clicked();
     }
-
+    //2023-07-12
+    else if(objName=="pushButton_Play")  //
+    {
+        on_pushButton_Play_clicked();
+    }
+    else if(objName=="radioButton_loop")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_loop->setChecked(checked);   //这个....
+    }
+    else if(objName=="radioButton_playmusic")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_playmusic->setChecked(checked);   //这个....
+    }
+    else if(objName=="radioButton_playrec")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_playrec->setChecked(checked);   //这个....
+    }
+    else if(objName=="radioButton_rec")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_rec->setChecked(checked);   //这个....
+    }
+    else if(objName=="radioButton_micpanel")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_micpanel->setChecked(checked);   //这个....
+    }
+    else if(objName=="radioButton_michand")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_michand->setChecked(checked);   //这个....
+    }
+    else if("horizontalScrollBar_SpeakVol" == objName)  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        ui->horizontalScrollBar_SpeakVol->setValue(message.toInt());   //这个....
+    }
+    else if(objName=="radioButton_SpeakVol")  //
+    {
+        QString message = QString("%1").arg(QString::fromStdString(buffer.toStdString()));
+        bool checked = message.toInt();
+        ui->radioButton_SpeakVol->setChecked(checked);   //这个....
+    }
 }
 
 

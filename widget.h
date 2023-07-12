@@ -182,6 +182,16 @@ private slots:
 
     void on_checkBox_adap3_clicked(bool checked);
 
+    void on_radioButton_micpanel_clicked(bool checked);
+
+    void on_radioButton_michand_clicked(bool checked);
+
+    void on_horizontalScrollBar_SpeakVol_sliderMoved(int position);
+
+    void on_radioButton_SpeakVol_clicked(bool checked);
+
+    void on_lineEdit_interval_textEdited(const QString &arg1);
+
 private:
     Ui::Widget *ui;
     mytcpsocket *mytcpsocket_one;
