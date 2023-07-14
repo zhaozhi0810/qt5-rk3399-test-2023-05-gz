@@ -48,8 +48,8 @@ void mytcpsocket::appendToSocketList(QTcpSocket* socket)
 //    ui->comboBox_receiver->addItem(QString::number(socket->socketDescriptor()));
     //displayMessage(QString("INFO :: Client with sockd:%1 has just entered the room").arg(socket->socketDescriptor()));
     qDebug()<< QString("INFO :: Client with sockd:%1 has just entered the room").arg(socket->socketDescriptor());
-    qDebug()<< "ip = " <<socket->peerAddress().toString();
-    qDebug() << "port =" <<socket->peerPort();
+//    qDebug()<< "ip = " <<socket->peerAddress().toString();
+//    qDebug() << "port =" <<socket->peerPort();
 }
 
 
@@ -244,8 +244,10 @@ void mytcpsocket::sendMessage(QString objName,QString Message_str)
                 socketStream.setVersion(QDataStream::Qt_5_9);
 
                 QByteArray header;
-                header.prepend(QString("objName:%1,fileSize:%2;").arg(objName).arg(Message_str.size()).toUtf8());
-                header.resize(64);
+                QString tmp = objName+";";
+                //header.prepend(QString("objName:%1,fileSize:%2;").arg(objName).arg(Message_str.size()).toUtf8());
+                header.prepend(tmp.toUtf8());
+                //header.resize(64);
 
                 QByteArray byteArray = Message_str.toUtf8();
                 byteArray.prepend(header);

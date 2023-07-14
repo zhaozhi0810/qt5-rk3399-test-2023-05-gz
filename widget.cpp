@@ -1340,11 +1340,11 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
             {
                 stackedWidget_page_show(KeyEvent->key() - Qt::Key_1);
             }
-            else if(KeyEvent->key() == Qt::Key_Up)
+            else if(KeyEvent->key() == Qt::Key_Plus)
             {
                  last_func_page_show();
             }
-            else if(KeyEvent->key() == Qt::Key_Down)
+            else if(KeyEvent->key() == Qt::Key_Minus)
             {
                 next_func_page_show();
             }
@@ -1362,7 +1362,8 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
             }
             else if(KeyEvent->key() == Qt::Key_P)   //测试 + ptt
             {
-                system("reboot");
+                if(system("reboot") < 0)
+                    qDebug() << "reboot error!";
             }
         }
 
@@ -2090,7 +2091,7 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
     QLabel* icmpseq[3] ={ui->label_icmpseq1,ui->label_icmpseq2,ui->label_icmpseq3};
 
     QStringList myList,message_List ;
-    QString message = QString::number(ping_num)+","+strMsg;
+    QString message = QString::number(ping_num)+",";//+strMsg;;
     //qDebug() << strMsg;
     int len,i;
 
@@ -2102,7 +2103,7 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
         return;
     }
 
-    mytcpsocket_one->sendMessage("ping_info_show",message);
+    //mytcpsocket_one->sendMessage("ping_info_show",message);
 
 
     if(strMsg.contains("timed out", Qt::CaseInsensitive))
@@ -2147,7 +2148,7 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
                     Ping_stat[ping_num]->setText("异常");
                     Ping_stat[ping_num]->setStyleSheet("QLabel{background-color:#ff0000;border-radius:5px;font: 20pt \"Ubuntu\";}");
                     error_count[ping_num] ++;
-                    ping_err[ping_num]->setText(QString::number(error_count[0]));
+                    ping_err[ping_num]->setText(QString::number(error_count[ping_num]));
                 }
                 myList1 = myList[4].split('=');   //icmp_seq
                 if(myList1.length()>1)
@@ -2158,6 +2159,12 @@ void Widget::ping_info_show(QString &strMsg,int ping_num)
             }
         }
     }
+    message.append(Ping_stat[ping_num]->text()+",");   //
+    message.append(ping_err[ping_num]->text()+",");   //
+    message.append(icmpseq[ping_num]->text()+",");
+    message.append(timeval[ping_num]->text());
+
+    mytcpsocket_one->sendMessage("ping_info_show",message);
 }
 
 
@@ -2193,33 +2200,33 @@ void Widget::ping3_info_show()
 
 
 //ping 进程结束
-void Widget::ping1_finished_slot(int ret)
-{
-    Q_UNUSED(ret);
-//    if(myprocess_ping[0] != nullptr){
-//        delete myprocess_ping[0];
-//        myprocess_ping[0] = nullptr;
-//    }
-}
+//void Widget::ping1_finished_slot(int ret)
+//{
+//    Q_UNUSED(ret);
+////    if(myprocess_ping[0] != nullptr){
+////        delete myprocess_ping[0];
+////        myprocess_ping[0] = nullptr;
+////    }
+//}
 
-void Widget::ping2_finished_slot(int ret)
-{
-    Q_UNUSED(ret);
-//    if(myprocess_ping[1] != nullptr){
-//        delete myprocess_ping[1];
-//        myprocess_ping[1] = nullptr;
-//    }
-}
+//void Widget::ping2_finished_slot(int ret)
+//{
+//    Q_UNUSED(ret);
+////    if(myprocess_ping[1] != nullptr){
+////        delete myprocess_ping[1];
+////        myprocess_ping[1] = nullptr;
+////    }
+//}
 
 
-void Widget::ping3_finished_slot(int ret)
-{
-    Q_UNUSED(ret);
-//    if(myprocess_ping[2] != nullptr){
-//        delete myprocess_ping[2];
-//        myprocess_ping[2] = nullptr;
-//    }
-}
+//void Widget::ping3_finished_slot(int ret)
+//{
+//    Q_UNUSED(ret);
+////    if(myprocess_ping[2] != nullptr){
+////        delete myprocess_ping[2];
+////        myprocess_ping[2] = nullptr;
+////    }
+//}
 
 
 
@@ -2370,10 +2377,17 @@ void Widget::on_horizontalScrollBar_SpeakVol_valueChanged(int value)
 #endif
 }
 
-void Widget::on_horizontalScrollBar_SpeakVol_sliderMoved(int position)
+//void Widget::on_horizontalScrollBar_SpeakVol_sliderMoved(int position)
+//{
+
+//}
+
+void Widget::on_horizontalScrollBar_SpeakVol_sliderReleased()
 {
+    int position = ui->verticalScrollBar_lightpwm2->value();
     mytcpsocket_one->sendMessage("horizontalScrollBar_SpeakVol",QString::number(position));   //把这个值发送过去
 }
+
 
 
 //音频测试页： 手柄音量调整滑动
@@ -2429,7 +2443,7 @@ void Widget::on_checkBox_toggled(bool checked)
 void Widget::on_pushButton_3_clicked()
 {
 #ifdef RK_3399_PLATFORM
-    int ip_val;
+    //int ip_val;
     int ret;
     if(ui->lineEdit_ip1->text().isEmpty())
         ui->lineEdit_ip1->setText("100");
@@ -3261,6 +3275,8 @@ void Widget::on_pushButton_Help_clicked()
     }
     else
     {
+     //   g_help_brower[i]->move(0,110);   //移动到一个顶点
+        g_help_brower[i]->setGeometry(0,0,720,1021);
         g_help_brower[i]->setVisible(true);
         g_help_brower[i]->raise();
     }
@@ -3597,3 +3613,5 @@ void Widget::on_lineEdit_interval_textEdited(const QString &arg1)
 {
     mytcpsocket_one->sendMessage("lineEdit_interval",arg1);
 }
+
+

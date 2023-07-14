@@ -51,9 +51,9 @@ private slots:
 //    void topcmd_info_show();
     void ping2_info_show();
     void ping3_info_show();
-    void ping1_finished_slot(int ret);
-    void ping2_finished_slot(int ret);
-    void ping3_finished_slot(int ret);
+//    void ping1_finished_slot(int ret);
+//    void ping2_finished_slot(int ret);
+//    void ping3_finished_slot(int ret);
     void play_finished_slot(int ret);
 //    void top_cmd_finished_slot(int ret);
     void on_pushButton_clicked();
@@ -186,11 +186,13 @@ private slots:
 
     void on_radioButton_michand_clicked(bool checked);
 
-    void on_horizontalScrollBar_SpeakVol_sliderMoved(int position);
+//    void on_horizontalScrollBar_SpeakVol_sliderMoved(int position);
 
     void on_radioButton_SpeakVol_clicked(bool checked);
 
     void on_lineEdit_interval_textEdited(const QString &arg1);
+
+    void on_horizontalScrollBar_SpeakVol_sliderReleased();
 
 private:
     Ui::Widget *ui;
